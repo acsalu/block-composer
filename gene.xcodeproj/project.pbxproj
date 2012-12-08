@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54028AFF1673BB43003F997C /* GENote.m in Sources */ = {isa = PBXBuildFile; fileRef = 54028AFE1673BB43003F997C /* GENote.m */; };
 		9055BC4D1670845D0050E3A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4C1670845D0050E3A2 /* UIKit.framework */; };
 		9055BC4F1670845D0050E3A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4E1670845D0050E3A2 /* Foundation.framework */; };
 		9055BC511670845D0050E3A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC501670845D0050E3A2 /* CoreGraphics.framework */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54028AFD1673BB43003F997C /* GENote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GENote.h; sourceTree = "<group>"; };
+		54028AFE1673BB43003F997C /* GENote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GENote.m; sourceTree = "<group>"; };
 		9055BC481670845D0050E3A2 /* gene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9055BC4C1670845D0050E3A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9055BC4E1670845D0050E3A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +100,8 @@
 				90CA10511673009F00584DE9 /* GEComposeViewController.h */,
 				90CA10521673009F00584DE9 /* GEComposeViewController.m */,
 				9055BC531670845D0050E3A2 /* Supporting Files */,
+				54028AFD1673BB43003F997C /* GENote.h */,
+				54028AFE1673BB43003F997C /* GENote.m */,
 			);
 			path = gene;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				9055BC5D1670845D0050E3A2 /* GEAppDelegate.m in Sources */,
 				9055BC691670845D0050E3A2 /* GEViewController.m in Sources */,
 				90CA10531673009F00584DE9 /* GEComposeViewController.m in Sources */,
+				54028AFF1673BB43003F997C /* GENote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
