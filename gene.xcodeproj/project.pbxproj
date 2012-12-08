@@ -18,6 +18,8 @@
 		9055BC631670845D0050E3A2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9055BC621670845D0050E3A2 /* Default-568h@2x.png */; };
 		9055BC661670845D0050E3A2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9055BC641670845D0050E3A2 /* MainStoryboard.storyboard */; };
 		9055BC691670845D0050E3A2 /* GEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9055BC681670845D0050E3A2 /* GEViewController.m */; };
+		90CA10501672FF8600584DE9 /* music_staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CA104F1672FF8600584DE9 /* music_staff.png */; };
+		90CA10531673009F00584DE9 /* GEComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CA10521673009F00584DE9 /* GEComposeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		9055BC651670845D0050E3A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9055BC671670845D0050E3A2 /* GEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GEViewController.h; sourceTree = "<group>"; };
 		9055BC681670845D0050E3A2 /* GEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GEViewController.m; sourceTree = "<group>"; };
+		90CA104F1672FF8600584DE9 /* music_staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_staff.png; sourceTree = "<group>"; };
+		90CA10511673009F00584DE9 /* GEComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEComposeViewController.h; sourceTree = "<group>"; };
+		90CA10521673009F00584DE9 /* GEComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEComposeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +88,14 @@
 		9055BC521670845D0050E3A2 /* gene */ = {
 			isa = PBXGroup;
 			children = (
+				90CA104E1672FF6A00584DE9 /* resources */,
 				9055BC5B1670845D0050E3A2 /* GEAppDelegate.h */,
 				9055BC5C1670845D0050E3A2 /* GEAppDelegate.m */,
 				9055BC641670845D0050E3A2 /* MainStoryboard.storyboard */,
 				9055BC671670845D0050E3A2 /* GEViewController.h */,
 				9055BC681670845D0050E3A2 /* GEViewController.m */,
+				90CA10511673009F00584DE9 /* GEComposeViewController.h */,
+				90CA10521673009F00584DE9 /* GEComposeViewController.m */,
 				9055BC531670845D0050E3A2 /* Supporting Files */,
 			);
 			path = gene;
@@ -105,6 +113,22 @@
 				9055BC621670845D0050E3A2 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90CA104C1672FF5C00584DE9 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				90CA104F1672FF8600584DE9 /* music_staff.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
+		90CA104E1672FF6A00584DE9 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				90CA104C1672FF5C00584DE9 /* img */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +188,7 @@
 				9055BC611670845D0050E3A2 /* Default@2x.png in Resources */,
 				9055BC631670845D0050E3A2 /* Default-568h@2x.png in Resources */,
 				9055BC661670845D0050E3A2 /* MainStoryboard.storyboard in Resources */,
+				90CA10501672FF8600584DE9 /* music_staff.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +202,7 @@
 				9055BC591670845D0050E3A2 /* main.m in Sources */,
 				9055BC5D1670845D0050E3A2 /* GEAppDelegate.m in Sources */,
 				9055BC691670845D0050E3A2 /* GEViewController.m in Sources */,
+				90CA10531673009F00584DE9 /* GEComposeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +321,7 @@
 				9055BC6E1670845D0050E3A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
