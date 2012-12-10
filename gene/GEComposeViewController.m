@@ -12,6 +12,8 @@
 
 @interface GEComposeViewController ()
 
+@property (strong, nonatomic) AVAudioPlayer *player;
+
 @end
 
 @implementation GEComposeViewController
@@ -20,7 +22,15 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.player = [[AVAudioPlayer alloc] init];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super initWithCoder:aDecoder])) {
+        self.player = [[AVAudioPlayer alloc] init];
     }
     return self;
 }
@@ -54,6 +64,8 @@
         note = @"RE";
     } else if (point.y > 280 + 13.5 && point.y < 334 - 13.5) {
         note = @"DO";
+    } else if (point.y > 334 - 13.5 && point.y > 334 + 13.5) {
+        note = @"SI";   
     }
     self.noteLabel.text = [@"Play " stringByAppendingString:note];
     

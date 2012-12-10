@@ -20,6 +20,7 @@
 		9055BC691670845D0050E3A2 /* GEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9055BC681670845D0050E3A2 /* GEViewController.m */; };
 		90CA10501672FF8600584DE9 /* music_staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CA104F1672FF8600584DE9 /* music_staff.png */; };
 		90CA10531673009F00584DE9 /* GEComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CA10521673009F00584DE9 /* GEComposeViewController.m */; };
+		90CA105516737C3D00584DE9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CA105416737C3D00584DE9 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		90CA104F1672FF8600584DE9 /* music_staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_staff.png; sourceTree = "<group>"; };
 		90CA10511673009F00584DE9 /* GEComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEComposeViewController.h; sourceTree = "<group>"; };
 		90CA10521673009F00584DE9 /* GEComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEComposeViewController.m; sourceTree = "<group>"; };
+		90CA105416737C3D00584DE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CA105516737C3D00584DE9 /* AVFoundation.framework in Frameworks */,
 				9055BC4D1670845D0050E3A2 /* UIKit.framework in Frameworks */,
 				9055BC4F1670845D0050E3A2 /* Foundation.framework in Frameworks */,
 				9055BC511670845D0050E3A2 /* CoreGraphics.framework in Frameworks */,
@@ -78,6 +81,7 @@
 		9055BC4B1670845D0050E3A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90CA105416737C3D00584DE9 /* AVFoundation.framework */,
 				9055BC4C1670845D0050E3A2 /* UIKit.framework */,
 				9055BC4E1670845D0050E3A2 /* Foundation.framework */,
 				9055BC501670845D0050E3A2 /* CoreGraphics.framework */,
