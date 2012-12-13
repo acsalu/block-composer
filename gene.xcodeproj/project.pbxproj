@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FA19BE716798F1C0050A449 /* 01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BDA16798F1C0050A449 /* 01.mp3 */; };
+		0FA19BE816798F1C0050A449 /* 01_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BDB16798F1C0050A449 /* 01_01.mp3 */; };
+		0FA19BE916798F1C0050A449 /* 02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BDC16798F1C0050A449 /* 02.mp3 */; };
+		0FA19BEA16798F1C0050A449 /* 03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BDD16798F1C0050A449 /* 03.mp3 */; };
+		0FA19BEB16798F1C0050A449 /* 04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BDE16798F1C0050A449 /* 04.mp3 */; };
+		0FA19BEC16798F1C0050A449 /* 05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BDF16798F1C0050A449 /* 05.mp3 */; };
+		0FA19BED16798F1C0050A449 /* 05_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BE016798F1C0050A449 /* 05_01.mp3 */; };
+		0FA19BEE16798F1C0050A449 /* 06.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BE116798F1C0050A449 /* 06.mp3 */; };
+		0FA19BEF16798F1C0050A449 /* 07.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BE216798F1C0050A449 /* 07.mp3 */; };
+		0FA19BF016798F1C0050A449 /* 08.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BE316798F1C0050A449 /* 08.mp3 */; };
+		0FA19BF116798F1C0050A449 /* 09.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BE416798F1C0050A449 /* 09.mp3 */; };
+		0FA19BF216798F1C0050A449 /* 10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BE516798F1C0050A449 /* 10.mp3 */; };
+		0FA19BF316798F1C0050A449 /* 11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FA19BE616798F1C0050A449 /* 11.mp3 */; };
+		0FA19BF516798F3D0050A449 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA19BF416798F3D0050A449 /* AVFoundation.framework */; };
 		54028AFF1673BB43003F997C /* GENote.m in Sources */ = {isa = PBXBuildFile; fileRef = 54028AFE1673BB43003F997C /* GENote.m */; };
 		9055BC4D1670845D0050E3A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4C1670845D0050E3A2 /* UIKit.framework */; };
 		9055BC4F1670845D0050E3A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4E1670845D0050E3A2 /* Foundation.framework */; };
@@ -24,6 +38,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FA19BD616798EFF0050A449 /* GESoundManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GESoundManager.h; sourceTree = "<group>"; };
+		0FA19BD716798EFF0050A449 /* GESoundManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GESoundManager.m; sourceTree = "<group>"; };
+		0FA19BDA16798F1C0050A449 /* 01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01.mp3; sourceTree = "<group>"; };
+		0FA19BDB16798F1C0050A449 /* 01_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01_01.mp3; sourceTree = "<group>"; };
+		0FA19BDC16798F1C0050A449 /* 02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 02.mp3; sourceTree = "<group>"; };
+		0FA19BDD16798F1C0050A449 /* 03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 03.mp3; sourceTree = "<group>"; };
+		0FA19BDE16798F1C0050A449 /* 04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 04.mp3; sourceTree = "<group>"; };
+		0FA19BDF16798F1C0050A449 /* 05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 05.mp3; sourceTree = "<group>"; };
+		0FA19BE016798F1C0050A449 /* 05_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 05_01.mp3; sourceTree = "<group>"; };
+		0FA19BE116798F1C0050A449 /* 06.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 06.mp3; sourceTree = "<group>"; };
+		0FA19BE216798F1C0050A449 /* 07.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 07.mp3; sourceTree = "<group>"; };
+		0FA19BE316798F1C0050A449 /* 08.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 08.mp3; sourceTree = "<group>"; };
+		0FA19BE416798F1C0050A449 /* 09.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 09.mp3; sourceTree = "<group>"; };
+		0FA19BE516798F1C0050A449 /* 10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10.mp3; sourceTree = "<group>"; };
+		0FA19BE616798F1C0050A449 /* 11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 11.mp3; sourceTree = "<group>"; };
+		0FA19BF416798F3D0050A449 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		54028AFD1673BB43003F997C /* GENote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GENote.h; sourceTree = "<group>"; };
 		54028AFE1673BB43003F997C /* GENote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GENote.m; sourceTree = "<group>"; };
 		9055BC481670845D0050E3A2 /* gene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gene.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA19BF516798F3D0050A449 /* AVFoundation.framework in Frameworks */,
 				9055BC4D1670845D0050E3A2 /* UIKit.framework in Frameworks */,
 				9055BC4F1670845D0050E3A2 /* Foundation.framework in Frameworks */,
 				9055BC511670845D0050E3A2 /* CoreGraphics.framework in Frameworks */,
@@ -61,6 +92,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FA19BD916798F1C0050A449 /* scale */ = {
+			isa = PBXGroup;
+			children = (
+				0FA19BDA16798F1C0050A449 /* 01.mp3 */,
+				0FA19BDB16798F1C0050A449 /* 01_01.mp3 */,
+				0FA19BDC16798F1C0050A449 /* 02.mp3 */,
+				0FA19BDD16798F1C0050A449 /* 03.mp3 */,
+				0FA19BDE16798F1C0050A449 /* 04.mp3 */,
+				0FA19BDF16798F1C0050A449 /* 05.mp3 */,
+				0FA19BE016798F1C0050A449 /* 05_01.mp3 */,
+				0FA19BE116798F1C0050A449 /* 06.mp3 */,
+				0FA19BE216798F1C0050A449 /* 07.mp3 */,
+				0FA19BE316798F1C0050A449 /* 08.mp3 */,
+				0FA19BE416798F1C0050A449 /* 09.mp3 */,
+				0FA19BE516798F1C0050A449 /* 10.mp3 */,
+				0FA19BE616798F1C0050A449 /* 11.mp3 */,
+			);
+			path = scale;
+			sourceTree = "<group>";
+		};
 		9055BC3D1670845D0050E3A2 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +132,7 @@
 		9055BC4B1670845D0050E3A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FA19BF416798F3D0050A449 /* AVFoundation.framework */,
 				9055BC4C1670845D0050E3A2 /* UIKit.framework */,
 				9055BC4E1670845D0050E3A2 /* Foundation.framework */,
 				9055BC501670845D0050E3A2 /* CoreGraphics.framework */,
@@ -99,6 +151,8 @@
 				9055BC681670845D0050E3A2 /* GEViewController.m */,
 				90CA10511673009F00584DE9 /* GEComposeViewController.h */,
 				90CA10521673009F00584DE9 /* GEComposeViewController.m */,
+				0FA19BD616798EFF0050A449 /* GESoundManager.h */,
+				0FA19BD716798EFF0050A449 /* GESoundManager.m */,
 				9055BC531670845D0050E3A2 /* Supporting Files */,
 				54028AFD1673BB43003F997C /* GENote.h */,
 				54028AFE1673BB43003F997C /* GENote.m */,
@@ -131,6 +185,7 @@
 		90CA104E1672FF6A00584DE9 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				0FA19BD916798F1C0050A449 /* scale */,
 				90CA104C1672FF5C00584DE9 /* img */,
 			);
 			name = resources;
@@ -194,6 +249,19 @@
 				9055BC631670845D0050E3A2 /* Default-568h@2x.png in Resources */,
 				9055BC661670845D0050E3A2 /* MainStoryboard.storyboard in Resources */,
 				90CA10501672FF8600584DE9 /* music_staff.png in Resources */,
+				0FA19BE716798F1C0050A449 /* 01.mp3 in Resources */,
+				0FA19BE816798F1C0050A449 /* 01_01.mp3 in Resources */,
+				0FA19BE916798F1C0050A449 /* 02.mp3 in Resources */,
+				0FA19BEA16798F1C0050A449 /* 03.mp3 in Resources */,
+				0FA19BEB16798F1C0050A449 /* 04.mp3 in Resources */,
+				0FA19BEC16798F1C0050A449 /* 05.mp3 in Resources */,
+				0FA19BED16798F1C0050A449 /* 05_01.mp3 in Resources */,
+				0FA19BEE16798F1C0050A449 /* 06.mp3 in Resources */,
+				0FA19BEF16798F1C0050A449 /* 07.mp3 in Resources */,
+				0FA19BF016798F1C0050A449 /* 08.mp3 in Resources */,
+				0FA19BF116798F1C0050A449 /* 09.mp3 in Resources */,
+				0FA19BF216798F1C0050A449 /* 10.mp3 in Resources */,
+				0FA19BF316798F1C0050A449 /* 11.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
