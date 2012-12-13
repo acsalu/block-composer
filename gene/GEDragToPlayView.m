@@ -67,16 +67,9 @@
         self.arrowView.alpha = 0;
     } completion:^(BOOL finished) {
         NSLog(@"done");
-    }];
-    
-    
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(removeArrowView) userInfo:nil repeats:NO];
-    // call SoundManager
-}
+        [self.arrowView removeFromSuperview];
 
-- (void)removeArrowView
-{
-    [self.arrowView removeFromSuperview];
+    }];
 }
 
 @end
