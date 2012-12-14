@@ -8,6 +8,9 @@
 
 #import "GESoundManager.h"
 
+NSString * const GESoundMgrInstrumentPiano = @"Piano";
+NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
+
 @implementation GESoundManager
 
 # pragma mark -
@@ -31,20 +34,28 @@
 #pragma mark -
 #pragma mark Interfaces
 
-- (void)synthesizeNoteArray:(NSArray *)noteArray instrument:(MusicalInstrument)instrument{
+- (void)playSynthesizedNoteArray:(NSArray *)noteArray instrument:(NSString *)instrument{
+    
+    // store/update user array
+//    self.userNoteArray = [NSMutableArray arrayWithArray:noteArray];
+    
     NSMutableData *concatenatedData = [NSMutableData data];
     for (NSString *note in noteArray) {
-        NSString *noteFile = [[NSBundle mainBundle] pathForResource:note ofType:@"mp3"];
+        NSString *noteFile = [[NSBundle mainBundle] pathForResource:note
+                                                             ofType:@"mp3"
+                                                        inDirectory:instrument];
         NSURL *filePath = [NSURL fileURLWithPath:noteFile];
         NSData *audioData = [NSData dataWithContentsOfURL:filePath];
         if (audioData != nil) {
             [concatenatedData appendData:audioData];
         } else {
-            NSLog(@"Error, no audio data");
+            NSLog(@"Error, no audio data in %@", note);
         }
     }
     player = [[AVAudioPlayer alloc] initWithData:concatenatedData error:nil];
     [player play];
 }
+
+
 
 @end

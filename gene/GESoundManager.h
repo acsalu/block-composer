@@ -9,17 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
-typedef enum {
-    Piano = 1 << 0,
-    Guitar = 1 << 1
-} MusicalInstrument;
+extern NSString * const GESoundMgrInstrunmentPiano;
+extern NSString * const GESoundMgrInstrunmentGuitar;
+
 
 @interface GESoundManager : NSObject {
     AVAudioPlayer *player;
 }
 
+@property (nonatomic, strong) NSArray *answerNoteArray;
+@property (nonatomic, strong) NSMutableArray *userNoteArray;
+
 + (GESoundManager *)soleSoundManager;
 
-- (void)synthesizeNoteArray:(NSArray *)noteArray instrument:(MusicalInstrument)instrument;
+- (void)playSynthesizedNoteArray:(NSArray *)noteArray instrument:(NSString *)instrument;
 
 @end
