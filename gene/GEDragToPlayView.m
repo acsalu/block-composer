@@ -7,6 +7,8 @@
 //
 
 #import "GEDragToPlayView.h"
+#import "GENote.h"
+#import "GESoundManager.h"
 
 @implementation GEDragToPlayView
 
@@ -29,7 +31,8 @@
 */
 
 
-#pragma - mark Touch Events Handler
+#pragma mark - 
+#pragma mark Touch Events Handler
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -68,7 +71,7 @@
     } completion:^(BOOL finished) {
         NSLog(@"done");
         [self.arrowView removeFromSuperview];
-
+        [[GESoundManager soleSoundManager] playSynthesizedNoteArray:@[@"C1_4", @"D1_8", @"C1_2"] instrument:@"Piano"];
     }];
 }
 
