@@ -348,14 +348,11 @@
 				90CA10521673009F00584DE9 /* GEComposeViewController.m */,
 				54028AFD1673BB43003F997C /* GENote.h */,
 				54028AFE1673BB43003F997C /* GENote.m */,
-<<<<<<< HEAD
 				0FA19BD616798EFF0050A449 /* GESoundManager.h */,
 				0FA19BD716798EFF0050A449 /* GESoundManager.m */,
 				9055BC531670845D0050E3A2 /* Supporting Files */,
-=======
 				90362DBC167604B400B65AAC /* GEDragToPlayView.h */,
 				90362DBD167604B400B65AAC /* GEDragToPlayView.m */,
->>>>>>> DragToPlay
 			);
 			path = gene;
 			sourceTree = "<group>";
