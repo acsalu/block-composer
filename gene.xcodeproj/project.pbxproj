@@ -86,6 +86,7 @@
 		0F8E39FB167ADDFA00F5FCD7 /* GESoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA19BD716798EFF0050A449 /* GESoundManager.m */; };
 		0FA19BF516798F3D0050A449 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA19BF416798F3D0050A449 /* AVFoundation.framework */; };
 		54028AFF1673BB43003F997C /* GENote.m in Sources */ = {isa = PBXBuildFile; fileRef = 54028AFE1673BB43003F997C /* GENote.m */; };
+		90362DBE167604B400B65AAC /* GEDragToPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90362DBD167604B400B65AAC /* GEDragToPlayView.m */; };
 		9055BC4D1670845D0050E3A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4C1670845D0050E3A2 /* UIKit.framework */; };
 		9055BC4F1670845D0050E3A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4E1670845D0050E3A2 /* Foundation.framework */; };
 		9055BC511670845D0050E3A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC501670845D0050E3A2 /* CoreGraphics.framework */; };
@@ -99,6 +100,7 @@
 		9055BC691670845D0050E3A2 /* GEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9055BC681670845D0050E3A2 /* GEViewController.m */; };
 		90CA10501672FF8600584DE9 /* music_staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CA104F1672FF8600584DE9 /* music_staff.png */; };
 		90CA10531673009F00584DE9 /* GEComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CA10521673009F00584DE9 /* GEComposeViewController.m */; };
+		90CA105516737C3D00584DE9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CA105416737C3D00584DE9 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +185,8 @@
 		0FA19BF416798F3D0050A449 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		54028AFD1673BB43003F997C /* GENote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GENote.h; sourceTree = "<group>"; };
 		54028AFE1673BB43003F997C /* GENote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GENote.m; sourceTree = "<group>"; };
+		90362DBC167604B400B65AAC /* GEDragToPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEDragToPlayView.h; sourceTree = "<group>"; };
+		90362DBD167604B400B65AAC /* GEDragToPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEDragToPlayView.m; sourceTree = "<group>"; };
 		9055BC481670845D0050E3A2 /* gene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9055BC4C1670845D0050E3A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9055BC4E1670845D0050E3A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -202,6 +206,7 @@
 		90CA104F1672FF8600584DE9 /* music_staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_staff.png; sourceTree = "<group>"; };
 		90CA10511673009F00584DE9 /* GEComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEComposeViewController.h; sourceTree = "<group>"; };
 		90CA10521673009F00584DE9 /* GEComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEComposeViewController.m; sourceTree = "<group>"; };
+		90CA105416737C3D00584DE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,9 +348,14 @@
 				90CA10521673009F00584DE9 /* GEComposeViewController.m */,
 				54028AFD1673BB43003F997C /* GENote.h */,
 				54028AFE1673BB43003F997C /* GENote.m */,
+<<<<<<< HEAD
 				0FA19BD616798EFF0050A449 /* GESoundManager.h */,
 				0FA19BD716798EFF0050A449 /* GESoundManager.m */,
 				9055BC531670845D0050E3A2 /* Supporting Files */,
+=======
+				90362DBC167604B400B65AAC /* GEDragToPlayView.h */,
+				90362DBD167604B400B65AAC /* GEDragToPlayView.m */,
+>>>>>>> DragToPlay
 			);
 			path = gene;
 			sourceTree = "<group>";
@@ -531,6 +541,7 @@
 				9055BC691670845D0050E3A2 /* GEViewController.m in Sources */,
 				90CA10531673009F00584DE9 /* GEComposeViewController.m in Sources */,
 				54028AFF1673BB43003F997C /* GENote.m in Sources */,
+				90362DBE167604B400B65AAC /* GEDragToPlayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

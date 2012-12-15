@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -27,11 +27,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tde-4c-gXI" customClass="GEDragToPlayView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dg5-0n-Fbd" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="5ph-IB-AlZ"/>
+                            <constraint firstItem="tde-4c-gXI" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="AJS-c2-IUT"/>
+                            <constraint firstItem="tde-4c-gXI" firstAttribute="top" secondItem="5" secondAttribute="top" constant="519" id="BA5-Ti-ZHN"/>
                             <constraint firstItem="dg5-0n-Fbd" firstAttribute="top" secondItem="5" secondAttribute="top" constant="219" id="HRa-dD-uyM"/>
+                            <constraint firstItem="tde-4c-gXI" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="ODt-TZ-4G7"/>
+                            <constraint firstItem="tde-4c-gXI" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="Tz0-sQ-FyM"/>
                             <constraint firstItem="m8a-9E-Dt8" firstAttribute="top" secondItem="Imy-Pq-SjP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="VND-bT-VvV"/>
                             <constraint firstItem="dg5-0n-Fbd" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="ewZ-bN-1b7"/>
                             <constraint firstItem="m8a-9E-Dt8" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fft-gy-qfk"/>
@@ -54,6 +61,21 @@
     <resources>
         <image name="music_staff.png" width="4267" height="683"/>
     </resources>
+    <classes>
+        <class className="GEComposeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GEComposeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="noteLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="touchPointLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GEDragToPlayView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GEDragToPlayView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
