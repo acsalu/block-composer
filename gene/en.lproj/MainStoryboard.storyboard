@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
->>>>>>> 431fa88258d6bfdcab3607d90122f0b2c8e49775
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -15,44 +11,8 @@
                     <view key="view" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<<<<<<< HEAD
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-=======
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="music_staff.png" translatesAutoresizingMaskIntoConstraints="NO" id="dg5-0n-Fbd">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="221" id="HcR-iS-kRx"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(0, 0)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imy-Pq-SjP">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Play Do" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8a-9E-Dt8">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tde-4c-gXI" customClass="GEDragToPlayView">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dg5-0n-Fbd" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="5ph-IB-AlZ"/>
-                            <constraint firstItem="tde-4c-gXI" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="AJS-c2-IUT"/>
-                            <constraint firstItem="tde-4c-gXI" firstAttribute="top" secondItem="5" secondAttribute="top" constant="519" id="BA5-Ti-ZHN"/>
-                            <constraint firstItem="dg5-0n-Fbd" firstAttribute="top" secondItem="5" secondAttribute="top" constant="219" id="HRa-dD-uyM"/>
-                            <constraint firstItem="tde-4c-gXI" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="ODt-TZ-4G7"/>
-                            <constraint firstItem="tde-4c-gXI" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="Tz0-sQ-FyM"/>
-                            <constraint firstItem="m8a-9E-Dt8" firstAttribute="top" secondItem="Imy-Pq-SjP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="VND-bT-VvV"/>
-                            <constraint firstItem="dg5-0n-Fbd" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="ewZ-bN-1b7"/>
-                            <constraint firstItem="m8a-9E-Dt8" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fft-gy-qfk"/>
-                            <constraint firstItem="Imy-Pq-SjP" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="jNJ-5C-4PN"/>
-                            <constraint firstItem="Imy-Pq-SjP" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tGQ-GS-oWk"/>
-                        </constraints>
->>>>>>> 431fa88258d6bfdcab3607d90122f0b2c8e49775
+
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -62,12 +22,9 @@
             <point key="canvasLocation" x="-102" y="-317"/>
         </scene>
     </scenes>
-<<<<<<< HEAD
-=======
     <resources>
         <image name="music_staff.png" width="16" height="16"/>
     </resources>
->>>>>>> 431fa88258d6bfdcab3607d90122f0b2c8e49775
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
