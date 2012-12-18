@@ -8,11 +8,23 @@
 
 #import "GEComposeViewController.h"
 
+typedef enum {
+    GEGameStateChoose = 0,
+    GEGameStatePlay = 1
+} GameState;
 
 
 @interface GEComposeViewController ()
 
 @property (strong, nonatomic) AVAudioPlayer *player;
+@property (nonatomic) NSUInteger state;
+@property (nonatomic) BOOL isRotating;
+
+- (void)showChooseView;
+- (void)rotateWithOptions: (UIViewAnimationOptions)options;
+- (void)startRotate;
+- (void)stopRotate;
+
 
 @end
 
@@ -24,7 +36,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.player = [[AVAudioPlayer alloc] init];
+        _player = [[AVAudioPlayer alloc] init];
+        _state = GEGameStateChoose;
     }
     return self;
 }
@@ -32,7 +45,8 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
-        self.player = [[AVAudioPlayer alloc] init];
+        _player = [[AVAudioPlayer alloc] init];
+        _state = GEGameStateChoose;
     }
     return self;
 }
@@ -41,6 +55,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    switch (self.state) {
+        case GEGameStateChoose:
+            [self showChooseView];
+            break;
+        case GEGameStatePlay:
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,11 +110,44 @@
     self.touchPointLabel.text = [NSString stringWithFormat:@"(%.1f, %.1f)", point.x, point.y];
 }
 
+# pragma mark -
+# pragma mark View Handling
 
+- (void)showChooseView
+{
+    self.rouletteView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"roulette.png"]];
+    CGRect frame = self.rouletteView.frame;
+    self.rouletteView.frame = CGRectMake(300, 300, frame.size.width, frame.size.width);
+    [self.view addSubview:self.rouletteView];
+    [self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
+}
 
+- (void)rotateWithOptions:(UIViewAnimationOptions)options
+{
+    [UIView animateWithDuration:0.3f
+                          delay:0.0f
+                        options:options
+                     animations:^{
+                         self.rouletteView.transform = CGAffineTransformRotate(self.rouletteView.transform, M_PI / 2);
+                     } completion:^(BOOL finished) {
+                         if (finished) {
+                             [self rotateWithOptions: UIViewAnimationOptionCurveLinear];
+//                             
+//                             if (self.isRotating) {
+//                                 // if flag still set, keep spinning with constant speed
+//                                 [self rotateWithOptions: UIViewAnimationOptionCurveLinear];
+//                             }
+//                             else if (options != UIViewAnimationOptionCurveEaseOut) {
+//                                 // one last spin, with deceleration
+//                                 [self rotateWithOptions: UIViewAnimationOptionCurveEaseOut];
+//                             }
+                         }
+                     }];
+}
 
-
-
+- (void)startRotate
+{
+}
 
 
 
