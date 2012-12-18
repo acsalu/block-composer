@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface GEComposeViewController : UIViewController
 
@@ -16,5 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *touchPointLabel;
 @property (weak, nonatomic) IBOutlet UILabel *noteLabel;
+@property (strong, nonatomic) UIImageView *rouletteView;
 
 @end

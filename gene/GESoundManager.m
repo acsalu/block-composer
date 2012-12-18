@@ -42,8 +42,7 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
     NSMutableData *concatenatedData = [NSMutableData data];
     for (NSString *note in noteArray) {
         NSString *noteFile = [[NSBundle mainBundle] pathForResource:note
-                                                             ofType:@"mp3"
-                                                        inDirectory:instrument];
+                                                             ofType:@"mp3"];
         NSURL *filePath = [NSURL fileURLWithPath:noteFile];
         NSData *audioData = [NSData dataWithContentsOfURL:filePath];
         if (audioData != nil) {
