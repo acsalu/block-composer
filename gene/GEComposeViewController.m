@@ -71,16 +71,12 @@ typedef enum {
     
     
 	// Do any additional setup after loading the view.
-<<<<<<< HEAD
     
     UIButton *redirect = [[UIButton alloc]
                           initWithFrame:CGRectMake(10, 10, 100, 100)];
 
     [redirect setBackgroundColor:[UIColor redColor]];
 
-
-
-=======
     switch (self.state) {
         case GEGameStateChoose:
             [self showChooseView];
@@ -90,7 +86,6 @@ typedef enum {
         default:
             break;
     }
->>>>>>> 431fa88258d6bfdcab3607d90122f0b2c8e49775
 }
 
 - (void)openStaff{
