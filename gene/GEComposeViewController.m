@@ -19,7 +19,7 @@ typedef enum {
 @property (strong, nonatomic) AVAudioPlayer *player;
 @property (nonatomic) NSUInteger state;
 @property (nonatomic) BOOL isRotating;
-
+@property (strong, nonatomic) UISwipeGestureRecognizer *onSwipeDown;
 - (void)showChooseView;
 - (void)rotateWithOptions: (UIViewAnimationOptions)options;
 - (void)startRotate;
@@ -54,6 +54,11 @@ typedef enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.onSwipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(startRotate)];
+    self.onSwipeDown.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:self.onSwipeDown];
+    
 	// Do any additional setup after loading the view.
     switch (self.state) {
         case GEGameStateChoose:
@@ -98,6 +103,7 @@ typedef enum {
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
     UITouch *touch = (UITouch *) [touches anyObject];
     CGPoint point = [touch locationInView:self.view];
     self.touchPointLabel.text = [NSString stringWithFormat:@"(%.1f, %.1f)", point.x, point.y];
@@ -117,9 +123,9 @@ typedef enum {
 {
     self.rouletteView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"roulette.png"]];
     CGRect frame = self.rouletteView.frame;
-    self.rouletteView.frame = CGRectMake(300, 300, frame.size.width, frame.size.width);
+    self.rouletteView.frame = CGRectMake(252, 100, frame.size.width, frame.size.width);
     [self.view addSubview:self.rouletteView];
-    [self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
+    //[self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
 }
 
 - (void)rotateWithOptions:(UIViewAnimationOptions)options
@@ -147,9 +153,14 @@ typedef enum {
 
 - (void)startRotate
 {
+    NSLog(@"Swipe down gesture detected!");
+    [self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
 }
 
-
+- (void)stopRotate
+{
+    
+}
 
 
 @end
