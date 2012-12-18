@@ -18,8 +18,13 @@ typedef enum {
 
 @property (strong, nonatomic) AVAudioPlayer *player;
 @property (nonatomic) NSUInteger state;
+@property (nonatomic) float rotateDuration;
 @property (nonatomic) BOOL isRotating;
 @property (strong, nonatomic) UISwipeGestureRecognizer *onSwipeDown;
+
+@property (nonatomic) NSUInteger rotateNum;
+@property (nonatomic) NSUInteger rotateCount;
+
 - (void)showChooseView;
 - (void)rotateWithOptions: (UIViewAnimationOptions)options;
 - (void)startRotate;
@@ -58,6 +63,7 @@ typedef enum {
     self.onSwipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(startRotate)];
     self.onSwipeDown.direction = UISwipeGestureRecognizerDirectionDown;
     [self.view addGestureRecognizer:self.onSwipeDown];
+    
     
 	// Do any additional setup after loading the view.
     switch (self.state) {
@@ -130,23 +136,25 @@ typedef enum {
 
 - (void)rotateWithOptions:(UIViewAnimationOptions)options
 {
-    [UIView animateWithDuration:0.3f
+    float duration = (options == UIViewAnimationOptionCurveEaseOut) ? 0.3f : 0.1f;
+    [UIView animateWithDuration:duration
                           delay:0.0f
                         options:options
                      animations:^{
-                         self.rouletteView.transform = CGAffineTransformRotate(self.rouletteView.transform, M_PI / 2);
+                         self.rouletteView.transform = CGAffineTransformRotate(self.rouletteView.transform, M_PI / 4);
                      } completion:^(BOOL finished) {
                          if (finished) {
-                             [self rotateWithOptions: UIViewAnimationOptionCurveLinear];
-//                             
-//                             if (self.isRotating) {
-//                                 // if flag still set, keep spinning with constant speed
-//                                 [self rotateWithOptions: UIViewAnimationOptionCurveLinear];
-//                             }
-//                             else if (options != UIViewAnimationOptionCurveEaseOut) {
-//                                 // one last spin, with deceleration
-//                                 [self rotateWithOptions: UIViewAnimationOptionCurveEaseOut];
-//                             }
+                             if (self.isRotating) {
+                                 // if flag still set, keep spinning with constant speed
+                                 if (self.rotateCount++ == self.rotateNum) self.isRotating = NO;
+                                 [self rotateWithOptions: UIViewAnimationOptionCurveLinear];
+                             }
+                             else if (options != UIViewAnimationOptionCurveEaseOut) {
+                                 // one last spin, with deceleration
+                                 [self rotateWithOptions: UIViewAnimationOptionCurveEaseOut];
+                             } else {
+                                 [self stopRotate];
+                             }
                          }
                      }];
 }
@@ -154,12 +162,25 @@ typedef enum {
 - (void)startRotate
 {
     NSLog(@"Swipe down gesture detected!");
+    self.isRotating = YES;
+    self.rotateCount = 0;
+    self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
+    NSLog(@"rotateNum = %d", self.rotateNum);
     [self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
+    
+
 }
 
 - (void)stopRotate
 {
-    
+    [UIView animateWithDuration:1.0f
+                          delay:0.5f
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.rouletteView.alpha = 0.0;
+                     } completion:^(BOOL finished) {
+                         [self.rouletteView removeFromSuperview];
+                     }];
 }
 
 
