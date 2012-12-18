@@ -85,7 +85,10 @@
 		0F5181FA167ADB9F0029F80F /* rest_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F5181AE167ADB9F0029F80F /* rest_8.mp3 */; };
 		0F8E39FB167ADDFA00F5FCD7 /* GESoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA19BD716798EFF0050A449 /* GESoundManager.m */; };
 		54028AFF1673BB43003F997C /* GENote.m in Sources */ = {isa = PBXBuildFile; fileRef = 54028AFE1673BB43003F997C /* GENote.m */; };
-		900C908616804CA900FCF207 /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C908516804CA900FCF207 /* roulette.png */; };
+		900C908916805D2800FCF207 /* songs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 900C908816805D2800FCF207 /* songs.plist */; };
+		900C908B168068EA00FCF207 /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C908A168068EA00FCF207 /* roulette.png */; };
+		900C908F1680940300FCF207 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C908E1680940300FCF207 /* Icon-72@2x.png */; };
+		900C90911680942200FCF207 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C90901680942200FCF207 /* Icon-72.png */; };
 		90362DBE167604B400B65AAC /* GEDragToPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90362DBD167604B400B65AAC /* GEDragToPlayView.m */; };
 		9055BC4D1670845D0050E3A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4C1670845D0050E3A2 /* UIKit.framework */; };
 		9055BC4F1670845D0050E3A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4E1670845D0050E3A2 /* Foundation.framework */; };
@@ -184,7 +187,10 @@
 		0FA19BD716798EFF0050A449 /* GESoundManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GESoundManager.m; sourceTree = "<group>"; };
 		54028AFD1673BB43003F997C /* GENote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GENote.h; sourceTree = "<group>"; };
 		54028AFE1673BB43003F997C /* GENote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GENote.m; sourceTree = "<group>"; };
-		900C908516804CA900FCF207 /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = roulette.png; path = ../../../Desktop/gene/roulette.png; sourceTree = "<group>"; };
+		900C908816805D2800FCF207 /* songs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = songs.plist; path = ../../gene/gene/songs.plist; sourceTree = "<group>"; };
+		900C908A168068EA00FCF207 /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette.png; sourceTree = "<group>"; };
+		900C908E1680940300FCF207 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
+		900C90901680942200FCF207 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		90362DBC167604B400B65AAC /* GEDragToPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEDragToPlayView.h; sourceTree = "<group>"; };
 		90362DBD167604B400B65AAC /* GEDragToPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEDragToPlayView.m; sourceTree = "<group>"; };
 		9055BC481670845D0050E3A2 /* gene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gene.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -360,6 +366,8 @@
 		9055BC531670845D0050E3A2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				900C90901680942200FCF207 /* Icon-72.png */,
+				900C908E1680940300FCF207 /* Icon-72@2x.png */,
 				9055BC541670845D0050E3A2 /* gene-Info.plist */,
 				9055BC551670845D0050E3A2 /* InfoPlist.strings */,
 				9055BC581670845D0050E3A2 /* main.m */,
@@ -374,8 +382,8 @@
 		90CA104C1672FF5C00584DE9 /* img */ = {
 			isa = PBXGroup;
 			children = (
-				900C908516804CA900FCF207 /* roulette.png */,
 				90CA104F1672FF8600584DE9 /* music_staff.png */,
+				900C908A168068EA00FCF207 /* roulette.png */,
 			);
 			name = img;
 			sourceTree = "<group>";
@@ -385,6 +393,7 @@
 			children = (
 				90CA104C1672FF5C00584DE9 /* img */,
 				0F518162167ADB9F0029F80F /* Piano */,
+				900C908816805D2800FCF207 /* songs.plist */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -523,7 +532,10 @@
 				0F5181F8167ADB9F0029F80F /* rest.mp3 in Resources */,
 				0F5181F9167ADB9F0029F80F /* rest_4.mp3 in Resources */,
 				0F5181FA167ADB9F0029F80F /* rest_8.mp3 in Resources */,
-				900C908616804CA900FCF207 /* roulette.png in Resources */,
+				900C908916805D2800FCF207 /* songs.plist in Resources */,
+				900C908B168068EA00FCF207 /* roulette.png in Resources */,
+				900C908F1680940300FCF207 /* Icon-72@2x.png in Resources */,
+				900C90911680942200FCF207 /* Icon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

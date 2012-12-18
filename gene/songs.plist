@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<array>
+	<dict>
+		<key>name</key>
+		<string>小星星</string>
+		<key>melody</key>
+		<array>
+			<string>C2_4</string>
+			<string>C2_4</string>
+			<string>G2_4</string>
+			<string>G2_4</string>
+			<string>A2_4</string>
+			<string>A2_4</string>
+			<string>G2_2</string>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string></string>
+		<key>melody</key>
+		<array>
+			<string>G2_4</string>
+			<string>E2_8</string>
+			<string>E2_8</string>
+			<string>F2_4</string>
+			<string>D2_8</string>
+			<string>D2_8</string>
+			<string>C2_4</string>
+			<string>D2_4</string>
+			<string>E2_4</string>
+			<string>F2_4</string>
+			<string>G2_4</string>
+			<string>G2_4</string>
+			<string>G2_2</string>
+		</array>
+	</dict>
+	<string></string>
+	<string></string>
+</array>
 </plist>
