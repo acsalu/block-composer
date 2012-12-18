@@ -175,6 +175,12 @@
 
 }
 
+//check for treble clef in notesOnStaff, if yes, remove the two points!!
+- (void)checkForTrebleClef{
+    
+    
+    
+}
 
 - (NSInteger)getTouchedViewNoteTypeWithTouch:(UITouch*)touch{
     

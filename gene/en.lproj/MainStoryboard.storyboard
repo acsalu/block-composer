@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
->>>>>>> 431fa88258d6bfdcab3607d90122f0b2c8e49775
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -15,9 +12,7 @@
                     <view key="view" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<<<<<<< HEAD
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-=======
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="music_staff.png" translatesAutoresizingMaskIntoConstraints="NO" id="dg5-0n-Fbd">
                                 <constraints>
@@ -52,7 +47,6 @@
                             <constraint firstItem="Imy-Pq-SjP" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="jNJ-5C-4PN"/>
                             <constraint firstItem="Imy-Pq-SjP" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tGQ-GS-oWk"/>
                         </constraints>
->>>>>>> 431fa88258d6bfdcab3607d90122f0b2c8e49775
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -62,12 +56,9 @@
             <point key="canvasLocation" x="-102" y="-317"/>
         </scene>
     </scenes>
-<<<<<<< HEAD
-=======
     <resources>
         <image name="music_staff.png" width="16" height="16"/>
     </resources>
->>>>>>> 431fa88258d6bfdcab3607d90122f0b2c8e49775
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
