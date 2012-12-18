@@ -59,23 +59,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="music_staff.png" width="4267" height="683"/>
+        <image name="music_staff.png" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="GEComposeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GEComposeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="noteLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="touchPointLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GEDragToPlayView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GEDragToPlayView.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
