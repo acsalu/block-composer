@@ -18,7 +18,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string></string>
+		<string>小蜜蜂</string>
 		<key>melody</key>
 		<array>
 			<string>G2_4</string>
@@ -36,7 +36,5 @@
 			<string>G2_2</string>
 		</array>
 	</dict>
-	<string></string>
-	<string></string>
 </array>
 </plist>

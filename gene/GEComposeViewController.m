@@ -25,6 +25,9 @@ typedef enum {
 @property (nonatomic) NSUInteger rotateNum;
 @property (nonatomic) NSUInteger rotateCount;
 
+@property (nonatomic, strong) NSArray *songs;
+@property (nonatomic, strong) NSDictionary *songChosen;
+
 - (void)showChooseView;
 - (void)rotateWithOptions: (UIViewAnimationOptions)options;
 - (void)startRotate;
@@ -52,6 +55,8 @@ typedef enum {
     if ((self = [super initWithCoder:aDecoder])) {
         _player = [[AVAudioPlayer alloc] init];
         _state = GEGameStateChoose;
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"songs" ofType:@"plist"];
+        _songs = [NSArray arrayWithContentsOfFile:path];
     }
     return self;
 }
@@ -165,7 +170,9 @@ typedef enum {
     self.isRotating = YES;
     self.rotateCount = 0;
     self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
+    self.songChosen = (NSDictionary *) self.songs[self.rotateNum % self.songs.count];
     NSLog(@"rotateNum = %d", self.rotateNum);
+    NSLog(@"songChosen = %@", [self.songChosen objectForKey:@"name"]);
     [self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
     
 
@@ -180,6 +187,7 @@ typedef enum {
                          self.rouletteView.alpha = 0.0;
                      } completion:^(BOOL finished) {
                          [self.rouletteView removeFromSuperview];
+                         [self.view removeGestureRecognizer:self.onSwipeDown];
                      }];
 }
 

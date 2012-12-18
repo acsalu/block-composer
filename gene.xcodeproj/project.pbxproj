@@ -89,6 +89,7 @@
 		900C908F1680940300FCF207 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C908E1680940300FCF207 /* Icon-72@2x.png */; };
 		900C90911680942200FCF207 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C90901680942200FCF207 /* Icon-72.png */; };
 		900C9093168095A900FCF207 /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C9092168095A900FCF207 /* roulette.png */; };
+		900C90991680AC7900FCF207 /* stick.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C90981680AC7900FCF207 /* stick.png */; };
 		90362DBE167604B400B65AAC /* GEDragToPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90362DBD167604B400B65AAC /* GEDragToPlayView.m */; };
 		9055BC4D1670845D0050E3A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4C1670845D0050E3A2 /* UIKit.framework */; };
 		9055BC4F1670845D0050E3A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4E1670845D0050E3A2 /* Foundation.framework */; };
@@ -191,9 +192,10 @@
 		900C908E1680940300FCF207 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
 		900C90901680942200FCF207 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		900C9092168095A900FCF207 /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette.png; sourceTree = "<group>"; };
+		900C90981680AC7900FCF207 /* stick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stick.png; sourceTree = "<group>"; };
 		90362DBC167604B400B65AAC /* GEDragToPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEDragToPlayView.h; sourceTree = "<group>"; };
 		90362DBD167604B400B65AAC /* GEDragToPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEDragToPlayView.m; sourceTree = "<group>"; };
-		9055BC481670845D0050E3A2 /* gene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gene.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9055BC481670845D0050E3A2 /* 積音.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "積音.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9055BC4C1670845D0050E3A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9055BC4E1670845D0050E3A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9055BC501670845D0050E3A2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -325,7 +327,7 @@
 		9055BC491670845D0050E3A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9055BC481670845D0050E3A2 /* gene.app */,
+				9055BC481670845D0050E3A2 /* 積音.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				90CA104F1672FF8600584DE9 /* music_staff.png */,
+				900C90981680AC7900FCF207 /* stick.png */,
 				900C9092168095A900FCF207 /* roulette.png */,
 			);
 			name = img;
@@ -415,7 +418,7 @@
 			);
 			name = gene;
 			productName = gene;
-			productReference = 9055BC481670845D0050E3A2 /* gene.app */;
+			productReference = 9055BC481670845D0050E3A2 /* 積音.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -536,6 +539,7 @@
 				900C908F1680940300FCF207 /* Icon-72@2x.png in Resources */,
 				900C90911680942200FCF207 /* Icon-72.png in Resources */,
 				900C9093168095A900FCF207 /* roulette.png in Resources */,
+				900C90991680AC7900FCF207 /* stick.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,7 +640,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gene/gene-Prefix.pch";
 				INFOPLIST_FILE = "gene/gene-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "積音";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -647,7 +651,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gene/gene-Prefix.pch";
 				INFOPLIST_FILE = "gene/gene-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "積音";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
