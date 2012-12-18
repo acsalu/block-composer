@@ -37,7 +37,7 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
 - (void)playSynthesizedNoteArray:(NSArray *)noteArray instrument:(NSString *)instrument{
     
     // store/update user array
-//    self.userNoteArray = [NSMutableArray arrayWithArray:noteArray];
+    // self.userNoteArray = [NSMutableArray arrayWithArray:noteArray];
     
     NSMutableData *concatenatedData = [NSMutableData data];
     for (NSString *note in noteArray) {
@@ -52,6 +52,7 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
             NSLog(@"Error, no audio data in %@", note);
         }
     }
+    
     player = [[AVAudioPlayer alloc] initWithData:concatenatedData error:nil];
     [player play];
 }

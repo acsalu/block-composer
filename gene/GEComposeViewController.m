@@ -31,7 +31,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIButton *redirect = [[UIButton alloc]
+                          initWithFrame:CGRectMake(10, 10, 100, 100)];
+
+    [redirect setBackgroundColor:[UIColor redColor]];
+
+
+
 }
+
+- (void)openStaff{
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

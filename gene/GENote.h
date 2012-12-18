@@ -43,13 +43,23 @@ typedef enum {
     
 }NoteLength;
 
+
 @interface GENote : NSObject
 
 @property(nonatomic)CGPoint touchPoint;
+@property(nonatomic)CGPoint touchPoint2;
+@property(nonatomic)CGPoint TBCenterPoint;
+
 @property(nonatomic)NSInteger noteType;
 @property(nonatomic)NSInteger noteLength;
 @property(nonatomic)NSInteger orderInAllNotes;
 
--(void)initWithTouchPoint:(CGPoint)point AndNotesArray:(NSArray*)notesArray;
+- (void)initWithTouchPoint:(CGPoint)point AndNotesArray:(NSArray*)notesArray;
+
+
++ (NSArray*)getTrebleClefPointsWith:(NSMutableDictionary*)dic;
+- (id)initWithTouchPoint:(CGPoint)point NoteType:(NSInteger)type AndTrebleClefCenter:(CGPoint)TBCenter;
+- (id)initWithTouchPoint:(CGPoint)point NoteType:(NSInteger)type;
+- (BOOL)isTrebleClef;
 
 @end
