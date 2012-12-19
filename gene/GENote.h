@@ -54,8 +54,6 @@ typedef enum {
 
 @property(nonatomic)BOOL isTrebleClef;
 
-- (void)initWithTouchPoint:(CGPoint)point AndNotesArray:(NSArray*)notesArray;
-
 
 + (NSArray*)getTrebleClefPointsWith:(NSMutableDictionary*)dic;
 - (id)initWithTouchPoint:(CGPoint)point NoteType:(NSInteger)type AndTrebleClefCenter:(CGPoint)TBCenter;
@@ -68,5 +66,6 @@ typedef enum {
 - (void)updateNoteType:(NoteType)type;
 - (void)updateNoteLengthWithTrebleClefCenter:(CGPoint)TBCenter;
 //- (BOOL)isTrebleClef;
+
 
 @end
