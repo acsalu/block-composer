@@ -10,6 +10,7 @@
 #import "GECalculateHelper.h"
 #import "GEDragToPlayView.h"
 #import "QuartzCore/QuartzCore.h"
+#import "GESoundManager.h"
 
 // declare in GENote.h
 // const float trebleClefDistance = 80;
@@ -44,22 +45,55 @@
     [backGroundImage setImage:[UIImage imageNamed:@"staff_back.png"]];
     [self.view addSubview:backGroundImage];
     
+    //also draw fake Treble Clef
     [self drawStaffWithPoint:CGPointMake(15, 30)];
     
     GEDragToPlayView *drag = [[GEDragToPlayView alloc]initWithFrame:CGRectMake(10, 400, 950, 200)];
     [self.view addSubview:drag];
     
-    
-    NSLog(@"trebleClef = %@" ,TrebleClef);
-    
     notesOnStaff = [[NSMutableDictionary alloc]init];
     notesSequence = [[NSMutableArray alloc]init];
+    
+    for (int i = 0; i < 7; i++) {
+        [notesSequence addObject:[NSNull null]];
+    }
     
     UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 658, 200, 100)];
     [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button"] forState:UIControlStateNormal];
     [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backToRoulette];
     
+    //a block is 120 * 320 !!
+    /*
+    UIButton *testBUtton = [[UIButton alloc]initWithFrame:CGRectMake(10, 20, 120, 320)];
+    [testBUtton setBackgroundColor:[UIColor blueColor]];
+    [self.view addSubview:testBUtton];
+    */
+    
+    tuneValue = [[NSMutableArray alloc]init];
+    
+    [self drawSevenRanges];
+    
+}
+
+- (void)drawSevenRanges{
+    
+    NSInteger width = 123;
+    NSInteger xRef = 100;
+    
+    NSMutableArray *temp = [[NSMutableArray alloc]init];
+    
+    for (int i = 0; i < 7; i++) {
+        UIImageView *room = [[UIImageView alloc]initWithFrame:CGRectMake(xRef, 20, width, 500)];
+        [room setTag:i + 100];
+        [room setImage:[UIImage imageNamed:@"dash.png"]];
+        [room setBackgroundColor:[UIColor clearColor]];
+        [self.view addSubview:room];
+        xRef += width;
+        [temp addObject:room];
+    }
+    
+    roomArray = [[NSArray alloc]initWithArray:[temp copy]];
     
 }
 
@@ -72,6 +106,9 @@
     NSInteger whiteHeight = 25;
     //specify the width in here XDD sorry
     NSInteger width = 950;
+    
+    NSMutableArray *temp = [[NSMutableArray alloc]init];
+    
     
     for (int i = 7; i > 0; --i) {
         
@@ -92,12 +129,108 @@
         [self.view addSubview:white];
         [self.view addSubview:line];
         
+        [temp addObject:white];
+        [temp addObject:line];
     }
     
+    UIImageView *trebleClefImage = [[UIImageView alloc]initWithFrame:CGRectMake(-22, -20, 150, 400)];
+    [trebleClefImage setImage:[UIImage imageNamed:@"Treble_Clef.png"]];
+    [self.view addSubview:trebleClefImage];
+    staffViewArray = [[NSArray alloc]initWithArray:[temp copy]];
+
 }
 
 #pragma mark - touches related functions
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    for (UITouch *touch in touches) {
+        
+        
+        NSInteger roomNumber = [self getRoomNumberWithPoint:[touch locationInView:self.view]] - 100;
+        if (roomNumber > 6 || roomNumber < 0) {
+            return;
+        }
+        
+        GENote *note = [[GENote alloc]initWithTouchPoint:[touch locationInView:self.view] NoteType:[self getTouchedViewNoteTypeWithTouch:touch]];
+        //[self getRoomNumberWithTouch:touch];
+        [note setNoteLength:[self getNoteLengthWithTouch:touch]];
+        [notesSequence replaceObjectAtIndex:[self getRoomNumberWithPoint:[touch locationInView:self.view]]-100 withObject:note];
+        
+        
+        
+        NSLog(@"noteType = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
+        NSLog(@"noteLength = %d",[self getNoteLengthWithTouch:touch]);
+    }
+    
+    NSLog(@"notesSequence = %@",notesSequence);
+    
+    if ([tuneValue count]>50) {
+        NSLog(@"x mean = %f", [self meanOf:[tuneValue copy]].floatValue);
+        NSLog(@"x std = %f", [self standardDeviationOf:[tuneValue copy]].floatValue);
+    }
+    
+    
+}
+
+- (NSNumber *)meanOf:(NSArray *)array
+{
+    double runningTotal = 0.0;
+    
+    for(NSNumber *number in array)
+    {
+        runningTotal += [number doubleValue];
+    }
+    
+    return [NSNumber numberWithDouble:(runningTotal / [array count])];
+}
+
+- (NSNumber *)standardDeviationOf:(NSArray *)array
+{
+    if(![array count]) return nil;
+    
+    double mean = [[self meanOf:array] doubleValue];
+    double sumOfSquaredDifferences = 0.0;
+    
+    for(NSNumber *number in array)
+    {
+        double valueOfNumber = [number doubleValue];
+        double difference = valueOfNumber - mean;
+        sumOfSquaredDifferences += difference * difference;
+    }
+    
+    return [NSNumber numberWithDouble:sqrt(sumOfSquaredDifferences / [array count])];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    for (UITouch* touch in touches) {
+        
+        //if moved out of 7 rooms, delete previous one.
+        NSInteger roomNumber = [self getRoomNumberWithPoint:[touch locationInView:self.view]]-100;
+        NSInteger previousRoomNumber = [self getRoomNumberWithPoint:[touch previousLocationInView:self.view]]-100;
+        
+        if ( [self getRoomNumberWithPoint:[touch locationInView:self.view]] != [self getRoomNumberWithPoint:[touch previousLocationInView:self.view]] && previousRoomNumber >= 0 && previousRoomNumber < 7) {
+            //remove previous room
+            [notesSequence replaceObjectAtIndex:previousRoomNumber withObject:[NSNull null]];
+        }
+        //if new room number is not defined then do nothing.
+        if (roomNumber > 6 || roomNumber < 0) {
+            return;
+        }
+       
+        
+        GENote *note = [[GENote alloc]initWithTouchPoint:[touch locationInView:self.view] NoteType:[self    getTouchedViewNoteTypeWithTouch:touch]];
+        [note setNoteLength:[self getNoteLengthWithTouch:touch]];
+        [notesSequence replaceObjectAtIndex:roomNumber withObject:note];
+    
+        
+    }
+    
+    
+}
+
+/*
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
     for(UITouch* touch in touches){
@@ -124,7 +257,6 @@
         }
 
         //everytime a new touch is added, we 
-        
         
     }//for loop end
     
@@ -163,8 +295,8 @@
     
     
 }
-
-
+*/
+/*
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     
     for (UITouch *touch in touches) {
@@ -183,7 +315,7 @@
             [notesOnStaff removeObjectForKey:key];
             
             [TrebleClef updateTrebleClefPointWithPoint:[touch locationInView:self.view]];
-            [self updateNotesLengthWithPoint:TrebleClef.TBCenterPoint];
+            //[self updateNotesLengthWithPoint:TrebleClef.TBCenterPoint];
             
         }
         else{
@@ -212,7 +344,8 @@
      
     
 }
-
+*/
+//add this function before drag to play and before submit.
 - (void)updateNotesLengthWithPoint:(CGPoint)TBCenter{
     
     for (id key in notesOnStaff) {
@@ -228,8 +361,30 @@
 
 }
 
+- (void)updateNotesLengthEverySecond{
+    
+    //NSLog(@"in updateNotesLengthEverySecond");
+    
+    if (TrebleClef == nil) {
+        return;
+    }
+    NSDictionary *tempCompareUse = [notesOnStaff copy];
+    
+    for (id key in tempCompareUse) {
+        GENote *note = [tempCompareUse objectForKey:key];
+        if ([note isTrebleClef]) {
+            //do nothing
+        }
+        else{
+            [note updateNoteLengthWithTrebleClefCenter:[TrebleClef TBCenterPoint]];
+            [notesOnStaff setValue:note forKey:key];
+        }
+    }
+    
+    
+}
 
-
+/*
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
     for (UITouch *touch in touches) {
@@ -247,7 +402,7 @@
      
 
 }
-
+*/
 //check for treble clef in notesOnStaff, if yes, remove the two points!!
 - (void)checkForTrebleClef{
     
@@ -261,7 +416,7 @@
         CGPoint point2 = [[notesSequence objectAtIndex:i+1]CGPointValue];
         float dist = [GECalculateHelper getDistanceBetweenTwoPoint:point1 andPoint:point2];
         
-        if ([GECalculateHelper isTheSameDistanceFor:dist andDistance:trebleClefDistance ByTolerating:15]) {
+        if ([GECalculateHelper isTheSameDistanceFor:dist andDistance:trebleClefDistance ByTolerating:10]) {
             
             //generate a GENote
             //remove both points from array, and set the GENote's member "isTrebleClef" to YES
@@ -293,7 +448,8 @@
 
 - (NSInteger)getTouchedViewNoteTypeWithTouch:(UITouch*)touch{
     
-    for (UIView *view  in self.view.subviews) {
+    for (UIView *view  in staffViewArray) {
+        
         if (CGRectContainsPoint(view.frame, [touch locationInView:self.view])) {
             return view.tag;
         }
@@ -302,6 +458,62 @@
     return -1;
     
 }
+
+//
+- (NSInteger)getRoomNumberWithPoint:(CGPoint)point{
+    
+    for (UIImageView *room in roomArray) {
+        if ( CGRectContainsPoint(room.frame, point)) {
+            return room.tag;
+        }
+    }
+    
+    return -1;
+    
+}
+
+- (NSInteger)getNoteLengthWithTouch:(UITouch*)touch{
+    
+    NSInteger tempDif = 6;
+    
+    for (UIImageView *room in roomArray) {
+        
+        if ( CGRectContainsPoint(room.frame, [touch locationInView:self.view])) {
+            
+            NSLog(@"location in roomView = %@",NSStringFromCGPoint([touch locationInView:room]));
+            [tuneValue addObject:[NSNumber numberWithInteger:[touch locationInView:room].x]];
+            
+            if([touch locationInView:room].x < 35.27){
+                
+                return quarterRest;
+                //休止符
+                
+            }
+            else if([touch locationInView:room].x <54.22){
+                
+                return halfNote;
+                
+            }
+            else if([touch locationInView:room].x <77.54){
+                
+                return eigthNote;
+                
+            }
+            else{
+                
+                return quarterNote;
+                
+            }
+            
+        }
+    }
+    
+    return -1;
+    
+}
+    
+
+
 
 #pragma mark - button functions
 //check the NSArray "answer" and "notesOnStaff" by keys in "notesSequence"

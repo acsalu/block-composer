@@ -42,7 +42,7 @@ typedef enum {
     eigthNote = 8,//八分音符
     quarterNote = 4,//四分音符
     halfNote = 2,//二分音符
-    wholeNote = 1,//全音符
+    quarterRest = 1,//休止符 rest
     
 }NoteLength;
 

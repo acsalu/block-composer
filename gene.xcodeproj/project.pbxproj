@@ -12,6 +12,10 @@
 		54045D311681AFB300C57821 /* staff_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D301681AFB300C57821 /* staff_back.png */; };
 		54045D341681E83E00C57821 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54045D331681E83E00C57821 /* QuartzCore.framework */; };
 		54045D3D1681F7BB00C57821 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D3C1681F7BB00C57821 /* back_button.png */; };
+		54045D3F1682190800C57821 /* Treble_Clef.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D3E1682190800C57821 /* Treble_Clef.png */; };
+		54045D421682208700C57821 /* play_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D401682208700C57821 /* play_icon.png */; };
+		54045D431682208700C57821 /* submit_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D411682208700C57821 /* submit_icon.png */; };
+		54045D471682292600C57821 /* dash.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D461682292600C57821 /* dash.png */; };
 		542B1F43167F924B004F4B89 /* GEStaff.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B1F42167F924B004F4B89 /* GEStaff.m */; };
 		542B1F46167F9613004F4B89 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 542B1F45167F9613004F4B89 /* line.png */; };
 		542B1F4916801B43004F4B89 /* GECalculateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B1F4816801B43004F4B89 /* GECalculateHelper.m */; };
@@ -121,6 +125,10 @@
 		54045D301681AFB300C57821 /* staff_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = staff_back.png; sourceTree = "<group>"; };
 		54045D331681E83E00C57821 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		54045D3C1681F7BB00C57821 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_button.png; sourceTree = "<group>"; };
+		54045D3E1682190800C57821 /* Treble_Clef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Treble_Clef.png; sourceTree = "<group>"; };
+		54045D401682208700C57821 /* play_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_icon.png; sourceTree = "<group>"; };
+		54045D411682208700C57821 /* submit_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit_icon.png; sourceTree = "<group>"; };
+		54045D461682292600C57821 /* dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dash.png; sourceTree = "<group>"; };
 		542B1F41167F924A004F4B89 /* GEStaff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEStaff.h; sourceTree = "<group>"; };
 		542B1F42167F924B004F4B89 /* GEStaff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEStaff.m; sourceTree = "<group>"; };
 		542B1F45167F9613004F4B89 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
@@ -328,6 +336,10 @@
 		90CA104C1672FF5C00584DE9 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				54045D461682292600C57821 /* dash.png */,
+				54045D401682208700C57821 /* play_icon.png */,
+				54045D411682208700C57821 /* submit_icon.png */,
+				54045D3E1682190800C57821 /* Treble_Clef.png */,
 				54045D3C1681F7BB00C57821 /* back_button.png */,
 				54045D301681AFB300C57821 /* staff_back.png */,
 				542B1F45167F9613004F4B89 /* line.png */,
@@ -414,6 +426,10 @@
 				900C90991680AC7900FCF207 /* stick.png in Resources */,
 				54045D311681AFB300C57821 /* staff_back.png in Resources */,
 				54045D3D1681F7BB00C57821 /* back_button.png in Resources */,
+				54045D3F1682190800C57821 /* Treble_Clef.png in Resources */,
+				54045D421682208700C57821 /* play_icon.png in Resources */,
+				54045D431682208700C57821 /* submit_icon.png in Resources */,
+				54045D471682292600C57821 /* dash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

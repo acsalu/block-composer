@@ -9,6 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "GENote.h"
 
+enum room {
+    Room1 = 100,
+    Room2 = 101,
+    Room3 = 102,
+    Room4 = 103,
+    Room5 = 104,
+    Room6 = 105,
+    Room7 = 106
+    };
+
 @interface GEStaff : UIViewController{
     
     UILabel *testLabel;
@@ -19,7 +29,13 @@
     //treble Clef not included.
     NSMutableArray *notesSequence;
     NSArray *answer;
+    
+    NSArray *roomArray;
+    NSArray *staffViewArray;
+    
     GENote *TrebleClef;
+    NSMutableArray *tuneValue;
+    
     
 }
 
