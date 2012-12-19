@@ -9,7 +9,8 @@
 #import "GEStaff.h"
 #import "GECalculateHelper.h"
 
-const float trebleClefDistance = 80;
+// declare in GENote.h
+// const float trebleClefDistance = 80;
 
 @interface GEStaff ()
 
