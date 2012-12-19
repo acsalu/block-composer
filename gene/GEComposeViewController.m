@@ -33,23 +33,13 @@ typedef enum {
 - (void)rotateWithOptions: (UIViewAnimationOptions)options;
 - (void)startRotate;
 - (void)stopRotate;
-
+- (void)blinkArrow;
 
 @end
 
 @implementation GEComposeViewController
 
 @synthesize allNotesArray;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        _player = [[AVAudioPlayer alloc] init];
-        _state = GEGameStateChoose;
-    }
-    return self;
-}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -72,33 +62,39 @@ typedef enum {
     [self showChooseView];
 }
 
-- (void)openStaff{
-    
-    
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-# pragma mark -
-# pragma mark View Handling
-
 - (void)showChooseView
 {
     self.rouletteView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"roulette.png"]];
     CGRect frame = self.rouletteView.frame;
-    self.rouletteView.frame = CGRectMake(252, 100, frame.size.width, frame.size.width);
+    self.rouletteView.frame = CGRectMake(202, 100, frame.size.width, frame.size.width);
+    self.rouletteView.layer.shadowColor = [UIColor purpleColor].CGColor;
+    self.rouletteView.layer.shadowOffset = CGSizeMake(1, 1);
+    self.rouletteView.layer.shadowOpacity = 1;
+    self.rouletteView.layer.shadowRadius = 5.0;
+    self.rouletteView.clipsToBounds = NO;
+
     [self.view addSubview:self.rouletteView];
-    //[self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
+    
+    UIImageView *indexView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"index.png"]];
+    frame = indexView.frame;
+    indexView.frame = CGRectMake(620, 120, frame.size.width, frame.size.height);
+    [self.view addSubview:indexView];
+    
+    self.arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow.png"]];
+    frame = self.arrowView.frame;
+    self.arrowView.frame = CGRectMake(800, 160, frame.size.width, frame.size.height);
+    [self.view addSubview:self.arrowView];
+    [self blinkArrow];
+    
 }
 
 - (void)rotateWithOptions:(UIViewAnimationOptions)options
 {
-    float duration = (options == UIViewAnimationOptionCurveEaseOut) ? 0.5f : 0.1f;
+    float duration = 0.1f;
+    if (self.rotateCount >= self.rotateNum - 6) duration = 0.12f;
+    if (self.rotateCount >= self.rotateNum - 4) duration = 0.14f;
+    if (self.rotateCount >= self.rotateNum - 2) duration = 0.16f;
+    if (self.rotateCount == self.rotateNum - 1) duration = 0.2f;
     [UIView animateWithDuration:duration
                           delay:0.0f
                         options:options
@@ -123,6 +119,7 @@ typedef enum {
 
 - (void)startRotate
 {
+    self.arrowView.hidden = YES;
     NSLog(@"Swipe down gesture detected!");
     self.isRotating = YES;
     self.rotateCount = 0;
@@ -131,14 +128,13 @@ typedef enum {
     NSLog(@"rotateNum = %d", self.rotateNum);
     NSLog(@"songChosen = %@", [self.songChosen objectForKey:@"name"]);
     [self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
-    
 
 }
 
 - (void)stopRotate
 {
     [UIView animateWithDuration:1.0f
-                          delay:0.5f
+                          delay:1.0f
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.rouletteView.alpha = 0.0;
@@ -147,12 +143,7 @@ typedef enum {
                          [self.view removeGestureRecognizer:self.onSwipeDown];
                          GEStaff *staffViewController = [[GEStaff alloc] init];
                          staffViewController.view.alpha = 0.2f;
-                         staffViewController.answer = @[];
-//                         UIViewAnimationTransition trans = UIViewAnimationTransitionCurlUp;
-//                         [UIView beginAnimations: nil context: nil];
-//                         [UIView setAnimationTransition: trans forView:self.view.window cache: YES];
-//                         [self.navigationController presentModalViewController:staffViewController animated: NO];
-//                         [UIView commitAnimations];
+                         staffViewController.answer = self.songChosen[@"melody"];
                          
                          [self.navigationController presentModalViewController:staffViewController animated:NO];
                          [UIView beginAnimations:nil context:nil];
@@ -161,9 +152,16 @@ typedef enum {
                      }];
 }
 
-
-- (void)viewDidUnload {
-    [self setBackgroundView:nil];
-    [super viewDidUnload];
+- (void)blinkArrow
+{
+    [UIView animateWithDuration:0.01f
+                          delay:0.5f
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         self.arrowView.alpha = (self.arrowView.alpha == 0.0f) ? 1.0f : 0.0f;
+                     } completion:^(BOOL finished) {
+                         [self blinkArrow];
+                     }];
 }
+
 @end

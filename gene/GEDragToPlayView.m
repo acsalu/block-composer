@@ -66,7 +66,11 @@
     NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
     self.endX = @(point.x);
     NSLog(@"from %.2f to %.2f", [self.startX doubleValue], [self.endX doubleValue]);
-    //[[GESoundManager soleSoundManager] playSynthesizedNoteArray:@[@"C1_4", @"D1_8", @"C1_2"] instrument:@"Piano"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"songs" ofType:@"plist"];
+    NSArray *songs = [NSArray arrayWithContentsOfFile:path];
+    NSLog(@"melody: %@", songs[0][@"melody"]);
+    [[GESoundManager soleSoundManager] playSynthesizedNoteArray:@[@"C1_2", @"D1_2"]
+                                                     instrument:@"Piano"];
     [UIView animateWithDuration:1 animations:^{
         self.arrowView.alpha = 0;
     } completion:^(BOOL finished) {

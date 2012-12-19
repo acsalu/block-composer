@@ -20,6 +20,7 @@
 		900C90911680942200FCF207 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C90901680942200FCF207 /* Icon-72.png */; };
 		900C9093168095A900FCF207 /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C9092168095A900FCF207 /* roulette.png */; };
 		900C90991680AC7900FCF207 /* stick.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C90981680AC7900FCF207 /* stick.png */; };
+		902FE21216822E70000783DB /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 902FE21116822E70000783DB /* arrow.png */; };
 		90362DBE167604B400B65AAC /* GEDragToPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90362DBD167604B400B65AAC /* GEDragToPlayView.m */; };
 		9055BC4D1670845D0050E3A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4C1670845D0050E3A2 /* UIKit.framework */; };
 		9055BC4F1670845D0050E3A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4E1670845D0050E3A2 /* Foundation.framework */; };
@@ -32,6 +33,7 @@
 		9055BC631670845D0050E3A2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9055BC621670845D0050E3A2 /* Default-568h@2x.png */; };
 		9055BC661670845D0050E3A2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9055BC641670845D0050E3A2 /* MainStoryboard.storyboard */; };
 		9055BC691670845D0050E3A2 /* GEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9055BC681670845D0050E3A2 /* GEViewController.m */; };
+		90613249168224E900D76DBE /* index.png in Resources */ = {isa = PBXBuildFile; fileRef = 90613248168224E900D76DBE /* index.png */; };
 		9076FA35167CF1BC00A472E1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9076FA34167CF1BC00A472E1 /* AVFoundation.framework */; };
 		90CA10501672FF8600584DE9 /* music_staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CA104F1672FF8600584DE9 /* music_staff.png */; };
 		90CA10531673009F00584DE9 /* GEComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CA10521673009F00584DE9 /* GEComposeViewController.m */; };
@@ -131,6 +133,7 @@
 		900C90901680942200FCF207 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		900C9092168095A900FCF207 /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette.png; sourceTree = "<group>"; };
 		900C90981680AC7900FCF207 /* stick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stick.png; sourceTree = "<group>"; };
+		902FE21116822E70000783DB /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		90362DBC167604B400B65AAC /* GEDragToPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEDragToPlayView.h; sourceTree = "<group>"; };
 		90362DBD167604B400B65AAC /* GEDragToPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEDragToPlayView.m; sourceTree = "<group>"; };
 		9055BC481670845D0050E3A2 /* 積音.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "積音.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +152,7 @@
 		9055BC651670845D0050E3A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9055BC671670845D0050E3A2 /* GEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GEViewController.h; sourceTree = "<group>"; };
 		9055BC681670845D0050E3A2 /* GEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GEViewController.m; sourceTree = "<group>"; };
+		90613248168224E900D76DBE /* index.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index.png; sourceTree = "<group>"; };
 		9076FA34167CF1BC00A472E1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		90CA104F1672FF8600584DE9 /* music_staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_staff.png; sourceTree = "<group>"; };
 		90CA10511673009F00584DE9 /* GEComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEComposeViewController.h; sourceTree = "<group>"; };
@@ -328,6 +332,8 @@
 		90CA104C1672FF5C00584DE9 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				902FE21116822E70000783DB /* arrow.png */,
+				90613248168224E900D76DBE /* index.png */,
 				54045D3C1681F7BB00C57821 /* back_button.png */,
 				54045D301681AFB300C57821 /* staff_back.png */,
 				542B1F45167F9613004F4B89 /* line.png */,
@@ -414,6 +420,8 @@
 				900C90991680AC7900FCF207 /* stick.png in Resources */,
 				54045D311681AFB300C57821 /* staff_back.png in Resources */,
 				54045D3D1681F7BB00C57821 /* back_button.png in Resources */,
+				90613249168224E900D76DBE /* index.png in Resources */,
+				902FE21216822E70000783DB /* arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
