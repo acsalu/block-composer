@@ -21,6 +21,7 @@
 @implementation GEStaff
 
 @synthesize answer;
+@synthesize notesSequence;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,7 +49,7 @@
     //also draw fake Treble Clef
     [self drawStaffWithPoint:CGPointMake(15, 30)];
     
-    GEDragToPlayView *drag = [[GEDragToPlayView alloc]initWithFrame:CGRectMake(10, 400, 950, 200)];
+    GEDragToPlayView *drag = [[GEDragToPlayView alloc]initWithFrame:CGRectMake(10, 525, 950, 200)];
     [self.view addSubview:drag];
     
     notesOnStaff = [[NSMutableDictionary alloc]init];
@@ -59,12 +60,17 @@
     }
     
     UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 658, 200, 100)];
-    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button"] forState:UIControlStateNormal];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button.png"] forState:UIControlStateNormal];
     [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backToRoulette];
     
-    UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(756, 665, 100, 100)];
-    [submitButton setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(836, 605, 130, 160)];
+    [submitButton setImage:[UIImage imageNamed:@"submit_with_text.png"] forState:UIControlStateNormal];
+    [self.view addSubview:submitButton];
+    
+    UIButton *playButton = [[UIButton alloc]initWithFrame:CGRectMake(686, 605, 130, 160)];
+    [playButton setImage:[UIImage imageNamed:@"play_with_text.png"] forState:UIControlStateNormal];
+    [self.view addSubview:playButton];
     
     //a block is 120 * 320 !!
     /*
@@ -112,12 +118,11 @@
     
     NSMutableArray *temp = [[NSMutableArray alloc]init];
     
-    
     for (int i = 7; i > 0; --i) {
         
         UIView *white = [[UIView alloc]initWithFrame:CGRectMake(x, y, width, whiteHeight)];
         [white setBackgroundColor:[UIColor clearColor]];
-        [white setTag:i*2];
+        [white setTag:i * 2];
         y += whiteHeight;
         
         UIImageView *line = [[UIImageView alloc]initWithFrame:CGRectMake(x, y, width, lineHeight)];
@@ -127,7 +132,7 @@
         else{
             [line setImage:[UIImage imageNamed:@"line.png"]];
         }
-        [line setTag:i*2-1];
+        [line setTag:i * 2 - 1];
         y += lineHeight;
         [self.view addSubview:white];
         [self.view addSubview:line];
@@ -136,11 +141,34 @@
         [temp addObject:line];
     }
     
-    UIImageView *trebleClefImage = [[UIImageView alloc]initWithFrame:CGRectMake(-22, -20, 150, 400)];
+    for (int j = 7; j > 0; --j) {
+        
+        if (j%2 == 1) {
+            //奇數
+            UIView *white = [[UIView alloc]initWithFrame:CGRectMake(x, y, width, whiteHeight)];
+            [white setBackgroundColor:[UIColor clearColor]];
+            [white setTag:14 + j ];
+            [self.view addSubview:white];
+            y += whiteHeight;
+            [temp addObject:white];
+        }
+        else{
+            //偶數
+            UIView *line = [[UIView alloc]initWithFrame:CGRectMake(x, y, width, lineHeight)];
+            [line setBackgroundColor:[UIColor clearColor]];
+            [line setTag:j+14];
+            [self.view addSubview:line];
+            y += lineHeight;
+            [temp addObject:line];
+    
+        }
+    }
+
+    UIImageView *trebleClefImage = [[UIImageView alloc]initWithFrame:CGRectMake(-30, -20, 158, 400)];
     [trebleClefImage setImage:[UIImage imageNamed:@"Treble_Clef.png"]];
     [self.view addSubview:trebleClefImage];
     staffViewArray = [[NSArray alloc]initWithArray:[temp copy]];
-
+    NSLog(@"y = %d",y);
 }
 
 #pragma mark - touches related functions

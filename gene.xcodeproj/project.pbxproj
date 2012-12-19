@@ -92,6 +92,9 @@
 		54045D421682208700C57821 /* play_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D401682208700C57821 /* play_icon.png */; };
 		54045D431682208700C57821 /* submit_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D411682208700C57821 /* submit_icon.png */; };
 		54045D471682292600C57821 /* dash.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D461682292600C57821 /* dash.png */; };
+		54045D4E1682540000C57821 /* play_with_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D4C1682540000C57821 /* play_with_text.png */; };
+		54045D4F1682540000C57821 /* submit_with_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D4D1682540000C57821 /* submit_with_text.png */; };
+		54045D53168255E700C57821 /* GEResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 54045D52168255E700C57821 /* GEResult.m */; };
 		542B1F43167F924B004F4B89 /* GEStaff.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B1F42167F924B004F4B89 /* GEStaff.m */; };
 		542B1F46167F9613004F4B89 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 542B1F45167F9613004F4B89 /* line.png */; };
 		542B1F4916801B43004F4B89 /* GECalculateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B1F4816801B43004F4B89 /* GECalculateHelper.m */; };
@@ -112,7 +115,6 @@
 		9055BC611670845D0050E3A2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9055BC601670845D0050E3A2 /* Default@2x.png */; };
 		9055BC631670845D0050E3A2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9055BC621670845D0050E3A2 /* Default-568h@2x.png */; };
 		9055BC661670845D0050E3A2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9055BC641670845D0050E3A2 /* MainStoryboard.storyboard */; };
-		9055BC691670845D0050E3A2 /* GEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9055BC681670845D0050E3A2 /* GEViewController.m */; };
 		90613249168224E900D76DBE /* index.png in Resources */ = {isa = PBXBuildFile; fileRef = 90613248168224E900D76DBE /* index.png */; };
 		9076FA35167CF1BC00A472E1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9076FA34167CF1BC00A472E1 /* AVFoundation.framework */; };
 		90CA10501672FF8600584DE9 /* music_staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CA104F1672FF8600584DE9 /* music_staff.png */; };
@@ -207,6 +209,10 @@
 		54045D401682208700C57821 /* play_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_icon.png; sourceTree = "<group>"; };
 		54045D411682208700C57821 /* submit_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit_icon.png; sourceTree = "<group>"; };
 		54045D461682292600C57821 /* dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dash.png; sourceTree = "<group>"; };
+		54045D4C1682540000C57821 /* play_with_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_with_text.png; sourceTree = "<group>"; };
+		54045D4D1682540000C57821 /* submit_with_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit_with_text.png; sourceTree = "<group>"; };
+		54045D51168255E700C57821 /* GEResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEResult.h; sourceTree = "<group>"; };
+		54045D52168255E700C57821 /* GEResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEResult.m; sourceTree = "<group>"; };
 		542B1F41167F924A004F4B89 /* GEStaff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEStaff.h; sourceTree = "<group>"; };
 		542B1F42167F924B004F4B89 /* GEStaff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEStaff.m; sourceTree = "<group>"; };
 		542B1F45167F9613004F4B89 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
@@ -234,8 +240,6 @@
 		9055BC601670845D0050E3A2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9055BC621670845D0050E3A2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9055BC651670845D0050E3A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		9055BC671670845D0050E3A2 /* GEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GEViewController.h; sourceTree = "<group>"; };
-		9055BC681670845D0050E3A2 /* GEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GEViewController.m; sourceTree = "<group>"; };
 		90613248168224E900D76DBE /* index.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index.png; sourceTree = "<group>"; };
 		9076FA34167CF1BC00A472E1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		90CA104F1672FF8600584DE9 /* music_staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_staff.png; sourceTree = "<group>"; };
@@ -378,8 +382,6 @@
 				9055BC5B1670845D0050E3A2 /* GEAppDelegate.h */,
 				9055BC5C1670845D0050E3A2 /* GEAppDelegate.m */,
 				9055BC641670845D0050E3A2 /* MainStoryboard.storyboard */,
-				9055BC671670845D0050E3A2 /* GEViewController.h */,
-				9055BC681670845D0050E3A2 /* GEViewController.m */,
 				90CA10511673009F00584DE9 /* GEComposeViewController.h */,
 				90CA10521673009F00584DE9 /* GEComposeViewController.m */,
 				54028AFD1673BB43003F997C /* GENote.h */,
@@ -392,6 +394,8 @@
 				542B1F4816801B43004F4B89 /* GECalculateHelper.m */,
 				90362DBC167604B400B65AAC /* GEDragToPlayView.h */,
 				90362DBD167604B400B65AAC /* GEDragToPlayView.m */,
+				54045D51168255E700C57821 /* GEResult.h */,
+				54045D52168255E700C57821 /* GEResult.m */,
 				9055BC531670845D0050E3A2 /* Supporting Files */,
 			);
 			path = gene;
@@ -416,6 +420,8 @@
 		90CA104C1672FF5C00584DE9 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				54045D4C1682540000C57821 /* play_with_text.png */,
+				54045D4D1682540000C57821 /* submit_with_text.png */,
 				54045D461682292600C57821 /* dash.png */,
 				54045D401682208700C57821 /* play_icon.png */,
 				54045D411682208700C57821 /* submit_icon.png */,
@@ -590,6 +596,8 @@
 				54045D471682292600C57821 /* dash.png in Resources */,
 				90613249168224E900D76DBE /* index.png in Resources */,
 				902FE21216822E70000783DB /* arrow.png in Resources */,
+				54045D4E1682540000C57821 /* play_with_text.png in Resources */,
+				54045D4F1682540000C57821 /* submit_with_text.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,12 +611,12 @@
 				0F8E39FB167ADDFA00F5FCD7 /* GESoundManager.m in Sources */,
 				9055BC591670845D0050E3A2 /* main.m in Sources */,
 				9055BC5D1670845D0050E3A2 /* GEAppDelegate.m in Sources */,
-				9055BC691670845D0050E3A2 /* GEViewController.m in Sources */,
 				90CA10531673009F00584DE9 /* GEComposeViewController.m in Sources */,
 				54028AFF1673BB43003F997C /* GENote.m in Sources */,
 				542B1F43167F924B004F4B89 /* GEStaff.m in Sources */,
 				542B1F4916801B43004F4B89 /* GECalculateHelper.m in Sources */,
 				90362DBE167604B400B65AAC /* GEDragToPlayView.m in Sources */,
+				54045D53168255E700C57821 /* GEResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
