@@ -47,8 +47,10 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
     
     NSMutableData *concatenatedData = [NSMutableData data];
     for (NSString *note in noteArray) {
+        NSLog(@"%@", note);
         NSString *noteFile = [[NSBundle mainBundle] pathForResource:note
                                                              ofType:@"mp3"];
+        NSLog(@"%@", noteFile);
         if (noteFile == nil) {
             NSLog(@"Can't locate note file");
             continue;
@@ -60,6 +62,7 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
         } else {
             NSLog(@"Error, no audio data in %@", note);
         }
+        NSLog(@"Audio data length: %u", [concatenatedData length]);
     }
     
     player = [[AVAudioPlayer alloc] initWithData:concatenatedData error:nil];

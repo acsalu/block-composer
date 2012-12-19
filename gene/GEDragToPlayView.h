@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GEDragToPlayView : UIView
+@interface GEDragToPlayView : UIView {
+//    UITouch *touch;
+}
 
 @property (nonatomic, strong) NSNumber *startX;
 @property (nonatomic, strong) NSNumber *endX;
