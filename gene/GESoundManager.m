@@ -7,6 +7,7 @@
 //
 
 #import "GESoundManager.h"
+#import "GENote.h"
 
 NSString * const GESoundMgrInstrumentPiano = @"Piano";
 NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
@@ -72,6 +73,23 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
 - (BOOL)verifyAnswer {
     
     return [self.userNoteArray isEqualToArray:self.answerNoteArray];
+}
+
+//pass in ans array should contain description and usrArray should contain
+//GENote.
++ (BOOL)verifyAnswerWithAnswerArray:(NSArray*)ans andUserArray:(NSArray*)usrArray{
+    
+    for (int i = 0; i < [ans count]; ++i) {
+        if (![[usrArray objectAtIndex:i] isKindOfClass:[GENote class]]) {
+            return NO;
+        }
+        if (![[ans objectAtIndex:i] isEqualToString:[(GENote*)[usrArray objectAtIndex:i] description]]) {
+            return NO;
+        }
+    }
+    
+    return YES;
+    
 }
 
 @end

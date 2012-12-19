@@ -61,15 +61,20 @@
     
     UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 658, 200, 100)];
     [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button.png"] forState:UIControlStateNormal];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_pressed.png"] forState:UIControlStateHighlighted];
     [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backToRoulette];
     
     UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(836, 605, 130, 160)];
     [submitButton setImage:[UIImage imageNamed:@"submit_with_text.png"] forState:UIControlStateNormal];
+    [submitButton setImage:[UIImage imageNamed:@"submit_with_text_pressed.png"] forState:UIControlStateHighlighted];
+    [submitButton addTarget:self action:@selector(submitAnswer:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitButton];
     
     UIButton *playButton = [[UIButton alloc]initWithFrame:CGRectMake(686, 605, 130, 160)];
     [playButton setImage:[UIImage imageNamed:@"play_with_text.png"] forState:UIControlStateNormal];
+    [playButton setImage:[UIImage imageNamed:@"play_with_text_pressed.png"] forState:UIControlStateHighlighted];
+    [playButton addTarget:self action:@selector(playTheQuiz) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playButton];
     
     //a block is 120 * 320 !!
@@ -507,7 +512,7 @@
 
 - (NSInteger)getNoteLengthWithTouch:(UITouch*)touch{
     
-    NSInteger tempDif = 6;
+    //NSInteger tempDif = 6;
     
     for (UIImageView *room in roomArray) {
         
@@ -551,32 +556,63 @@
 
 #pragma mark - button functions
 //check the NSArray "answer" and "notesOnStaff" by keys in "notesSequence"
-- (BOOL)submitAnswer:(id)sender{
+- (void)submitAnswer:(id)sender{
     
-    for (int i = 0; i < [answer count]; i++) {
-        NSString *key = NSStringFromCGPoint([[notesSequence objectAtIndex:i] CGPointValue]);
-        GENote *theNoteToBeComparedWithAnswer = [notesOnStaff objectForKey:key];
+    if ([GESoundManager verifyAnswerWithAnswerArray:answer andUserArray:[notesSequence copy]]) {
+        //present success VC!!
         
-        if ([(GENote*)[answer objectAtIndex:i]noteType] != [theNoteToBeComparedWithAnswer noteType] || [(GENote*)[answer objectAtIndex:i]noteLength] != [theNoteToBeComparedWithAnswer noteLength]) {
-            return NO;
-        }
+        
         
     }
+    else{
+        //add failed view.
+        UIButton *failGrayButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 1024, 768)];
+        [failGrayButton setBackgroundColor:[UIColor colorWithRed:90.0/255.0 green:95.0/255.0 blue:97.0/255.0 alpha:0.8]];
+        [failGrayButton addTarget:self action:@selector(removeFailedView:) forControlEvents:UIControlEventTouchUpInside];
+        [failGrayButton setAlpha:0];
+        [self.view addSubview:failGrayButton];
+        
+        UIImageView *failedImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 650, 650)];
+        [failedImage setImage:[UIImage imageNamed:@"failed_view.png"]];
+        [failedImage setCenter:failGrayButton.center];
+        [failGrayButton addSubview:failedImage];
+        
+        [UIView animateWithDuration:1.1 animations:^{
+            [failGrayButton setAlpha:1];
+        }];
+        
+    }
+}
+
+- (void)removeFailedView:(UIButton*)sender{
     
-    return YES;
+    /*
+    if ([[sender subviews]count]!=0) {
+        for (UIView *subview in [sender subviews]) {
+            [subview removeFromSuperview];
+        }
+    }
+    */
+    [UIView animateWithDuration:1.1 animations:^{
+        [sender setAlpha:0];
+    } completion:^(BOOL finished) {
+        [sender removeFromSuperview];
+    }];
+    
+    
     
 }
 
 - (void)backToRouletteView:(id)sender{
     
-    
+    [self dismissModalViewControllerAnimated:YES];
     
 }
 
 //play the 
 - (void)playTheQuiz{
     
-    
+    [[GESoundManager soleSoundManager]playSynthesizedNoteArray:answer instrument:@"Piano"];
     
 }
 

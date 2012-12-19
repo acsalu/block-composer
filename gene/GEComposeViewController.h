@@ -19,8 +19,6 @@
 
 @property (strong, nonatomic)NSMutableArray *allNotesArray;
 
-@property (weak, nonatomic) IBOutlet UILabel *touchPointLabel;
-@property (weak, nonatomic) IBOutlet UILabel *noteLabel;
 @property (strong, nonatomic) UIImageView *rouletteView;
 @property (strong, nonatomic) UIImageView *arrowView;
 
