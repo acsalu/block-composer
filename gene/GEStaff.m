@@ -9,6 +9,7 @@
 #import "GEStaff.h"
 #import "GECalculateHelper.h"
 #import "GEDragToPlayView.h"
+#import "QuartzCore/QuartzCore.h"
 
 // declare in GENote.h
 // const float trebleClefDistance = 80;
@@ -53,6 +54,11 @@
     
     notesOnStaff = [[NSMutableDictionary alloc]init];
     notesSequence = [[NSMutableArray alloc]init];
+    
+    UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 658, 200, 100)];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button"] forState:UIControlStateNormal];
+    [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backToRoulette];
     
     
 }
@@ -146,6 +152,14 @@
     NSLog(@"after check!");
     NSLog(@"noteSequence = %@",notesSequence);
     NSLog(@"noteOnStaff = %@",notesOnStaff);
+    
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDelegate:self];
+    [animation setDuration:2.0f];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [animation setType:@"rippleEffect" ];
+    [self.view.layer addAnimation:animation forKey:NULL];
     
     
 }
@@ -246,6 +260,7 @@
         CGPoint point1 = [[notesSequence objectAtIndex:i]CGPointValue];
         CGPoint point2 = [[notesSequence objectAtIndex:i+1]CGPointValue];
         float dist = [GECalculateHelper getDistanceBetweenTwoPoint:point1 andPoint:point2];
+        
         if ([GECalculateHelper isTheSameDistanceFor:dist andDistance:trebleClefDistance ByTolerating:15]) {
             
             //generate a GENote

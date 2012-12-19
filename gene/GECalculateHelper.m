@@ -76,6 +76,7 @@
     
     float xDist = (point1.x - point2.x);
     float yDist = (point1.y - point2.y);
+    NSLog(@"sqrt = %f",sqrt((xDist * xDist) + (yDist * yDist)) );
     return sqrt((xDist * xDist) + (yDist * yDist));
     
 }
