@@ -8,14 +8,16 @@
 
 #import "GEStaff.h"
 #import "GECalculateHelper.h"
+#import "GEDragToPlayView.h"
 
-const float trebleClefDistance = 80;
 
 @interface GEStaff ()
 
 @end
 
 @implementation GEStaff
+
+@synthesize answer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,7 +38,15 @@ const float trebleClefDistance = 80;
     [self.view addSubview:testLabel];
     
     [self.view setMultipleTouchEnabled:YES];
+    UIImageView *backGroundImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1024, 768)];
+    [backGroundImage setImage:[UIImage imageNamed:@"staff_back.png"]];
+    [self.view addSubview:backGroundImage];
+    
     [self drawStaffWithPoint:CGPointMake(15, 30)];
+    
+    GEDragToPlayView *drag = [[GEDragToPlayView alloc]initWithFrame:CGRectMake(10, 400, 950, 200)];
+    [self.view addSubview:drag];
+    
     
     NSLog(@"trebleClef = %@" ,TrebleClef);
     
@@ -59,13 +69,13 @@ const float trebleClefDistance = 80;
     for (int i = 7; i > 0; --i) {
         
         UIView *white = [[UIView alloc]initWithFrame:CGRectMake(x, y, width, whiteHeight)];
-        [white setBackgroundColor:[UIColor whiteColor]];
+        [white setBackgroundColor:[UIColor clearColor]];
         [white setTag:i*2];
         y += whiteHeight;
         
         UIImageView *line = [[UIImageView alloc]initWithFrame:CGRectMake(x, y, width, lineHeight)];
         if (i == 1 || i == 7) {
-            [line setBackgroundColor:[UIColor whiteColor]];
+            [line setBackgroundColor:[UIColor clearColor]];
         }
         else{
             [line setImage:[UIImage imageNamed:@"line.png"]];
@@ -277,6 +287,36 @@ const float trebleClefDistance = 80;
     
 }
 
+#pragma mark - button functions
+//check the NSArray "answer" and "notesOnStaff" by keys in "notesSequence"
+- (BOOL)submitAnswer:(id)sender{
+    
+    for (int i = 0; i < [answer count]; i++) {
+        NSString *key = NSStringFromCGPoint([[notesSequence objectAtIndex:i] CGPointValue]);
+        GENote *theNoteToBeComparedWithAnswer = [notesOnStaff objectForKey:key];
+        
+        if ([(GENote*)[answer objectAtIndex:i]noteType] != [theNoteToBeComparedWithAnswer noteType] || [(GENote*)[answer objectAtIndex:i]noteLength] != [theNoteToBeComparedWithAnswer noteLength]) {
+            return NO;
+        }
+        
+    }
+    
+    return YES;
+    
+}
+
+- (void)backToRouletteView:(id)sender{
+    
+    
+    
+}
+
+//play the 
+- (void)playTheQuiz{
+    
+    
+    
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
     

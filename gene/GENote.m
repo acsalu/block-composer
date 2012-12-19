@@ -10,7 +10,6 @@
 #import "GECalculateHelper.h"
 
 const float blockWidth = 110;
-const float trebleClefDistance = 80;
 const NSRange rangeEigthNote = {0,36};
 const NSRange rangeQuarterNote = {36,36};
 const NSRange rangeHalfNote = {72, 38};

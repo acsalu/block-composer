@@ -63,6 +63,7 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
 }
 
 - (BOOL)verifyAnswer {
+    
     return [self.userNoteArray isEqualToArray:self.answerNoteArray];
 }
 

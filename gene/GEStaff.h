@@ -18,8 +18,11 @@
     //save all the note's CGPoint on the Staff, sorted with point.x
     //treble Clef not included.
     NSMutableArray *notesSequence;
+    NSArray *answer;
     GENote *TrebleClef;
     
 }
+
+@property (strong, nonatomic)NSArray *answer;
 
 @end
