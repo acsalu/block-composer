@@ -11,6 +11,7 @@
 #import "GEDragToPlayView.h"
 #import "QuartzCore/QuartzCore.h"
 #import "GESoundManager.h"
+#import "SCWaveAnimationView.h"
 
 // declare in GENote.h
 // const float trebleClefDistance = 80;
@@ -197,6 +198,9 @@
         
         NSLog(@"noteType = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
         NSLog(@"noteLength = %d",[self getNoteLengthWithTouch:touch]);
+        
+        [SCWaveAnimationView waveAnimationAtPosition:[touch locationInView:self.view] forView:self.view];
+        
     }
     
     NSLog(@"notesSequence = %@",notesSequence);
