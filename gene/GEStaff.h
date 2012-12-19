@@ -34,7 +34,8 @@ enum room {
     NSArray *staffViewArray;
     
     GENote *TrebleClef;
-    NSMutableArray *tuneValue;
+    //save the tuned value.
+    //NSMutableArray *tuneValue;
     
     
 }

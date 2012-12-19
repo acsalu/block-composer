@@ -63,6 +63,9 @@
     [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backToRoulette];
     
+    UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(756, 665, 100, 100)];
+    [submitButton setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    
     //a block is 120 * 320 !!
     /*
     UIButton *testBUtton = [[UIButton alloc]initWithFrame:CGRectMake(10, 20, 120, 320)];
@@ -70,7 +73,7 @@
     [self.view addSubview:testBUtton];
     */
     
-    tuneValue = [[NSMutableArray alloc]init];
+    //tuneValue = [[NSMutableArray alloc]init];
     
     [self drawSevenRanges];
     
@@ -157,7 +160,7 @@
         [note setNoteLength:[self getNoteLengthWithTouch:touch]];
         [notesSequence replaceObjectAtIndex:[self getRoomNumberWithPoint:[touch locationInView:self.view]]-100 withObject:note];
         
-        
+        [[GESoundManager soleSoundManager]playSynthesizedNoteArray:[NSArray arrayWithObject:note.description] instrument:@"Piano"];
         
         NSLog(@"noteType = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
         NSLog(@"noteLength = %d",[self getNoteLengthWithTouch:touch]);
@@ -165,11 +168,13 @@
     
     NSLog(@"notesSequence = %@",notesSequence);
     
+    
+    /*
     if ([tuneValue count]>50) {
         NSLog(@"x mean = %f", [self meanOf:[tuneValue copy]].floatValue);
         NSLog(@"x std = %f", [self standardDeviationOf:[tuneValue copy]].floatValue);
     }
-    
+    */
     
 }
 
@@ -481,7 +486,8 @@
         if ( CGRectContainsPoint(room.frame, [touch locationInView:self.view])) {
             
             NSLog(@"location in roomView = %@",NSStringFromCGPoint([touch locationInView:room]));
-            [tuneValue addObject:[NSNumber numberWithInteger:[touch locationInView:room].x]];
+            
+            //[tuneValue addObject:[NSNumber numberWithInteger:[touch locationInView:room].x]];
             
             if([touch locationInView:room].x < 35.27){
                 

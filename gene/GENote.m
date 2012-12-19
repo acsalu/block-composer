@@ -166,7 +166,7 @@ const float trebleClefDistance = 147;
             break;
     }
 
-    [noteName stringByAppendingString:[NSString stringWithFormat:@"_%d", self.noteLength]];
+    noteName = [noteName stringByAppendingString:[NSString stringWithFormat:@"_%d", self.noteLength]];
     return noteName;
 }
 

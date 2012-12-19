@@ -164,4 +164,10 @@ typedef enum {
                      }];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    
+    return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+    
+}
+
 @end
