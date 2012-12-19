@@ -49,6 +49,10 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
     for (NSString *note in noteArray) {
         NSString *noteFile = [[NSBundle mainBundle] pathForResource:note
                                                              ofType:@"mp3"];
+        if (noteFile == nil) {
+            NSLog(@"Can't locate note file");
+            continue;
+        }
         NSURL *filePath = [NSURL fileURLWithPath:noteFile];
         NSData *audioData = [NSData dataWithContentsOfURL:filePath];
         if (audioData != nil) {
