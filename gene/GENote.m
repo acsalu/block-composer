@@ -11,11 +11,16 @@
 
 const float blockWidth = 110;
 const float trebleClefDistance = 80;
+const NSRange rangeEigthNote = {0,36};
+const NSRange rangeQuarterNote = {36,36};
+const NSRange rangeHalfNote = {72, 38};
+
 
 @implementation GENote
 @synthesize noteType,noteLength;
 @synthesize touchPoint,touchPoint2,TBCenterPoint;
 @synthesize orderInAllNotes;
+@synthesize isTrebleClef;
 
 + (NSArray*)getTrebleClefPointsWith:(NSMutableDictionary *)dic{
     
@@ -64,15 +69,25 @@ const float trebleClefDistance = 80;
     
     self.noteType = type;
     self.touchPoint = point;
+    self.isTrebleClef = NO;
     
     //用來取mod?找到大於零小餘一塊積木大小的值！！再去判斷是多長！！
-    float noteLengthRef = point.x - TBCenter.x;
+    //[self setNoteLengthWithRef:noteLengthRef];
+    [self updateNoteLengthWithTrebleClefCenter:TBCenter];
     
-    while (noteLengthRef > blockWidth) {
-        noteLengthRef -= blockWidth;
-    }
     
-    [self setNoteLengthWithRef:noteLengthRef];
+    return self;
+    
+}
+
+- (id)initTrebleClefWithTouchPoint:(CGPoint)point1 AndTouchPoint:(CGPoint)point2{
+    
+    touchPoint = point1;
+    touchPoint2 = point2;
+    self.isTrebleClef = YES;
+    
+    self.noteType = 0;
+    TBCenterPoint = CGPointMake((point1.x + point2.x)/2, (point1.y + point2.y)/2) ;
     
     return self;
     
@@ -82,18 +97,13 @@ const float trebleClefDistance = 80;
     
     self.noteType = type;
     self.touchPoint = point;
+    self.isTrebleClef = NO;
     
     return self;
     
 }
 
-//not done yet.
-- (void)setNoteLengthWithRef:(float)ref{
-    
-    NSLog(@"note length set!");
-    
-}
-
+/*
 - (BOOL)isTrebleClef{
     
     if (touchPoint2.x == 0 && touchPoint2.y == 0) {
@@ -101,6 +111,51 @@ const float trebleClefDistance = 80;
     }
     
     else return YES;
+    
+}
+ */
+
+- (void)updateTrebleClefPointWithPoint:(CGPoint)point{
+    
+    if ([GECalculateHelper getDistanceBetweenTwoPoint:touchPoint andPoint:point] > [GECalculateHelper getDistanceBetweenTwoPoint:touchPoint2 andPoint:point]) {
+        [self setTouchPoint2:point];
+    }
+    else
+        [self setTouchPoint:point];
+    
+    TBCenterPoint = CGPointMake( (touchPoint.x + touchPoint2.x)/2, (touchPoint.y + touchPoint2.y)/2);
+}
+
+//the const value of the range is defined in this .m's header.
+//check which range it is in, determines its note length
+/****2****|****4****|****8****/
+
+- (void)updateNoteLengthWithTrebleClefCenter:(CGPoint)TBCenter{
+    
+    NSUInteger distanceFromTB = abs(touchPoint.x - TBCenter.x);
+    
+    while (distanceFromTB > blockWidth) {
+        distanceFromTB -= blockWidth;
+    }
+    
+    if (NSLocationInRange(distanceFromTB, rangeHalfNote)) {
+        noteLength = halfNote;
+        return;
+    }
+    else if (NSLocationInRange(distanceFromTB, rangeQuarterNote)){
+        noteLength = quarterNote;
+        return;
+    }
+    else if (NSLocationInRange(distanceFromTB, rangeEigthNote)){
+        noteLength = eigthNote;
+        return;
+    }
+    
+}
+
+- (void)updateNoteType:(NoteType)type{
+    
+    self.noteType = type;
     
 }
 

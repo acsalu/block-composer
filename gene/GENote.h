@@ -39,12 +39,17 @@ typedef enum {
     
     eigthNote = 8,//八分音符
     quarterNote = 4,//四分音符
+    halfNote = 2,//二分音符
     wholeNote = 1,//全音符
     
 }NoteLength;
 
 
-@interface GENote : NSObject
+@interface GENote : NSObject{
+    
+    BOOL isTrebleClef;
+    
+}
 
 @property(nonatomic)CGPoint touchPoint;
 @property(nonatomic)CGPoint touchPoint2;
@@ -54,12 +59,21 @@ typedef enum {
 @property(nonatomic)NSInteger noteLength;
 @property(nonatomic)NSInteger orderInAllNotes;
 
+@property(nonatomic)BOOL isTrebleClef;
+
 - (void)initWithTouchPoint:(CGPoint)point AndNotesArray:(NSArray*)notesArray;
 
 
 + (NSArray*)getTrebleClefPointsWith:(NSMutableDictionary*)dic;
 - (id)initWithTouchPoint:(CGPoint)point NoteType:(NSInteger)type AndTrebleClefCenter:(CGPoint)TBCenter;
 - (id)initWithTouchPoint:(CGPoint)point NoteType:(NSInteger)type;
-- (BOOL)isTrebleClef;
+- (id)initTrebleClefWithTouchPoint:(CGPoint)point1 AndTouchPoint:(CGPoint)point2;
+
+//a function only should be called if the GENote is treble clef.
+//would determine which touchpoint(two of them) is closer and would update that one.
+- (void)updateTrebleClefPointWithPoint:(CGPoint)point;
+- (void)updateNoteType:(NoteType)type;
+- (void)updateNoteLengthWithTrebleClefCenter:(CGPoint)TBCenter;
+//- (BOOL)isTrebleClef;
 
 @end

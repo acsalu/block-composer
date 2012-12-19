@@ -9,6 +9,8 @@
 #import "GEStaff.h"
 #import "GECalculateHelper.h"
 
+const float trebleClefDistance = 80;
+
 @interface GEStaff ()
 
 @end
@@ -123,11 +125,16 @@
         
     }] mutableCopy];
     
-    /*
-    NSLog(@"start!");
+    NSLog(@"before check!");
     NSLog(@"noteSequence = %@",notesSequence);
     NSLog(@"noteOnStaff = %@",notesOnStaff);
-    */
+    
+    [self checkForTrebleClef];
+    
+    
+    NSLog(@"after check!");
+    NSLog(@"noteSequence = %@",notesSequence);
+    NSLog(@"noteOnStaff = %@",notesOnStaff);
     
     
 }
@@ -138,24 +145,65 @@
     for (UITouch *touch in touches) {
         //if there's someone moving, then we must had saved him in the the notesOnStaff so
         //finding the closest point should be a good solve.
+        //we will also keep Treble Clef's points in "notesOnStaff" so we can keep track of it.
         NSString *key = [GECalculateHelper getClosestPointKey:[touch previousLocationInView:self.view] In:notesOnStaff];
         GENote *tempNote = [notesOnStaff objectForKey:key];
-        [tempNote setTouchPoint:[touch locationInView:self.view]];
-        [notesOnStaff setValue:tempNote forKey:NSStringFromCGPoint([touch locationInView:self.view])];
-        [notesOnStaff removeObjectForKey:key];
-        NSValue *tempObj = [NSValue valueWithCGPoint:[GECalculateHelper getCGPointValueWithString:key]];
-        NSValue *newObj = [NSValue valueWithCGPoint:[touch locationInView:self.view]];
-        [notesSequence replaceObjectAtIndex:[notesSequence indexOfObject:tempObj] withObject:newObj];
+        
+        if ([tempNote isTrebleClef]) {
+            //if the one moved is treble clef.
+            //update every notes' length.
+            //update its value in self, in dic
+            [tempNote setTouchPoint:[touch locationInView:self.view]];
+            [notesOnStaff setValue:tempNote forKey:NSStringFromCGPoint([touch locationInView:self.view])];
+            [notesOnStaff removeObjectForKey:key];
+            
+            [TrebleClef updateTrebleClefPointWithPoint:[touch locationInView:self.view]];
+            [self updateNotesLengthWithPoint:TrebleClef.TBCenterPoint];
+            
+        }
+        else{
+            //when a note is moved, we update its instance Var "touchPoint", "noteType", "noteLength"
+            [tempNote setTouchPoint:[touch locationInView:self.view]];
+            [tempNote updateNoteType:[self getTouchedViewNoteTypeWithTouch:touch]];
+            if (TrebleClef) {
+                [tempNote updateNoteLengthWithTrebleClefCenter:TrebleClef.TBCenterPoint];
+            }
+            
+            [notesOnStaff setValue:tempNote forKey:NSStringFromCGPoint([touch locationInView:self.view])];
+            [notesOnStaff removeObjectForKey:key];
+            NSValue *tempObj = [NSValue valueWithCGPoint:[GECalculateHelper getCGPointValueWithString:key]];
+            NSValue *newObj = [NSValue valueWithCGPoint:[touch locationInView:self.view]];
+            [notesSequence replaceObjectAtIndex:[notesSequence indexOfObject:tempObj] withObject:newObj];
+            
+            
+        }
         
     }
     
-    /*
+    
     NSLog(@"moved!");
     NSLog(@"noteSequence = %@",notesSequence);
     NSLog(@"noteOnStaff = %@",notesOnStaff);
-     */
+     
     
 }
+
+- (void)updateNotesLengthWithPoint:(CGPoint)TBCenter{
+    
+    for (id key in notesOnStaff) {
+        GENote *note = [notesOnStaff objectForKey:key];
+        if ([note isTrebleClef]) {
+            //do nothing
+        }
+        else{
+            [note updateNoteLengthWithTrebleClefCenter:TBCenter];
+            [notesOnStaff setValue:note forKey:key];
+        }
+    }
+
+}
+
+
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
@@ -167,20 +215,55 @@
         
     }
     
-    /*
+    
     NSLog(@"End!!");
     NSLog(@"noteSequence = %@",notesSequence);
     NSLog(@"noteOnStaff = %@",notesOnStaff);
-     */
+     
 
 }
 
 //check for treble clef in notesOnStaff, if yes, remove the two points!!
 - (void)checkForTrebleClef{
     
+    if ([notesSequence count] <= 1) {
+        return;
+    }
     
+    for (int i = 0; i < [notesSequence count]-1; ++i) {
+        
+        CGPoint point1 = [[notesSequence objectAtIndex:i]CGPointValue];
+        CGPoint point2 = [[notesSequence objectAtIndex:i+1]CGPointValue];
+        float dist = [GECalculateHelper getDistanceBetweenTwoPoint:point1 andPoint:point2];
+        if ([GECalculateHelper isTheSameDistanceFor:dist andDistance:trebleClefDistance ByTolerating:15]) {
+            
+            //generate a GENote
+            //remove both points from array, and set the GENote's member "isTrebleClef" to YES
+            NSLog(@"treble clef generated");
+            TrebleClef = [[GENote alloc]initTrebleClefWithTouchPoint:point1 AndTouchPoint:point2];
+            
+            [notesSequence removeObject:[notesSequence objectAtIndex:i+1]];
+            [notesSequence removeObject:[notesSequence objectAtIndex:i]];
+            
+            //[notesOnStaff removeObjectForKey:NSStringFromCGPoint(point1)];
+            //[notesOnStaff removeObjectForKey:NSStringFromCGPoint(point2)];
+            GENote *note1 = [notesOnStaff objectForKey:NSStringFromCGPoint(point1)];
+            GENote *note2 = [notesOnStaff objectForKey:NSStringFromCGPoint(point2)];
+            [note1 setIsTrebleClef:YES];
+            [note2 setIsTrebleClef:YES];
+            [notesOnStaff setObject:note1 forKey:NSStringFromCGPoint(point1)];
+            [notesOnStaff setObject:note2 forKey:NSStringFromCGPoint(point2)];
+            
+            //[notesOnStaff setValue:TrebleClef forKey:NSStringFromCGPoint(point1)];
+            //[notesOnStaff setValue:TrebleClef forKey:NSStringFromCGPoint(point2)];
+            
+            return;
+        }
+        
+    }
     
 }
+
 
 - (NSInteger)getTouchedViewNoteTypeWithTouch:(UITouch*)touch{
     
