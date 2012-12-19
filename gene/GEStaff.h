@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GENote.h"
+#import "GEDragToPlayView.h"
 
 enum room {
     Room1 = 100,
@@ -36,8 +37,6 @@ enum room {
     GENote *TrebleClef;
     //save the tuned value.
     //NSMutableArray *tuneValue;
-    
-    
 }
 
 @property (strong, nonatomic)NSArray *answer;

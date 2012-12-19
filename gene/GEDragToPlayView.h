@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GEDragToPlayView : UIView {
-//    UITouch *touch;
-}
+@interface GEDragToPlayView : UIView 
+
+@property (nonatomic, assign) id delegate;
+@property (nonatomic, assign) NSMutableArray *notesSequence;
 
 @property (nonatomic, strong) NSNumber *startX;
 @property (nonatomic, strong) NSNumber *endX;
