@@ -66,7 +66,7 @@ typedef enum {
 {
     self.rouletteView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"roulette.png"]];
     CGRect frame = self.rouletteView.frame;
-    self.rouletteView.frame = CGRectMake(202, 100, frame.size.width, frame.size.width);
+    self.rouletteView.frame = CGRectMake(160, 80, frame.size.width, frame.size.width);
     self.rouletteView.layer.shadowColor = [UIColor purpleColor].CGColor;
     self.rouletteView.layer.shadowOffset = CGSizeMake(1, 1);
     self.rouletteView.layer.shadowOpacity = 1;
@@ -90,6 +90,9 @@ typedef enum {
 
 - (void)rotateWithOptions:(UIViewAnimationOptions)options
 {
+    
+    static int count = 1;
+    NSLog(@"count %d", count++);
     float duration = 0.1f;
     if (self.rotateCount >= self.rotateNum - 6) duration = 0.12f;
     if (self.rotateCount >= self.rotateNum - 4) duration = 0.14f;
@@ -111,7 +114,7 @@ typedef enum {
                                  // one last spin, with deceleration
                                  [self rotateWithOptions: UIViewAnimationOptionCurveEaseOut];
                              } else {
-                                 [self stopRotate];
+                                 [self performSelector:@selector(stopRotate) withObject:nil afterDelay:1.0];
                              }
                          }
                      }];
@@ -123,8 +126,9 @@ typedef enum {
     NSLog(@"Swipe down gesture detected!");
     self.isRotating = YES;
     self.rotateCount = 0;
-    self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
-    self.songChosen = (NSDictionary *) self.songs[self.rotateNum % self.songs.count];
+    //self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
+    self.rotateNum = 5;
+    self.songChosen = (NSDictionary *) self.songs[(self.rotateNum)% self.songs.count];
     NSLog(@"rotateNum = %d", self.rotateNum);
     NSLog(@"songChosen = %@", [self.songChosen objectForKey:@"name"]);
     [self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
@@ -137,9 +141,9 @@ typedef enum {
                           delay:1.0f
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         self.rouletteView.alpha = 0.0;
+                         //self.rouletteView.alpha = 0.0f;
                      } completion:^(BOOL finished) {
-                         [self.rouletteView removeFromSuperview];
+                         //[self.rouletteView removeFromSuperview];
                          [self.view removeGestureRecognizer:self.onSwipeDown];
                          GEStaff *staffViewController = [[GEStaff alloc] init];
                          staffViewController.view.alpha = 0.2f;
