@@ -8,9 +8,9 @@
 
 #import "GEStaff.h"
 #import "GECalculateHelper.h"
-#import "GEDragToPlayView.h"
 #import "QuartzCore/QuartzCore.h"
 #import "GESoundManager.h"
+#import "SCWaveAnimationView.h"
 
 // declare in GENote.h
 // const float trebleClefDistance = 80;
@@ -49,15 +49,16 @@
     //also draw fake Treble Clef
     [self drawStaffWithPoint:CGPointMake(15, 30)];
     
-    GEDragToPlayView *drag = [[GEDragToPlayView alloc]initWithFrame:CGRectMake(10, 525, 950, 200)];
-    [self.view addSubview:drag];
-    
     notesOnStaff = [[NSMutableDictionary alloc]init];
     notesSequence = [[NSMutableArray alloc]init];
     
     for (int i = 0; i < 7; i++) {
         [notesSequence addObject:[NSNull null]];
     }
+    GEDragToPlayView *drag = [[GEDragToPlayView alloc]initWithFrame:CGRectMake(10, 525, 950, 200)];
+    
+    drag.notesSequence = notesSequence;
+    [self.view addSubview:drag];
     
     UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 658, 200, 100)];
     [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button.png"] forState:UIControlStateNormal];
@@ -197,6 +198,9 @@
         
         NSLog(@"noteType = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
         NSLog(@"noteLength = %d",[self getNoteLengthWithTouch:touch]);
+        
+        [SCWaveAnimationView waveAnimationAtPosition:[touch locationInView:self.view] forView:self.view];
+        
     }
     
     NSLog(@"notesSequence = %@",notesSequence);
