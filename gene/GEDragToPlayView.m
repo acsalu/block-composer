@@ -42,6 +42,7 @@
     self.startX = @(point.x);
     [self.arrowView removeFromSuperview];
     
+    self.arrowView = [[UIView alloc] initWithFrame:CGRectMake([self.startX doubleValue], 50, 1, 20)];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -50,23 +51,30 @@
     CGPoint point = [touch locationInView:self];
     NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
     self.endX = @(point.x);
-    if (self.startX <= self.endX) {
-        [self.arrowView removeFromSuperview];
-        self.arrowView = [[UIView alloc] initWithFrame:CGRectMake([self.startX doubleValue], 50, [self.endX doubleValue] - [self.startX doubleValue], 20)];
+    if ([self.startX doubleValue] <= [self.endX doubleValue]) {
+        NSLog(@"start: %@ ; end: %@ ; %d", self.startX, self.endX, self.startX <= self.endX);
+        [self.arrowView setFrame:CGRectMake([self.startX doubleValue], 50, [self.endX doubleValue] - [self.startX doubleValue], 20)];
         self.arrowView.backgroundColor = [UIColor orangeColor];
-        
         [self addSubview:self.arrowView];
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if ([self.startX doubleValue] > [self.endX doubleValue]) {
+        return;
+    }
+    
     UITouch *touch = (UITouch *) [touches anyObject];
     CGPoint point = [touch locationInView:self];
     NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
     self.endX = @(point.x);
     NSLog(@"from %.2f to %.2f", [self.startX doubleValue], [self.endX doubleValue]);
-    //[[GESoundManager soleSoundManager] playSynthesizedNoteArray:@[@"C1_4", @"D1_8", @"C1_2"] instrument:@"Piano"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"songs" ofType:@"plist"];
+    NSArray *songs = [NSArray arrayWithContentsOfFile:path];
+    NSLog(@"melody: %@", songs[0][@"melody"]);
+//    [[GESoundManager soleSoundManager] playSynthesizedNoteArray:@[@"C1_2", @"D1_2"]
+//                                                    instrument:@"Piano"];
     [UIView animateWithDuration:1 animations:^{
         self.arrowView.alpha = 0;
     } completion:^(BOOL finished) {

@@ -16,26 +16,17 @@
 extern const float trebleClefDistance;
 
 typedef enum {
+    //
+    TrebleClef,
+    // 中央C
+    Do, Re, Mi, Fa, So, La, Si,
+    // octave 高八度
+    DoOctave, ReOctave, MiOctave, FaOctave, SoOctave, LaOctave, SiOctave,
+    // preoctave 低八度
+    DoPreoctave, RePreoctave, MiPreoctave, FaPreoctave, SoPreoctave, LaPreoctave, SiPreoctave,
+    Rest = 99
     
-    Do = 1 ,
-    Re = 2,
-    Mi = 3,
-    Fa = 4,
-    So = 5,
-    La = 6,
-    Si = 7,
-    //octave 高八度
-    DoOctave = 8,
-    ReOctave = 9,
-    MiOctave = 10,
-    FaOctave = 11,
-    SoOctave = 12,
-    LaOctave = 13,
-    SiOctave = 14,
-    Rest = 99,
-    TrebleClef = 0
-    
-}NoteType;
+} NoteType;
 
 typedef enum {
     

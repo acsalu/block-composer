@@ -42,6 +42,7 @@ const float trebleClefDistance = 147;
 
 
 
+
 - (id)initWithTouchPoint:(CGPoint)point NoteType:(NSInteger)type AndTrebleClefCenter:(CGPoint)TBCenter{
     
     self.noteType = type;
@@ -134,6 +135,39 @@ const float trebleClefDistance = 147;
     
     self.noteType = type;
     
+}
+
+- (NSString *)description
+{
+    NSString *noteName = @"";
+    switch (self.noteType) {
+        case DoPreoctave: noteName = @"C1"; break;
+        case RePreoctave: noteName = @"D1"; break;
+        case MiPreoctave: noteName = @"E1"; break;
+        case FaPreoctave: noteName = @"F1"; break;
+        case SoPreoctave: noteName = @"G1"; break;
+        case LaPreoctave: noteName = @"A1"; break;
+        case SiPreoctave: noteName = @"B1"; break;
+            
+        case Do: noteName = @"C2"; break;
+        case Re: noteName = @"D2"; break;
+        case Mi: noteName = @"E2"; break;
+        case Fa: noteName = @"F2"; break;
+        case So: noteName = @"G2"; break;
+        case La: noteName = @"A2"; break;
+        case Si: noteName = @"B2"; break;
+            
+        case DoOctave: noteName = @"C3"; break;
+        case ReOctave: noteName = @"D3"; break;
+        case MiOctave: noteName = @"E3"; break;
+        case FaOctave: noteName = @"F3"; break;
+            
+        default:
+            break;
+    }
+
+    [noteName stringByAppendingString:[NSString stringWithFormat:@"_%d", self.noteLength]];
+    return noteName;
 }
 
 @end
