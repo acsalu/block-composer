@@ -15,7 +15,6 @@
 + (BOOL)isNotFarConsideringOneCoordinateWithPoint:(CGPoint)point1 andPoint:(CGPoint)point2 ByTolerating:(NSInteger)tolerableError;
 + (NSString*)getClosestPointKey:(CGPoint)point In:(NSMutableDictionary*)dic;
 
-
 + (CGPoint)getCGPointValueWithString:(NSString*)string;
 + (float)getDistanceBetweenTwoPoint:(CGPoint)point1 andPoint:(CGPoint)point2;
 

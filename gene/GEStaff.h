@@ -12,7 +12,11 @@
 @interface GEStaff : UIViewController{
     
     UILabel *testLabel;
+    //save all the note's CGPointString -> GENote
+    //including treble Clef.
     NSMutableDictionary *notesOnStaff;
+    //save all the note's CGPoint on the Staff, sorted with point.x
+    //treble Clef not included.
     NSMutableArray *notesSequence;
     GENote *TrebleClef;
     
