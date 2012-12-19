@@ -7,6 +7,7 @@
 //
 
 #import "GEComposeViewController.h"
+#import "GEStaff.h"
 
 typedef enum {
     GEGameStateChoose = 0,
@@ -64,32 +65,11 @@ typedef enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBarHidden = YES;
     self.onSwipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(startRotate)];
     self.onSwipeDown.direction = UISwipeGestureRecognizerDirectionDown;
-    [self.view addGestureRecognizer:self.onSwipeDown];
-    
-    
-	// Do any additional setup after loading the view.
-
-    
-    UIButton *redirect = [[UIButton alloc]
-                          initWithFrame:CGRectMake(10, 10, 100, 100)];
-
-    [redirect setBackgroundColor:[UIColor redColor]];
-
-
-
-    switch (self.state) {
-        case GEGameStateChoose:
-            [self showChooseView];
-            break;
-        case GEGameStatePlay:
-            break;
-        default:
-            break;
-    }
-    
+    [self.backgroundView addGestureRecognizer:self.onSwipeDown];
+    [self showChooseView];
 }
 
 - (void)openStaff{
@@ -102,45 +82,6 @@ typedef enum {
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-# pragma - mark Touch Event Handlers
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = (UITouch *) [touches anyObject];
-    CGPoint point = [touch locationInView:self.view];
-    self.touchPointLabel.text = [NSString stringWithFormat:@"(%.1f, %.1f)", point.x, point.y];
-
-    NSString *note = @"";
-    if (point.y > 226 - 13.5 && point.y < 226 + 13.5) {
-        note = @"FA";
-    } else if (point.y > 226 + 13.5 && point.y < 280 - 13.5) {
-        note = @"MI";
-    } else if (point.y > 280 - 13.5 && point.y < 280 + 13.5) {
-        note = @"RE";
-    } else if (point.y > 280 + 13.5 && point.y < 334 - 13.5) {
-        note = @"DO";
-    } else if (point.y > 334 - 13.5 && point.y > 334 + 13.5) {
-        note = @"SI";   
-    }
-    self.noteLabel.text = [@"Play " stringByAppendingString:note];
-    
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
-    UITouch *touch = (UITouch *) [touches anyObject];
-    CGPoint point = [touch locationInView:self.view];
-    self.touchPointLabel.text = [NSString stringWithFormat:@"(%.1f, %.1f)", point.x, point.y];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = (UITouch *) [touches anyObject];
-    CGPoint point = [touch locationInView:self.view];
-    self.touchPointLabel.text = [NSString stringWithFormat:@"(%.1f, %.1f)", point.x, point.y];
 }
 
 # pragma mark -
@@ -157,7 +98,7 @@ typedef enum {
 
 - (void)rotateWithOptions:(UIViewAnimationOptions)options
 {
-    float duration = (options == UIViewAnimationOptionCurveEaseOut) ? 0.3f : 0.1f;
+    float duration = (options == UIViewAnimationOptionCurveEaseOut) ? 0.5f : 0.1f;
     [UIView animateWithDuration:duration
                           delay:0.0f
                         options:options
@@ -204,8 +145,25 @@ typedef enum {
                      } completion:^(BOOL finished) {
                          [self.rouletteView removeFromSuperview];
                          [self.view removeGestureRecognizer:self.onSwipeDown];
+                         GEStaff *staffViewController = [[GEStaff alloc] init];
+                         staffViewController.view.alpha = 0.2f;
+                         staffViewController.answer = @[];
+//                         UIViewAnimationTransition trans = UIViewAnimationTransitionCurlUp;
+//                         [UIView beginAnimations: nil context: nil];
+//                         [UIView setAnimationTransition: trans forView:self.view.window cache: YES];
+//                         [self.navigationController presentModalViewController:staffViewController animated: NO];
+//                         [UIView commitAnimations];
+                         
+                         [self.navigationController presentModalViewController:staffViewController animated:NO];
+                         [UIView beginAnimations:nil context:nil];
+                         staffViewController.view.alpha = 1.0f;
+                         [UIView commitAnimations];
                      }];
 }
 
 
+- (void)viewDidUnload {
+    [self setBackgroundView:nil];
+    [super viewDidUnload];
+}
 @end

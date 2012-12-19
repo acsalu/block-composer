@@ -13,6 +13,10 @@
 
 //an array used to save all the notes on iPad
 //its content should be GENote.
+
+
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
+
 @property (strong, nonatomic)NSMutableArray *allNotesArray;
 
 @property (weak, nonatomic) IBOutlet UILabel *touchPointLabel;
