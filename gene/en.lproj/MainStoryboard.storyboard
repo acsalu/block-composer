@@ -45,7 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="staff_back.png" width="16" height="16"/>
+        <image name="staff_back.png" width="1024" height="768"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>

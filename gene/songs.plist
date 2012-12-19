@@ -43,14 +43,47 @@
 	<dict>
 		<key>name</key>
 		<string>哥哥爸爸真偉大</string>
+		<key>melody</key>
+		<array>
+			<string>C3_4</string>
+			<string>C3_4</string>
+			<string>G2_4</string>
+			<string>G2_4</string>
+			<string>A2_4</string>
+			<string>A2_4</string>
+			<string>G2_2</string>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>天黑黑</string>
+		<key>melody</key>
+		<array>
+			<string>E3_8</string>
+			<string>D3_8</string>
+			<string>E3_4</string>
+			<string>E3_8</string>
+			<string>A2_8</string>
+			<string>C3_4</string>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>造飛機</string>
+		<key>melody</key>
+		<array>
+			<string>G2_4</string>
+			<string>E2_8</string>
+			<string>F2_8</string>
+			<string>G2_4</string>
+			<string>E2_8</string>
+			<string>F2_8</string>
+			<string>G2_8</string>
+			<string>G2_8</string>
+			<string>A2_8</string>
+			<string>A2_8</string>
+			<string>G2_8</string>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
