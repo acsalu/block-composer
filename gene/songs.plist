@@ -36,5 +36,39 @@
 			<string>G2_2</string>
 		</array>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>我有一隻小毛驢</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>哥哥爸爸真偉大</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>天黑黑</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>造飛機</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>瑪麗有隻小綿羊</string>
+		<key>melody</key>
+		<array>
+			<string>E2_4</string>
+			<string>D2_4</string>
+			<string>C2_4</string>
+			<string>D2_4</string>
+			<string>E2_4</string>
+			<string>E2_4</string>
+			<string>E2_2</string>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>捉泥鰍</string>
+	</dict>
 </array>
 </plist>

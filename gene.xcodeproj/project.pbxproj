@@ -107,9 +107,9 @@
 		900C908916805D2800FCF207 /* songs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 900C908816805D2800FCF207 /* songs.plist */; };
 		900C908F1680940300FCF207 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C908E1680940300FCF207 /* Icon-72@2x.png */; };
 		900C90911680942200FCF207 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C90901680942200FCF207 /* Icon-72.png */; };
-		900C9093168095A900FCF207 /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C9092168095A900FCF207 /* roulette.png */; };
 		900C90991680AC7900FCF207 /* stick.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C90981680AC7900FCF207 /* stick.png */; };
 		902FE21216822E70000783DB /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 902FE21116822E70000783DB /* arrow.png */; };
+		902FE2201682666E000783DB /* roulette.png in Resources */ = {isa = PBXBuildFile; fileRef = 902FE21F1682666E000783DB /* roulette.png */; };
 		90362DBE167604B400B65AAC /* GEDragToPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90362DBD167604B400B65AAC /* GEDragToPlayView.m */; };
 		9055BC4D1670845D0050E3A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4C1670845D0050E3A2 /* UIKit.framework */; };
 		9055BC4F1670845D0050E3A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9055BC4E1670845D0050E3A2 /* Foundation.framework */; };
@@ -235,9 +235,9 @@
 		900C908816805D2800FCF207 /* songs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = songs.plist; path = ../../gene/gene/songs.plist; sourceTree = "<group>"; };
 		900C908E1680940300FCF207 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
 		900C90901680942200FCF207 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
-		900C9092168095A900FCF207 /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette.png; sourceTree = "<group>"; };
 		900C90981680AC7900FCF207 /* stick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stick.png; sourceTree = "<group>"; };
 		902FE21116822E70000783DB /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		902FE21F1682666E000783DB /* roulette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roulette.png; sourceTree = "<group>"; };
 		90362DBC167604B400B65AAC /* GEDragToPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEDragToPlayView.h; sourceTree = "<group>"; };
 		90362DBD167604B400B65AAC /* GEDragToPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEDragToPlayView.m; sourceTree = "<group>"; };
 		9055BC481670845D0050E3A2 /* 積音.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "積音.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -463,7 +463,7 @@
 				542B1F45167F9613004F4B89 /* line.png */,
 				90CA104F1672FF8600584DE9 /* music_staff.png */,
 				900C90981680AC7900FCF207 /* stick.png */,
-				900C9092168095A900FCF207 /* roulette.png */,
+				902FE21F1682666E000783DB /* roulette.png */,
 			);
 			name = img;
 			sourceTree = "<group>";
@@ -616,7 +616,6 @@
 				900C908916805D2800FCF207 /* songs.plist in Resources */,
 				900C908F1680940300FCF207 /* Icon-72@2x.png in Resources */,
 				900C90911680942200FCF207 /* Icon-72.png in Resources */,
-				900C9093168095A900FCF207 /* roulette.png in Resources */,
 				900C90991680AC7900FCF207 /* stick.png in Resources */,
 				54045D311681AFB300C57821 /* staff_back.png in Resources */,
 				54045D3D1681F7BB00C57821 /* back_button.png in Resources */,
@@ -626,6 +625,7 @@
 				54045D471682292600C57821 /* dash.png in Resources */,
 				90613249168224E900D76DBE /* index.png in Resources */,
 				902FE21216822E70000783DB /* arrow.png in Resources */,
+				902FE2201682666E000783DB /* roulette.png in Resources */,
 				54045D4E1682540000C57821 /* play_with_text.png in Resources */,
 				54045D4F1682540000C57821 /* submit_with_text.png in Resources */,
 				54045D581682647800C57821 /* failed_view.png in Resources */,

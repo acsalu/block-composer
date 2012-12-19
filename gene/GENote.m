@@ -162,6 +162,7 @@ const float trebleClefDistance = 147;
         case MiOctave: noteName = @"E3"; break;
         case FaOctave: noteName = @"F3"; break;
             
+        case Rest: noteName = @"rest"; break;
         default:
             break;
     }
