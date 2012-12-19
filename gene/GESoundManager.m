@@ -11,6 +11,12 @@
 NSString * const GESoundMgrInstrumentPiano = @"Piano";
 NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
 
+@interface GESoundManager ()
+
+@property (nonatomic, strong) NSArray *answerNoteArray;
+
+@end
+
 @implementation GESoundManager
 
 # pragma mark -
@@ -56,6 +62,8 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
     [player play];
 }
 
-
+- (BOOL)verifyAnswer {
+    return [self.userNoteArray isEqualToArray:self.answerNoteArray];
+}
 
 @end

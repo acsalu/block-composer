@@ -17,11 +17,12 @@ extern NSString * const GESoundMgrInstrunmentGuitar;
     AVAudioPlayer *player;
 }
 
-@property (nonatomic, strong) NSArray *answerNoteArray;
 @property (nonatomic, strong) NSMutableArray *userNoteArray;
 
 + (GESoundManager *)soleSoundManager;
 
 - (void)playSynthesizedNoteArray:(NSArray *)noteArray instrument:(NSString *)instrument;
+
+- (BOOL)verifyAnswer;
 
 @end
