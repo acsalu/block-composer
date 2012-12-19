@@ -20,6 +20,7 @@ extern NSString * const GESoundMgrInstrunmentGuitar;
 @property (nonatomic, strong) NSMutableArray *userNoteArray;
 
 + (GESoundManager *)soleSoundManager;
++ (BOOL)verifyAnswerWithAnswerArray:(NSArray*)ans andUserArray:(NSArray*)usrArray;
 
 - (void)playSynthesizedNoteArray:(NSArray *)noteArray instrument:(NSString *)instrument;
 
