@@ -10,7 +10,8 @@
 #import "GECalculateHelper.h"
 #import "GEDragToPlayView.h"
 
-
+// declare in GENote.h
+// const float trebleClefDistance = 80;
 @interface GEStaff ()
 
 @end
