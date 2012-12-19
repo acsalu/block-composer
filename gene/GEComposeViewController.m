@@ -98,7 +98,7 @@ typedef enum {
     if (self.rotateCount >= self.rotateNum - 4) duration = 0.14f;
     if (self.rotateCount >= self.rotateNum - 2) duration = 0.16f;
     if (self.rotateCount == self.rotateNum - 1) duration = 0.2f;
-    [UIView animateWithDuration:duration
+    [UIView animateWithDuration:3.0f
                           delay:0.0f
                         options:options
                      animations:^{
@@ -107,6 +107,7 @@ typedef enum {
                          if (finished) {
                              if (self.isRotating) {
                                  // if flag still set, keep spinning with constant speed
+                                 NSLog(@"rotateCount %d", self.rotateCount);
                                  if (self.rotateCount++ == self.rotateNum) self.isRotating = NO;
                                  [self rotateWithOptions: UIViewAnimationOptionCurveLinear];
                              }
@@ -127,7 +128,7 @@ typedef enum {
     self.isRotating = YES;
     self.rotateCount = 0;
     //self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
-    self.rotateNum = 5;
+    self.rotateNum = 2;
     self.songChosen = (NSDictionary *) self.songs[(self.rotateNum)% self.songs.count];
     NSLog(@"rotateNum = %d", self.rotateNum);
     NSLog(@"songChosen = %@", [self.songChosen objectForKey:@"name"]);
@@ -144,7 +145,7 @@ typedef enum {
                          //self.rouletteView.alpha = 0.0f;
                      } completion:^(BOOL finished) {
                          //[self.rouletteView removeFromSuperview];
-                         [self.view removeGestureRecognizer:self.onSwipeDown];
+                         //[self.view removeGestureRecognizer:self.onSwipeDown];
                          GEStaff *staffViewController = [[GEStaff alloc] init];
                          staffViewController.view.alpha = 0.2f;
                          staffViewController.answer = self.songChosen[@"melody"];
