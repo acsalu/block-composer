@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern const float trebleClefDistance = 80;
+extern const float trebleClefDistance;
 
 typedef enum {
     
