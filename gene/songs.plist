@@ -39,6 +39,16 @@
 	<dict>
 		<key>name</key>
 		<string>我有一隻小毛驢</string>
+		<key>melody</key>
+		<array>
+			<string>C2_4</string>
+			<string>C2_4</string>
+			<string>C2_4</string>
+			<string>E2_4</string>
+			<string>G2_4</string>
+			<string>G2_4</string>
+			<string>G2_4</string>
+		</array>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -69,6 +79,15 @@
 	<dict>
 		<key>name</key>
 		<string>捉泥鰍</string>
+		<key>melody</key>
+		<array>
+			<string>A2_4</string>
+			<string>A2_4</string>
+			<string>G2_4</string>
+			<string>A2_4</string>
+			<string>G2_4</string>
+			<string>E2_4</string>
+		</array>
 	</dict>
 </array>
 </plist>
