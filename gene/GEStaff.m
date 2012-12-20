@@ -22,7 +22,7 @@
 
 @synthesize answer;
 @synthesize notesSequence;
-@synthesize songChosen;
+@synthesize songName;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,7 +56,7 @@
     for (int i = 0; i < 7; i++) {
         [notesSequence addObject:[NSNull null]];
     }
-    GEDragToPlayView *drag = [[GEDragToPlayView alloc]initWithFrame:CGRectMake(10, 525, 950, 200)];
+    GEDragToPlayView *drag = [[GEDragToPlayView alloc]initWithFrame:CGRectMake(10, 510, 950, 200)];
     
     drag.notesSequence = notesSequence;
     [self.view addSubview:drag];
@@ -79,13 +79,16 @@
     [playButton addTarget:self action:@selector(playTheQuiz) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playButton];
     
-    UILabel *songNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(350, 605, 280, 160)];
-    [songNameLabel setText:songChosen];
-    NSLog(@"song Chosen = %@",songChosen);
+    songNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(320, 605, 310, 160)];
+    [songNameLabel setText:self.songName];
+    NSLog(@"song Chosen = %@",self.songName);
     
-    [songNameLabel setFont:[UIFont systemFontOfSize:20]];
+    [songNameLabel setFont:[UIFont systemFontOfSize:40]];
     [songNameLabel setTextColor:[UIColor blackColor]];
     [songNameLabel setBackgroundColor:[UIColor clearColor]];
+    [songNameLabel setTextAlignment:NSTextAlignmentCenter];
+    [songNameLabel.layer setBorderColor:[UIColor blackColor].CGColor];
+    [songNameLabel.layer setBorderWidth:5];
     [self.view addSubview:songNameLabel];
     
     //a block is 120 * 320 !!
@@ -98,6 +101,12 @@
     //tuneValue = [[NSMutableArray alloc]init];
     
     [self drawSevenRanges];
+    
+}
+
+- (void) setSongNameLabelWithText:(NSString *)name{
+    
+    [songNameLabel setText:name];
     
 }
 
@@ -549,7 +558,7 @@
             }
             else if([touch locationInView:room].x <77.54){
                 
-                return eigthNote;
+                return quarterNote;
                 
             }
             else{

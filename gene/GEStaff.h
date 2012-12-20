@@ -30,17 +30,21 @@ enum room {
     //treble Clef not included.
     NSMutableArray *notesSequence;
     NSArray *answer;
+    NSString *songName;
     
     NSArray *roomArray;
     NSArray *staffViewArray;
     
     GENote *TrebleClef;
+    UILabel *songNameLabel;
     //save the tuned value.
     //NSMutableArray *tuneValue;
 }
 
 @property (strong, nonatomic)NSArray *answer;
 @property (strong, nonatomic)NSMutableArray *notesSequence;
-@property (strong, nonatomic)NSString *songChosen;
+@property (strong, nonatomic)NSString *songName;
+
+- (void)setSongNameLabelWithText:(NSString*)name;
 
 @end

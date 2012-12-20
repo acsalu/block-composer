@@ -133,9 +133,11 @@ typedef enum {
     self.arrowView.hidden = YES;
     NSLog(@"Swipe down gesture detected!");
     self.isRotating = YES;
-    self.rotateCount = (self.rotateNum)% self.songs.count + 1;
-    self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
-    //self.rotateNum = 4;
+    
+    //self.rotateCount = (self.rotateNum)% self.songs.count + 1;
+    //self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
+    self.rotateCount = 1;
+    self.rotateNum = 28;
     self.songChosen = (NSDictionary *) self.songs[(self.rotateNum)% self.songs.count];
     NSLog(@"rotateNum = %d", self.rotateNum);
     NSLog(@"songChosen = %@", [self.songChosen objectForKey:@"name"]);
@@ -156,11 +158,13 @@ typedef enum {
                          GEStaff *staffViewController = [[GEStaff alloc] init];
                          staffViewController.view.alpha = 0.2f;
                          staffViewController.answer = [self.songChosen objectForKey:@"melody"];
-                         staffViewController.songChosen = [self.songChosen objectForKey:@"name"];
+                         staffViewController.songName = (NSString*)[self.songChosen objectForKey:@"name"];
                          
                          [self.navigationController presentModalViewController:staffViewController animated:NO];
+                            staffViewController.songName = [self.songChosen objectForKey:@"name"];
                          [UIView beginAnimations:nil context:nil];
-                         staffViewController.view.alpha = 1.0f;
+                            staffViewController.view.alpha = 1.0f;
+                            [staffViewController setSongNameLabelWithText:[self.songChosen objectForKey:@"name"]];
                          [UIView commitAnimations];
                      }];
 }
