@@ -9,6 +9,8 @@
 #import "GEComposeViewController.h"
 #import "GEStaff.h"
 
+#define DEGREES_TO_RADIANS(angle) (angle / 180.0 * M_PI)
+
 typedef enum {
     GEGameStateChoose = 0,
     GEGameStatePlay = 1
@@ -91,25 +93,30 @@ typedef enum {
 - (void)rotateWithOptions:(UIViewAnimationOptions)options
 {
     
-    static int count = 1;
+    static int count = 0;
     NSLog(@"count %d", count++);
     float duration = 0.1f;
     if (self.rotateCount >= self.rotateNum - 6) duration = 0.12f;
     if (self.rotateCount >= self.rotateNum - 4) duration = 0.14f;
     if (self.rotateCount >= self.rotateNum - 2) duration = 0.16f;
     if (self.rotateCount == self.rotateNum - 1) duration = 0.2f;
-    [UIView animateWithDuration:3.0f
+    [UIView animateWithDuration:duration
                           delay:0.0f
                         options:options
                      animations:^{
-                         self.rouletteView.transform = CGAffineTransformRotate(self.rouletteView.transform, M_PI / 4);
+                         self.rouletteView.transform = CGAffineTransformRotate(self.rouletteView.transform, (DEGREES_TO_RADIANS(45.0f)));
                      } completion:^(BOOL finished) {
                          if (finished) {
                              if (self.isRotating) {
                                  // if flag still set, keep spinning with constant speed
                                  NSLog(@"rotateCount %d", self.rotateCount);
-                                 if (self.rotateCount++ == self.rotateNum) self.isRotating = NO;
-                                 [self rotateWithOptions: UIViewAnimationOptionCurveLinear];
+                                 
+                                 
+                                 if (self.rotateCount++ == self.rotateNum) {
+                                     self.isRotating = NO;
+                                     [self performSelector:@selector(stopRotate) withObject:nil afterDelay:1.0];
+                                 }
+                                 else [self rotateWithOptions: UIViewAnimationOptionCurveLinear];
                              }
                              else if (options != UIViewAnimationOptionCurveEaseOut) {
                                  // one last spin, with deceleration
@@ -126,9 +133,9 @@ typedef enum {
     self.arrowView.hidden = YES;
     NSLog(@"Swipe down gesture detected!");
     self.isRotating = YES;
-    self.rotateCount = 0;
-    //self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
-    self.rotateNum = 2;
+    self.rotateCount = (self.rotateNum)% self.songs.count + 1;
+    self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
+    //self.rotateNum = 4;
     self.songChosen = (NSDictionary *) self.songs[(self.rotateNum)% self.songs.count];
     NSLog(@"rotateNum = %d", self.rotateNum);
     NSLog(@"songChosen = %@", [self.songChosen objectForKey:@"name"]);
