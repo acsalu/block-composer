@@ -69,12 +69,12 @@
 		<string>天黑黑</string>
 		<key>melody</key>
 		<array>
-			<string>E3_8</string>
-			<string>D3_8</string>
 			<string>E3_4</string>
-			<string>E3_8</string>
-			<string>A2_8</string>
-			<string>C3_4</string>
+			<string>D3_4</string>
+			<string>E3_2</string>
+			<string>E3_4</string>
+			<string>A2_4</string>
+			<string>C3_2</string>
 		</array>
 	</dict>
 	<dict>

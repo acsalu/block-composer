@@ -133,7 +133,7 @@ typedef enum {
     self.arrowView.hidden = YES;
     NSLog(@"Swipe down gesture detected!");
     self.isRotating = YES;
-    self.rotateCount = 1;
+    self.rotateCount = (self.rotateNum)% self.songs.count + 1;
     self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
     //self.rotateNum = 4;
     self.songChosen = (NSDictionary *) self.songs[(self.rotateNum)% self.songs.count];
