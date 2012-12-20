@@ -79,6 +79,9 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
 //GENote.
 + (BOOL)verifyAnswerWithAnswerArray:(NSArray*)ans andUserArray:(NSArray*)usrArray{
     
+    NSLog(@"ans = %@",ans);
+    NSLog(@"usrArray = %@",usrArray);
+    
     for (int i = 0; i < [ans count]; ++i) {
         if (![[usrArray objectAtIndex:i] isKindOfClass:[GENote class]]) {
             return NO;

@@ -148,7 +148,8 @@ typedef enum {
                          //[self.view removeGestureRecognizer:self.onSwipeDown];
                          GEStaff *staffViewController = [[GEStaff alloc] init];
                          staffViewController.view.alpha = 0.2f;
-                         staffViewController.answer = self.songChosen[@"melody"];
+                         staffViewController.answer = [self.songChosen objectForKey:@"melody"];
+                         staffViewController.songChosen = [self.songChosen objectForKey:@"name"];
                          
                          [self.navigationController presentModalViewController:staffViewController animated:NO];
                          [UIView beginAnimations:nil context:nil];

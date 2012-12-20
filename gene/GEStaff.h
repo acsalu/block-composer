@@ -41,5 +41,6 @@ enum room {
 
 @property (strong, nonatomic)NSArray *answer;
 @property (strong, nonatomic)NSMutableArray *notesSequence;
+@property (strong, nonatomic)NSString *songChosen;
 
 @end

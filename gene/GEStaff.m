@@ -22,6 +22,7 @@
 
 @synthesize answer;
 @synthesize notesSequence;
+@synthesize songChosen;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -77,6 +78,15 @@
     [playButton setImage:[UIImage imageNamed:@"play_with_text_pressed.png"] forState:UIControlStateHighlighted];
     [playButton addTarget:self action:@selector(playTheQuiz) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playButton];
+    
+    UILabel *songNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(350, 605, 280, 160)];
+    [songNameLabel setText:songChosen];
+    NSLog(@"song Chosen = %@",songChosen);
+    
+    [songNameLabel setFont:[UIFont systemFontOfSize:20]];
+    [songNameLabel setTextColor:[UIColor blackColor]];
+    [songNameLabel setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:songNameLabel];
     
     //a block is 120 * 320 !!
     /*
@@ -564,7 +574,20 @@
     
     if ([GESoundManager verifyAnswerWithAnswerArray:answer andUserArray:[notesSequence copy]]) {
         //present success VC!!
+        UIButton *successGrayButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 1024, 768)];
+        [successGrayButton setBackgroundColor:[UIColor colorWithRed:90.0/255.0 green:95.0/255.0 blue:97.0/255.0 alpha:0.8]];
+        [successGrayButton addTarget:self action:@selector(removeSuccessView:) forControlEvents:UIControlEventTouchUpInside];
+        [successGrayButton setAlpha:0];
+        [self.view addSubview:successGrayButton];
         
+        UIImageView *successImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 650, 650)];
+        [successImage setImage:[UIImage imageNamed:@"success.png"]];
+        [successImage setCenter:successGrayButton.center];
+        [successGrayButton addSubview:successImage];
+        
+        [UIView animateWithDuration:1.1 animations:^{
+            [successGrayButton setAlpha:1];
+        }];
         
         
     }
@@ -603,7 +626,11 @@
         [sender removeFromSuperview];
     }];
     
-    
+}
+
+- (void)removeSuccessView:(UIButton*)sender{
+ 
+    [self dismissModalViewControllerAnimated:YES];
     
 }
 
