@@ -67,7 +67,9 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
     }
     
     player = [[AVAudioPlayer alloc] initWithData:concatenatedData error:nil];
+    player.delegate = self;
     [player play];
+    self.playing = YES;
 }
 
 - (BOOL)verifyAnswer {
@@ -90,9 +92,19 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
             return NO;
         }
     }
-    
+
     return YES;
-    
+}
+
+
+# pragma mark -
+# pragma mark AVAudioPlayerDelegate
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    self.playing = NO;
+    if (flag == NO) {
+        NSLog(@"Audio player decoding error.");
+    }
 }
 
 @end

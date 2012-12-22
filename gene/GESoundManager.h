@@ -13,10 +13,11 @@ extern NSString * const GESoundMgrInstrunmentPiano;
 extern NSString * const GESoundMgrInstrunmentGuitar;
 
 
-@interface GESoundManager : NSObject {
+@interface GESoundManager : NSObject <AVAudioPlayerDelegate> {
     AVAudioPlayer *player;
 }
 
+@property (nonatomic) BOOL playing;
 @property (nonatomic, strong) NSMutableArray *userNoteArray;
 
 + (GESoundManager *)soleSoundManager;

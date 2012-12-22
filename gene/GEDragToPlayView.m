@@ -37,6 +37,10 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if ([[GESoundManager soleSoundManager] playing]) {
+        return;
+    }
+    
     UITouch *touch = (UITouch *) [touches anyObject];
     CGPoint point = [touch locationInView:self];
     NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
@@ -48,6 +52,10 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if ([[GESoundManager soleSoundManager] playing]) {
+        return;
+    }
+    
     UITouch *touch = (UITouch *) [touches anyObject];
     CGPoint point = [touch locationInView:self];
     NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
@@ -62,6 +70,10 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if ([[GESoundManager soleSoundManager] playing]) {
+        return;
+    }
+    
     if ([self.startX doubleValue] > [self.endX doubleValue]) {
         return;
     }
