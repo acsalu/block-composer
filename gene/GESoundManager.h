@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
-extern NSString * const GESoundMgrInstrunmentPiano;
-extern NSString * const GESoundMgrInstrunmentGuitar;
+extern NSString * const GESoundMgrPiano;
+extern NSString * const GESoundMgrGuitar;
 
 
 @interface GESoundManager : NSObject <AVAudioPlayerDelegate> {
@@ -24,6 +24,6 @@ extern NSString * const GESoundMgrInstrunmentGuitar;
 + (BOOL)verifyAnswerWithAnswerArray:(NSArray*)ans andUserArray:(NSArray*)usrArray;
 
 - (void)playSynthesizedNoteArray:(NSArray *)noteArray instrument:(NSString *)instrument;
-- (void)playAnswerWithoutSynthesis:(NSString *)songName;
+- (void)playAnswerOrSingleNote:(NSString *)songName instrument:(NSString *)instrument;
 
 @end

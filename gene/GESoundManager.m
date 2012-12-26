@@ -9,8 +9,8 @@
 #import "GESoundManager.h"
 #import "GENote.h"
 
-NSString * const GESoundMgrInstrumentPiano = @"Piano";
-NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
+NSString * const GESoundMgrPiano = @"Piano";
+NSString * const GESoundMgrGuitar = @"Guitar";
 
 @interface GESoundManager ()
 
@@ -73,7 +73,7 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
     self.playing = YES;
 }
 
-- (void)playAnswerWithoutSynthesis:(NSString *)songName {
+- (void)playAnswerOrSingleNote:(NSString *)songName instrument:(NSString *)instrument{
     if (self.playing) {
         NSLog(@"Audio player is playing.");
         return;

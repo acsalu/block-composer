@@ -223,7 +223,7 @@
         [note setNoteLength:[self getNoteLengthWithTouch:touch]];
         [notesSequence replaceObjectAtIndex:[self getRoomNumberWithPoint:[touch locationInView:self.view]]-100 withObject:note];
         
-        [[GESoundManager soleSoundManager]playSynthesizedNoteArray:[NSArray arrayWithObject:note.description] instrument:@"Piano"];
+        [[GESoundManager soleSoundManager] playAnswerOrSingleNote:note.description instrument:GESoundMgrPiano];
         
         NSLog(@"noteType = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
         NSLog(@"noteLength = %d",[self getNoteLengthWithTouch:touch]);
@@ -659,11 +659,9 @@
     
 }
 
-//play the 
 - (void)playTheQuiz{
     
-//    [[GESoundManager soleSoundManager]playSynthesizedNoteArray:answer instrument:@"Piano"];
-    [[GESoundManager soleSoundManager] playAnswerWithoutSynthesis:songName];
+    [[GESoundManager soleSoundManager] playAnswerOrSingleNote:songName instrument:GESoundMgrPiano];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
