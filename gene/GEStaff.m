@@ -683,12 +683,20 @@
 
 - (void)animateFinger
 {
-    [UIView animateWithDuration:1.0f
-                          delay:0.0f
-                        options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionBeginFromCurrentState
+    [UIView animateWithDuration:2.0f
+                          delay:1.0f
+                        options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.fingerView.center = CGPointMake(115, 565);
-                     } completion:NULL];
+                         self.fingerView.center = CGPointMake(205, 565);
+                     } completion:^(BOOL finished){
+                         self.fingerView.center = CGPointMake(65, 565);
+                         [UIView animateWithDuration:0.5f
+                                          animations:^{
+                                              self.fingerView.alpha = 0.0;
+                                          } completion:^(BOOL finished) {
+                                              self.fingerView.alpha = 1.0;
+                                          }];
+                     }];
 }
 
 @end
