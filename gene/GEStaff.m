@@ -77,13 +77,13 @@
     [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backToRoulette];
     
-    UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(836, 605, 130, 160)];
+    UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(790, 605, 130, 160)];
     [submitButton setImage:[UIImage imageNamed:@"submit_button_3d.png"] forState:UIControlStateNormal];
     [submitButton setImage:[UIImage imageNamed:@"submit_button_3d_press.png"] forState:UIControlStateHighlighted];
     [submitButton addTarget:self action:@selector(submitAnswer:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitButton];
     
-    UIButton *playButton = [[UIButton alloc]initWithFrame:CGRectMake(686, 605, 130, 160)];
+    UIButton *playButton = [[UIButton alloc]initWithFrame:CGRectMake(651, 605, 130, 160)];
     [playButton setImage:[UIImage imageNamed:@"play_button_3d.png"] forState:UIControlStateNormal];
     [playButton setImage:[UIImage imageNamed:@"play_button_3d_press.png"] forState:UIControlStateHighlighted];
     [playButton addTarget:self action:@selector(playTheQuiz) forControlEvents:UIControlEventTouchUpInside];

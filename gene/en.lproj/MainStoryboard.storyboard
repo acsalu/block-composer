@@ -8,7 +8,7 @@
         <scene sceneID="4">
             <objects>
                 <viewController id="2" customClass="GEComposeViewController" sceneMemberID="viewController">
-                    <imageView key="view" contentMode="scaleToFill" image="staff_back.png" id="TN7-eE-VSp">
+                    <imageView key="view" contentMode="scaleToFill" image="background.png" id="TN7-eE-VSp">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -45,7 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="staff_back.png" width="1024" height="768"/>
+        <image name="background.png" width="16" height="16"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
