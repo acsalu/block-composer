@@ -45,16 +45,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background.png" width="1024" height="768"/>
+        <image name="background.png" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="GEComposeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GEComposeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backgroundView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
