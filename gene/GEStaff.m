@@ -47,6 +47,14 @@
     [backGroundImage setImage:[UIImage imageNamed:@"staff_back.png"]];
     [self.view addSubview:backGroundImage];
     
+    // finger cue
+    self.fingerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"finger.png"]];
+    self.fingerView.frame = CGRectMake(15, 515, 100, 100);
+    [self.view addSubview:self.fingerView];
+    
+    
+    
+    
     //also draw fake Treble Clef
     [self drawStaffWithPoint:CGPointMake(15, 30)];
     
