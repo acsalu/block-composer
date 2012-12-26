@@ -17,6 +17,24 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _pointArray = [NSMutableArray arrayWithCapacity:7];
+        _signalArray = [NSMutableArray arrayWithCapacity:7];
+        float width = 123.0;
+        float offset = 90.0;
+        for (NSUInteger i = 0; i < 7; ++i) {
+            UIImageView *point = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"point.png"]];
+            point.center = CGPointMake(offset + width * (i + 0.5), 20);
+            //point.alpha = 0.40f;
+            
+            UIView *signal = [[UIView alloc] initWithFrame:CGRectMake(offset + width * (i + 0.5) - 10, 8, 20, 20)];
+            signal.backgroundColor = [UIColor redColor];
+            
+            [self addSubview:signal];
+            [self addSubview:point];
+            _pointArray[i] = point;
+            _signalArray[i] = signal;
+        }
+        
     }
     return self;
 }
@@ -60,11 +78,25 @@
     NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
     self.endX = @(point.x);
     if ([self.startX doubleValue] <= [self.endX doubleValue]) {
-//        NSLog(@"start: %@ ; end: %@ ; %d", self.startX, self.endX, self.startX <= self.endX);
-        [self.arrowView setFrame:CGRectMake([self.startX doubleValue], 50, [self.endX doubleValue] - [self.startX doubleValue], 20)];
+        [self.arrowView setFrame:CGRectMake([self.startX doubleValue], 50,
+                                            [self.endX doubleValue] - [self.startX doubleValue], 20)];
         self.arrowView.backgroundColor = [UIColor orangeColor];
         [self addSubview:self.arrowView];
     }
+    
+    NSUInteger startRoom = ([self.startX doubleValue] - 100) / 123;
+    NSUInteger endRoom = ([self.endX doubleValue] - 100) / 123;
+    if (endRoom > 6) endRoom = 6;
+    
+    for (NSUInteger i = startRoom; i <= endRoom; ++i)
+        ((UIView *) self.signalArray[i]).backgroundColor = [UIColor greenColor];
+    
+    for (NSUInteger i = 0; i < startRoom; ++i)
+        ((UIView *) self.signalArray[i]).backgroundColor = [UIColor redColor];
+    
+    for (NSUInteger i = endRoom + 1; i < 7; ++i)
+        ((UIView *) self.signalArray[i]).backgroundColor = [UIColor redColor];
+    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

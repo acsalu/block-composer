@@ -16,5 +16,7 @@
 @property (nonatomic, strong) NSNumber *startX;
 @property (nonatomic, strong) NSNumber *endX;
 @property (nonatomic, strong) UIView *arrowView;
+@property (nonatomic, strong) NSMutableArray *pointArray;
+@property (nonatomic, strong) NSMutableArray *signalArray;
 
 @end
