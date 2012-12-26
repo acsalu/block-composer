@@ -157,12 +157,12 @@
     NSLog(@"delay: %f", delay);
     [self.playRoomsArray removeObjectAtIndex:0];
     [self performSelector:@selector(revertSignalForIndex:) withObject:@((self.targetIndex++) + self.startRoom) afterDelay:delay];
-    [self performSelector:@selector(revertSignals) withObject:nil afterDelay:delay * 0.8];
+    [self performSelector:@selector(revertSignals) withObject:nil afterDelay:delay - 0.04f];
 }
 
 - (void)revertSignalForIndex:(NSNumber *)index
 {
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.1f animations:^{
         ((UIView *) self.signalArray[[index integerValue]]).backgroundColor = [UIColor redColor];
     }];
 }
