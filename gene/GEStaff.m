@@ -681,11 +681,11 @@
 
 - (void)animateFinger
 {
-    [UIView animateWithDuration:2.0f
+    [UIView animateWithDuration:3.0f
                           delay:1.0f
                         options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.fingerView.center = CGPointMake(205, 565);
+                         self.fingerView.center = CGPointMake(125, 565);
                      } completion:^(BOOL finished){
                          self.fingerView.center = CGPointMake(65, 565);
                          [UIView animateWithDuration:0.5f
