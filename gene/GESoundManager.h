@@ -24,7 +24,6 @@ extern NSString * const GESoundMgrInstrunmentGuitar;
 + (BOOL)verifyAnswerWithAnswerArray:(NSArray*)ans andUserArray:(NSArray*)usrArray;
 
 - (void)playSynthesizedNoteArray:(NSArray *)noteArray instrument:(NSString *)instrument;
-
-- (BOOL)verifyAnswer;
+- (void)playAnswerWithoutSynthesis:(NSString *)songName;
 
 @end

@@ -662,8 +662,8 @@
 //play the 
 - (void)playTheQuiz{
     
-    [[GESoundManager soleSoundManager]playSynthesizedNoteArray:answer instrument:@"Piano"];
-    
+//    [[GESoundManager soleSoundManager]playSynthesizedNoteArray:answer instrument:@"Piano"];
+    [[GESoundManager soleSoundManager] playAnswerWithoutSynthesis:songName];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{

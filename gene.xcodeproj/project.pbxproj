@@ -84,6 +84,13 @@
 		0F29F1A11682475600E81811 /* rest_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A736D167DA520008A35AF /* rest_4.mp3 */; };
 		0F29F1A21682475600E81811 /* rest_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A736E167DA520008A35AF /* rest_8.mp3 */; };
 		0F8E39FB167ADDFA00F5FCD7 /* GESoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA19BD716798EFF0050A449 /* GESoundManager.m */; };
+		0FF2289C168B360C0000ACFA /* 哥哥爸爸真偉大.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D098168B2E7D002CD841 /* 哥哥爸爸真偉大.mp3 */; };
+		0FF2289D168B360C0000ACFA /* 天黑黑.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D099168B2E7D002CD841 /* 天黑黑.mp3 */; };
+		0FF2289E168B360C0000ACFA /* 小星星.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09A168B2E7D002CD841 /* 小星星.mp3 */; };
+		0FF2289F168B360C0000ACFA /* 小蜜蜂.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09B168B2E7D002CD841 /* 小蜜蜂.mp3 */; };
+		0FF228A0168B360C0000ACFA /* 我有一隻小毛驢.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09C168B2E7D002CD841 /* 我有一隻小毛驢.mp3 */; };
+		0FF228A1168B360C0000ACFA /* 捉泥鰍.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09D168B2E7D002CD841 /* 捉泥鰍.mp3 */; };
+		0FF228A2168B360C0000ACFA /* 瑪麗有隻小綿羊.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09E168B2E7D002CD841 /* 瑪麗有隻小綿羊.mp3 */; };
 		54028AFF1673BB43003F997C /* GENote.m in Sources */ = {isa = PBXBuildFile; fileRef = 54028AFE1673BB43003F997C /* GENote.m */; };
 		54045D311681AFB300C57821 /* staff_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D301681AFB300C57821 /* staff_back.png */; };
 		54045D341681E83E00C57821 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54045D331681E83E00C57821 /* QuartzCore.framework */; };
@@ -210,6 +217,13 @@
 		0F6A736C167DA520008A35AF /* rest_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_2.mp3; sourceTree = "<group>"; };
 		0F6A736D167DA520008A35AF /* rest_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_4.mp3; sourceTree = "<group>"; };
 		0F6A736E167DA520008A35AF /* rest_8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_8.mp3; sourceTree = "<group>"; };
+		0F78D098168B2E7D002CD841 /* 哥哥爸爸真偉大.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "哥哥爸爸真偉大.mp3"; sourceTree = "<group>"; };
+		0F78D099168B2E7D002CD841 /* 天黑黑.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天黑黑.mp3"; sourceTree = "<group>"; };
+		0F78D09A168B2E7D002CD841 /* 小星星.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "小星星.mp3"; sourceTree = "<group>"; };
+		0F78D09B168B2E7D002CD841 /* 小蜜蜂.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "小蜜蜂.mp3"; sourceTree = "<group>"; };
+		0F78D09C168B2E7D002CD841 /* 我有一隻小毛驢.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "我有一隻小毛驢.mp3"; sourceTree = "<group>"; };
+		0F78D09D168B2E7D002CD841 /* 捉泥鰍.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "捉泥鰍.mp3"; sourceTree = "<group>"; };
+		0F78D09E168B2E7D002CD841 /* 瑪麗有隻小綿羊.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "瑪麗有隻小綿羊.mp3"; sourceTree = "<group>"; };
 		0FA19BD616798EFF0050A449 /* GESoundManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GESoundManager.h; sourceTree = "<group>"; };
 		0FA19BD716798EFF0050A449 /* GESoundManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GESoundManager.m; sourceTree = "<group>"; };
 		54028AFD1673BB43003F997C /* GENote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GENote.h; sourceTree = "<group>"; };
@@ -292,6 +306,13 @@
 		0F6A7322167DA520008A35AF /* Piano */ = {
 			isa = PBXGroup;
 			children = (
+				0F78D098168B2E7D002CD841 /* 哥哥爸爸真偉大.mp3 */,
+				0F78D099168B2E7D002CD841 /* 天黑黑.mp3 */,
+				0F78D09A168B2E7D002CD841 /* 小星星.mp3 */,
+				0F78D09B168B2E7D002CD841 /* 小蜜蜂.mp3 */,
+				0F78D09C168B2E7D002CD841 /* 我有一隻小毛驢.mp3 */,
+				0F78D09D168B2E7D002CD841 /* 捉泥鰍.mp3 */,
+				0F78D09E168B2E7D002CD841 /* 瑪麗有隻小綿羊.mp3 */,
 				0F6A7323167DA520008A35AF /* A1.mp3 */,
 				0F6A7324167DA520008A35AF /* A1_2.mp3 */,
 				0F6A7325167DA520008A35AF /* A1_4.mp3 */,
@@ -549,6 +570,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF2289C168B360C0000ACFA /* 哥哥爸爸真偉大.mp3 in Resources */,
+				0FF2289D168B360C0000ACFA /* 天黑黑.mp3 in Resources */,
+				0FF2289E168B360C0000ACFA /* 小星星.mp3 in Resources */,
+				0FF2289F168B360C0000ACFA /* 小蜜蜂.mp3 in Resources */,
+				0FF228A0168B360C0000ACFA /* 我有一隻小毛驢.mp3 in Resources */,
+				0FF228A1168B360C0000ACFA /* 捉泥鰍.mp3 in Resources */,
+				0FF228A2168B360C0000ACFA /* 瑪麗有隻小綿羊.mp3 in Resources */,
 				0F29F1571682475600E81811 /* A1.mp3 in Resources */,
 				0F29F1581682475600E81811 /* A1_2.mp3 in Resources */,
 				0F29F1591682475600E81811 /* A1_4.mp3 in Resources */,
