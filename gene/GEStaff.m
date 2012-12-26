@@ -69,8 +69,8 @@
     drag.notesSequence = notesSequence;
     [self.view addSubview:drag];
     
-    UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 658, 200, 100)];
-    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button.png"] forState:UIControlStateNormal];
+    UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 608, 130, 160)];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button-4.png"] forState:UIControlStateNormal];
     [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_pressed.png"] forState:UIControlStateHighlighted];
     [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backToRoulette];
@@ -163,7 +163,7 @@
             [line setBackgroundColor:[UIColor clearColor]];
         }
         else{
-            [line setImage:[UIImage imageNamed:@"line.png"]];
+            [line setImage:[UIImage imageNamed:@"staff_line.png"]];
         }
         [line setTag:i * 2 - 1];
         y += lineHeight;
