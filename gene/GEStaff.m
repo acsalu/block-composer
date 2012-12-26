@@ -62,20 +62,20 @@
     [self.view addSubview:drag];
     
     UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 608, 130, 160)];
-    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button-4.png"] forState:UIControlStateNormal];
-    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_pressed.png"] forState:UIControlStateHighlighted];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d.png"] forState:UIControlStateNormal];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d_press-2.png"] forState:UIControlStateHighlighted];
     [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backToRoulette];
     
     UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(836, 605, 130, 160)];
-    [submitButton setImage:[UIImage imageNamed:@"submit_with_text.png"] forState:UIControlStateNormal];
-    [submitButton setImage:[UIImage imageNamed:@"submit_with_text_pressed.png"] forState:UIControlStateHighlighted];
+    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d.png"] forState:UIControlStateNormal];
+    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d_press.png"] forState:UIControlStateHighlighted];
     [submitButton addTarget:self action:@selector(submitAnswer:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitButton];
     
     UIButton *playButton = [[UIButton alloc]initWithFrame:CGRectMake(686, 605, 130, 160)];
-    [playButton setImage:[UIImage imageNamed:@"play_with_text.png"] forState:UIControlStateNormal];
-    [playButton setImage:[UIImage imageNamed:@"play_with_text_pressed.png"] forState:UIControlStateHighlighted];
+    [playButton setImage:[UIImage imageNamed:@"play_button_3d.png"] forState:UIControlStateNormal];
+    [playButton setImage:[UIImage imageNamed:@"play_button_3d_press.png"] forState:UIControlStateHighlighted];
     [playButton addTarget:self action:@selector(playTheQuiz) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playButton];
     
