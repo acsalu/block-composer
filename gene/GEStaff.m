@@ -583,7 +583,7 @@
             }
             else if([touch locationInView:room].x <77.54){
                 
-                return quarterNote;
+                return eigthNote;
                 
             }
             else{
