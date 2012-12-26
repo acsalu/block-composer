@@ -16,6 +16,8 @@
 // const float trebleClefDistance = 80;
 @interface GEStaff ()
 
+- (void)animateFinger;
+
 @end
 
 @implementation GEStaff
@@ -46,6 +48,14 @@
     UIImageView *backGroundImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1024, 768)];
     [backGroundImage setImage:[UIImage imageNamed:@"staff_back.png"]];
     [self.view addSubview:backGroundImage];
+    
+    // finger cue
+    self.fingerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"finger.png"]];
+    self.fingerView.frame = CGRectMake(15, 515, 100, 100);
+    [self.view addSubview:self.fingerView];
+    [self animateFinger];
+    
+    
     
     //also draw fake Treble Clef
     [self drawStaffWithPoint:CGPointMake(15, 30)];
@@ -213,7 +223,7 @@
         [note setNoteLength:[self getNoteLengthWithTouch:touch]];
         [notesSequence replaceObjectAtIndex:[self getRoomNumberWithPoint:[touch locationInView:self.view]]-100 withObject:note];
         
-        [[GESoundManager soleSoundManager]playSynthesizedNoteArray:[NSArray arrayWithObject:note.description] instrument:@"Piano"];
+        [[GESoundManager soleSoundManager] playAnswerOrSingleNote:note.description instrument:GESoundMgrPiano];
         
         NSLog(@"noteType = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
         NSLog(@"noteLength = %d",[self getNoteLengthWithTouch:touch]);
@@ -649,11 +659,9 @@
     
 }
 
-//play the 
 - (void)playTheQuiz{
     
-    [[GESoundManager soleSoundManager]playSynthesizedNoteArray:answer instrument:@"Piano"];
-    
+    [[GESoundManager soleSoundManager] playAnswerOrSingleNote:songName instrument:GESoundMgrPiano];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
@@ -666,6 +674,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark animations
+
+- (void)animateFinger
+{
+    [UIView animateWithDuration:2.0f
+                          delay:1.0f
+                        options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.fingerView.center = CGPointMake(205, 565);
+                     } completion:^(BOOL finished){
+                         self.fingerView.center = CGPointMake(65, 565);
+                         [UIView animateWithDuration:0.5f
+                                          animations:^{
+                                              self.fingerView.alpha = 0.0;
+                                          } completion:^(BOOL finished) {
+                                              self.fingerView.alpha = 1.0;
+                                          }];
+                     }];
 }
 
 @end

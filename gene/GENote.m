@@ -21,28 +21,6 @@ const float trebleClefDistance = 147;
 @synthesize orderInAllNotes;
 @synthesize isTrebleClef;
 
-+ (NSArray*)getTrebleClefPointsWith:(NSMutableDictionary *)dic{
-    
-    for (int i = 0; i < [dic count] - 1; ++i) {
-        GENote *note1 = [dic objectForKey:[[dic allKeys] objectAtIndex:i]];
-        GENote *note2 = [dic objectForKey:[[dic allKeys] objectAtIndex:i+1]];
-        float distance = [GECalculateHelper getDistanceBetweenTwoPoint:note1.touchPoint andPoint:note2.touchPoint];
-        
-        if ([GECalculateHelper isTheSameDistanceFor:distance andDistance:trebleClefDistance ByTolerating:5] && [GECalculateHelper isNotFarConsideringOneCoordinateWithPoint:note1.touchPoint andPoint:note2.touchPoint ByTolerating:8]) {
-            //this two point is treble Clef.
-            
-        }
-        else return nil;
-        
-        
-    }
-    
-}
-
-
-
-
-
 - (id)initWithTouchPoint:(CGPoint)point NoteType:(NSInteger)type AndTrebleClefCenter:(CGPoint)TBCenter{
     
     self.noteType = type;

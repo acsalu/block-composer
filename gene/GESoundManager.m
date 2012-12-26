@@ -9,8 +9,8 @@
 #import "GESoundManager.h"
 #import "GENote.h"
 
-NSString * const GESoundMgrInstrumentPiano = @"Piano";
-NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
+NSString * const GESoundMgrPiano = @"Piano";
+NSString * const GESoundMgrGuitar = @"Guitar";
 
 @interface GESoundManager ()
 
@@ -33,7 +33,7 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
 }
 
 - (id)init {
-    if (self == [super init]) {
+    if ((self = [super init])) {
     }
     return self;
 }
@@ -43,15 +43,17 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
 
 - (void)playSynthesizedNoteArray:(NSArray *)noteArray instrument:(NSString *)instrument{
     
+    if (self.playing) {
+        NSLog(@"Audio player is playing.");
+        return;
+    }
+    
     // store/update user array
     // self.userNoteArray = [NSMutableArray arrayWithArray:noteArray];
     
     NSMutableData *concatenatedData = [NSMutableData data];
     for (NSString *note in noteArray) {
-        NSLog(@"%@", note);
-        NSString *noteFile = [[NSBundle mainBundle] pathForResource:note
-                                                             ofType:@"mp3"];
-        NSLog(@"%@", noteFile);
+        NSString *noteFile = [[NSBundle mainBundle] pathForResource:note ofType:@"mp3"];
         if (noteFile == nil) {
             NSLog(@"Can't locate note file");
             continue;
@@ -63,7 +65,6 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
         } else {
             NSLog(@"Error, no audio data in %@", note);
         }
-        NSLog(@"Audio data length: %u", [concatenatedData length]);
     }
     
     player = [[AVAudioPlayer alloc] initWithData:concatenatedData error:nil];
@@ -72,10 +73,24 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
     self.playing = YES;
 }
 
-- (BOOL)verifyAnswer {
+- (void)playAnswerOrSingleNote:(NSString *)songName instrument:(NSString *)instrument{
+    if (self.playing) {
+        NSLog(@"Audio player is playing.");
+        return;
+    }
     
-    return [self.userNoteArray isEqualToArray:self.answerNoteArray];
+    NSString *answerFile = [[NSBundle mainBundle] pathForResource:songName ofType:@"mp3"];
+    if (answerFile == nil) {
+        NSLog(@"Can't locate answer file");
+        return;
+    }
+    NSURL *answerURL = [NSURL fileURLWithPath:answerFile];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:answerURL error:nil];
+    player.delegate = self;
+    [player play];
+    self.playing = YES;
 }
+
 
 //pass in ans array should contain description and usrArray should contain
 //GENote.
@@ -101,6 +116,7 @@ NSString * const GESoundMgrInstrunmentGuitar = @"Guitar";
 # pragma mark AVAudioPlayerDelegate
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    NSLog(@"in Delegate");
     self.playing = NO;
     if (flag == NO) {
         NSLog(@"Audio player decoding error.");

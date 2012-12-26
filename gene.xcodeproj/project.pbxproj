@@ -84,6 +84,13 @@
 		0F29F1A11682475600E81811 /* rest_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A736D167DA520008A35AF /* rest_4.mp3 */; };
 		0F29F1A21682475600E81811 /* rest_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A736E167DA520008A35AF /* rest_8.mp3 */; };
 		0F8E39FB167ADDFA00F5FCD7 /* GESoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA19BD716798EFF0050A449 /* GESoundManager.m */; };
+		0FF2289C168B360C0000ACFA /* 哥哥爸爸真偉大.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D098168B2E7D002CD841 /* 哥哥爸爸真偉大.mp3 */; };
+		0FF2289D168B360C0000ACFA /* 天黑黑.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D099168B2E7D002CD841 /* 天黑黑.mp3 */; };
+		0FF2289E168B360C0000ACFA /* 小星星.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09A168B2E7D002CD841 /* 小星星.mp3 */; };
+		0FF2289F168B360C0000ACFA /* 小蜜蜂.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09B168B2E7D002CD841 /* 小蜜蜂.mp3 */; };
+		0FF228A0168B360C0000ACFA /* 我有一隻小毛驢.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09C168B2E7D002CD841 /* 我有一隻小毛驢.mp3 */; };
+		0FF228A1168B360C0000ACFA /* 捉泥鰍.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09D168B2E7D002CD841 /* 捉泥鰍.mp3 */; };
+		0FF228A2168B360C0000ACFA /* 瑪麗有隻小綿羊.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F78D09E168B2E7D002CD841 /* 瑪麗有隻小綿羊.mp3 */; };
 		54028AFF1673BB43003F997C /* GENote.m in Sources */ = {isa = PBXBuildFile; fileRef = 54028AFE1673BB43003F997C /* GENote.m */; };
 		54045D311681AFB300C57821 /* staff_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 54045D301681AFB300C57821 /* staff_back.png */; };
 		54045D341681E83E00C57821 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54045D331681E83E00C57821 /* QuartzCore.framework */; };
@@ -137,6 +144,7 @@
 		9076FA35167CF1BC00A472E1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9076FA34167CF1BC00A472E1 /* AVFoundation.framework */; };
 		90CA10501672FF8600584DE9 /* music_staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CA104F1672FF8600584DE9 /* music_staff.png */; };
 		90CA10531673009F00584DE9 /* GEComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CA10521673009F00584DE9 /* GEComposeViewController.m */; };
+		90DB1330168AE559005BE324 /* finger.png in Resources */ = {isa = PBXBuildFile; fileRef = 90DB132F168AE559005BE324 /* finger.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -216,6 +224,13 @@
 		0F6A736C167DA520008A35AF /* rest_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_2.mp3; sourceTree = "<group>"; };
 		0F6A736D167DA520008A35AF /* rest_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_4.mp3; sourceTree = "<group>"; };
 		0F6A736E167DA520008A35AF /* rest_8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_8.mp3; sourceTree = "<group>"; };
+		0F78D098168B2E7D002CD841 /* 哥哥爸爸真偉大.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "哥哥爸爸真偉大.mp3"; sourceTree = "<group>"; };
+		0F78D099168B2E7D002CD841 /* 天黑黑.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天黑黑.mp3"; sourceTree = "<group>"; };
+		0F78D09A168B2E7D002CD841 /* 小星星.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "小星星.mp3"; sourceTree = "<group>"; };
+		0F78D09B168B2E7D002CD841 /* 小蜜蜂.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "小蜜蜂.mp3"; sourceTree = "<group>"; };
+		0F78D09C168B2E7D002CD841 /* 我有一隻小毛驢.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "我有一隻小毛驢.mp3"; sourceTree = "<group>"; };
+		0F78D09D168B2E7D002CD841 /* 捉泥鰍.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "捉泥鰍.mp3"; sourceTree = "<group>"; };
+		0F78D09E168B2E7D002CD841 /* 瑪麗有隻小綿羊.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "瑪麗有隻小綿羊.mp3"; sourceTree = "<group>"; };
 		0FA19BD616798EFF0050A449 /* GESoundManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GESoundManager.h; sourceTree = "<group>"; };
 		0FA19BD716798EFF0050A449 /* GESoundManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GESoundManager.m; sourceTree = "<group>"; };
 		54028AFD1673BB43003F997C /* GENote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GENote.h; sourceTree = "<group>"; };
@@ -283,6 +298,7 @@
 		90CA104F1672FF8600584DE9 /* music_staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_staff.png; sourceTree = "<group>"; };
 		90CA10511673009F00584DE9 /* GEComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEComposeViewController.h; sourceTree = "<group>"; };
 		90CA10521673009F00584DE9 /* GEComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEComposeViewController.m; sourceTree = "<group>"; };
+		90DB132F168AE559005BE324 /* finger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +320,13 @@
 		0F6A7322167DA520008A35AF /* Piano */ = {
 			isa = PBXGroup;
 			children = (
+				0F78D098168B2E7D002CD841 /* 哥哥爸爸真偉大.mp3 */,
+				0F78D099168B2E7D002CD841 /* 天黑黑.mp3 */,
+				0F78D09A168B2E7D002CD841 /* 小星星.mp3 */,
+				0F78D09B168B2E7D002CD841 /* 小蜜蜂.mp3 */,
+				0F78D09C168B2E7D002CD841 /* 我有一隻小毛驢.mp3 */,
+				0F78D09D168B2E7D002CD841 /* 捉泥鰍.mp3 */,
+				0F78D09E168B2E7D002CD841 /* 瑪麗有隻小綿羊.mp3 */,
 				0F6A7323167DA520008A35AF /* A1.mp3 */,
 				0F6A7324167DA520008A35AF /* A1_2.mp3 */,
 				0F6A7325167DA520008A35AF /* A1_4.mp3 */,
@@ -470,6 +493,7 @@
 		90CA104C1672FF5C00584DE9 /* img */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				54094124168B42C2007CDB47 /* back_button_3d_press-2.png */,
 				54094117168B41C9007CDB47 /* submit_button_3d_press.png */,
 				54094118168B41C9007CDB47 /* submit_button_3d.png */,
@@ -477,29 +501,33 @@
 				5409411A168B41C9007CDB47 /* play_button_3d_press.png */,
 				5409411B168B41C9007CDB47 /* play_button_3d.png */,
 				5409411C168B41C9007CDB47 /* back_button_3d.png */,
+=======
+				902FE21116822E70000783DB /* arrow.png */,
+				54045D3C1681F7BB00C57821 /* back_button.png */,
+>>>>>>> ef3d068eb35268d58d88b84f30961e49fa4519ce
 				54D6A42716861F8F00A01E62 /* back_button-4.png */,
 				54D6A42316861D4800A01E62 /* back_button-3.png */,
 				54D6A42416861D4800A01E62 /* back_button-2.png */,
 				54D6A4201686174A00A01E62 /* staff_line.png */,
 				54045D8E168289AF00C57821 /* success.png */,
 				54045D7C16826A7300C57821 /* back_button_pressed.png */,
-				54045D7D16826A7300C57821 /* submit_with_text_pressed.png */,
-				54045D7E16826A7300C57821 /* play_with_text_pressed.png */,
-				54045D571682647800C57821 /* failed_view.png */,
-				54045D4C1682540000C57821 /* play_with_text.png */,
-				54045D4D1682540000C57821 /* submit_with_text.png */,
 				54045D461682292600C57821 /* dash.png */,
-				54045D401682208700C57821 /* play_icon.png */,
-				54045D411682208700C57821 /* submit_icon.png */,
-				54045D3E1682190800C57821 /* Treble_Clef.png */,
-				902FE21116822E70000783DB /* arrow.png */,
+				54045D571682647800C57821 /* failed_view.png */,
 				90613248168224E900D76DBE /* index.png */,
-				54045D3C1681F7BB00C57821 /* back_button.png */,
-				54045D301681AFB300C57821 /* staff_back.png */,
 				542B1F45167F9613004F4B89 /* line.png */,
+				90DB132F168AE559005BE324 /* finger.png */,
 				90CA104F1672FF8600584DE9 /* music_staff.png */,
-				900C90981680AC7900FCF207 /* stick.png */,
+				54045D401682208700C57821 /* play_icon.png */,
+				54045D4C1682540000C57821 /* play_with_text.png */,
+				54045D7E16826A7300C57821 /* play_with_text_pressed.png */,
 				902FE21F1682666E000783DB /* roulette.png */,
+				54045D301681AFB300C57821 /* staff_back.png */,
+				900C90981680AC7900FCF207 /* stick.png */,
+				54045D411682208700C57821 /* submit_icon.png */,
+				54045D4D1682540000C57821 /* submit_with_text.png */,
+				54045D7D16826A7300C57821 /* submit_with_text_pressed.png */,
+				54045D8E168289AF00C57821 /* success.png */,
+				54045D3E1682190800C57821 /* Treble_Clef.png */,
 			);
 			name = img;
 			sourceTree = "<group>";
@@ -566,6 +594,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF2289C168B360C0000ACFA /* 哥哥爸爸真偉大.mp3 in Resources */,
+				0FF2289D168B360C0000ACFA /* 天黑黑.mp3 in Resources */,
+				0FF2289E168B360C0000ACFA /* 小星星.mp3 in Resources */,
+				0FF2289F168B360C0000ACFA /* 小蜜蜂.mp3 in Resources */,
+				0FF228A0168B360C0000ACFA /* 我有一隻小毛驢.mp3 in Resources */,
+				0FF228A1168B360C0000ACFA /* 捉泥鰍.mp3 in Resources */,
+				0FF228A2168B360C0000ACFA /* 瑪麗有隻小綿羊.mp3 in Resources */,
 				0F29F1571682475600E81811 /* A1.mp3 in Resources */,
 				0F29F1581682475600E81811 /* A1_2.mp3 in Resources */,
 				0F29F1591682475600E81811 /* A1_4.mp3 in Resources */,
@@ -669,6 +704,7 @@
 				54045D8016826A7300C57821 /* submit_with_text_pressed.png in Resources */,
 				54045D8116826A7300C57821 /* play_with_text_pressed.png in Resources */,
 				54045D8F168289AF00C57821 /* success.png in Resources */,
+				90DB1330168AE559005BE324 /* finger.png in Resources */,
 				54D6A4211686174A00A01E62 /* staff_line.png in Resources */,
 				54D6A42516861D4900A01E62 /* back_button-3.png in Resources */,
 				54D6A42616861D4900A01E62 /* back_button-2.png in Resources */,
