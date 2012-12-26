@@ -17,6 +17,24 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _pointArray = [NSMutableArray arrayWithCapacity:7];
+        _signalArray = [NSMutableArray arrayWithCapacity:7];
+        float width = 123.0;
+        float offset = 90.0;
+        for (NSUInteger i = 0; i < 7; ++i) {
+            UIImageView *point = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"point.png"]];
+            point.center = CGPointMake(offset + width * (i + 0.5), 20);
+            //point.alpha = 0.40f;
+            
+            UIView *signal = [[UIView alloc] initWithFrame:CGRectMake(offset + width * (i + 0.5) - 10, 8, 20, 20)];
+            signal.backgroundColor = [UIColor redColor];
+            
+            [self addSubview:signal];
+            [self addSubview:point];
+            _pointArray[i] = point;
+            _signalArray[i] = signal;
+        }
+        
     }
     return self;
 }
@@ -60,11 +78,25 @@
     NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
     self.endX = @(point.x);
     if ([self.startX doubleValue] <= [self.endX doubleValue]) {
-//        NSLog(@"start: %@ ; end: %@ ; %d", self.startX, self.endX, self.startX <= self.endX);
-        [self.arrowView setFrame:CGRectMake([self.startX doubleValue], 50, [self.endX doubleValue] - [self.startX doubleValue], 20)];
+        [self.arrowView setFrame:CGRectMake([self.startX doubleValue], 50,
+                                            [self.endX doubleValue] - [self.startX doubleValue], 20)];
         self.arrowView.backgroundColor = [UIColor orangeColor];
         [self addSubview:self.arrowView];
     }
+    
+    self.startRoom = ([self.startX doubleValue] - 100) / 123;
+    self.endRoom = ([self.endX doubleValue] - 100) / 123;
+    if (self.endRoom > 6) self.endRoom = 6;
+    
+    for (NSUInteger i = self.startRoom; i <= self.endRoom; ++i)
+        ((UIView *) self.signalArray[i]).backgroundColor = [UIColor greenColor];
+    
+    for (NSUInteger i = 0; i < self.startRoom; ++i)
+        ((UIView *) self.signalArray[i]).backgroundColor = [UIColor redColor];
+    
+    for (NSUInteger i = self.endRoom + 1; i < 7; ++i)
+        ((UIView *) self.signalArray[i]).backgroundColor = [UIColor redColor];
+    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -87,15 +119,13 @@
     NSLog(@"melody: %@", songs[0][@"melody"]);
     
     // initial x:100 + 123 * (# of room)
-    NSUInteger startRoom = ([self.startX doubleValue] - 100) / 123;
-    NSUInteger endRoom = ([self.endX doubleValue] - 100) / 123;
-    if (endRoom > 6) {
-        endRoom = 6;
-    }
-    NSMutableArray *playRoomsArray = [NSMutableArray arrayWithCapacity:8];
+    self.startRoom = ([self.startX doubleValue] - 100) / 123;
+    self.endRoom = ([self.endX doubleValue] - 100) / 123;
+    if (self.endRoom > 6) { self.endRoom = 6; }
+    self.playRoomsArray = [NSMutableArray arrayWithCapacity:7];
     
     NSLog(@"in DragToPlay noteSequence:%@", self.notesSequence);
-    for (NSUInteger i = startRoom; i <= endRoom; ++i) {
+    for (NSUInteger i = self.startRoom; i <= self.self.endRoom; ++i) {
         id objInNotesSequence = [self.notesSequence objectAtIndex:i];
         NSString *noteStr;
         if ([objInNotesSequence isEqual:[NSNull null]]) {
@@ -103,10 +133,12 @@
         } else {
             noteStr = [objInNotesSequence description];
         }
-        [playRoomsArray addObject:noteStr];
+        [self.playRoomsArray addObject:noteStr];
     }
     
-    [[GESoundManager soleSoundManager] playSynthesizedNoteArray:playRoomsArray instrument:GESoundMgrPiano];
+    [[GESoundManager soleSoundManager] playSynthesizedNoteArray:self.playRoomsArray instrument:GESoundMgrPiano];
+    self.targetIndex = 0;
+    [self performSelector:@selector(revertSignals) withObject:nil afterDelay:0.0f];
     
     [UIView animateWithDuration:1 animations:^{
         self.arrowView.alpha = 0;
@@ -114,6 +146,24 @@
         NSLog(@"done");
         [self.arrowView removeFromSuperview];
         
+    }];
+}
+
+- (void)revertSignals {
+    NSLog(@"target %d, count %d", self.targetIndex, self.playRoomsArray.count);
+    if (self.playRoomsArray.count == 0) return;
+    NSString *note = (NSString *) self.playRoomsArray[0];
+    float delay = (1.0f / [[note substringFromIndex:[note length] - 1] intValue]);
+    NSLog(@"delay: %f", delay);
+    [self.playRoomsArray removeObjectAtIndex:0];
+    [self performSelector:@selector(revertSignalForIndex:) withObject:@((self.targetIndex++) + self.startRoom) afterDelay:delay];
+    [self performSelector:@selector(revertSignals) withObject:nil afterDelay:delay * 0.8];
+}
+
+- (void)revertSignalForIndex:(NSNumber *)index
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        ((UIView *) self.signalArray[[index integerValue]]).backgroundColor = [UIColor redColor];
     }];
 }
 
