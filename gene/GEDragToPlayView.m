@@ -84,17 +84,17 @@
         [self addSubview:self.arrowView];
     }
     
-    NSUInteger startRoom = ([self.startX doubleValue] - 100) / 123;
-    NSUInteger endRoom = ([self.endX doubleValue] - 100) / 123;
-    if (endRoom > 6) endRoom = 6;
+    self.startRoom = ([self.startX doubleValue] - 100) / 123;
+    self.endRoom = ([self.endX doubleValue] - 100) / 123;
+    if (self.endRoom > 6) self.endRoom = 6;
     
-    for (NSUInteger i = startRoom; i <= endRoom; ++i)
+    for (NSUInteger i = self.startRoom; i <= self.endRoom; ++i)
         ((UIView *) self.signalArray[i]).backgroundColor = [UIColor greenColor];
     
-    for (NSUInteger i = 0; i < startRoom; ++i)
+    for (NSUInteger i = 0; i < self.startRoom; ++i)
         ((UIView *) self.signalArray[i]).backgroundColor = [UIColor redColor];
     
-    for (NSUInteger i = endRoom + 1; i < 7; ++i)
+    for (NSUInteger i = self.endRoom + 1; i < 7; ++i)
         ((UIView *) self.signalArray[i]).backgroundColor = [UIColor redColor];
     
 }
@@ -119,15 +119,13 @@
     NSLog(@"melody: %@", songs[0][@"melody"]);
     
     // initial x:100 + 123 * (# of room)
-    NSUInteger startRoom = ([self.startX doubleValue] - 100) / 123;
-    NSUInteger endRoom = ([self.endX doubleValue] - 100) / 123;
-    if (endRoom > 6) {
-        endRoom = 6;
-    }
-    NSMutableArray *playRoomsArray = [NSMutableArray arrayWithCapacity:8];
+    self.startRoom = ([self.startX doubleValue] - 100) / 123;
+    self.endRoom = ([self.endX doubleValue] - 100) / 123;
+    if (self.endRoom > 6) { self.endRoom = 6; }
+    self.playRoomsArray = [NSMutableArray arrayWithCapacity:7];
     
     NSLog(@"in DragToPlay noteSequence:%@", self.notesSequence);
-    for (NSUInteger i = startRoom; i <= endRoom; ++i) {
+    for (NSUInteger i = self.startRoom; i <= self.self.endRoom; ++i) {
         id objInNotesSequence = [self.notesSequence objectAtIndex:i];
         NSString *noteStr;
         if ([objInNotesSequence isEqual:[NSNull null]]) {
@@ -135,10 +133,12 @@
         } else {
             noteStr = [objInNotesSequence description];
         }
-        [playRoomsArray addObject:noteStr];
+        [self.playRoomsArray addObject:noteStr];
     }
     
-    [[GESoundManager soleSoundManager] playSynthesizedNoteArray:playRoomsArray instrument:GESoundMgrPiano];
+    [[GESoundManager soleSoundManager] playSynthesizedNoteArray:self.playRoomsArray instrument:GESoundMgrPiano];
+    self.targetIndex = 0;
+    [self performSelector:@selector(revertSignals) withObject:nil afterDelay:0.0f];
     
     [UIView animateWithDuration:1 animations:^{
         self.arrowView.alpha = 0;
@@ -146,6 +146,24 @@
         NSLog(@"done");
         [self.arrowView removeFromSuperview];
         
+    }];
+}
+
+- (void)revertSignals {
+    NSLog(@"target %d, count %d", self.targetIndex, self.playRoomsArray.count);
+    if (self.playRoomsArray.count == 0) return;
+    NSString *note = (NSString *) self.playRoomsArray[0];
+    float delay = (1.0f / [[note substringFromIndex:[note length] - 1] intValue]);
+    NSLog(@"delay: %f", delay);
+    [self.playRoomsArray removeObjectAtIndex:0];
+    [self performSelector:@selector(revertSignalForIndex:) withObject:@((self.targetIndex++) + self.startRoom) afterDelay:delay];
+    [self performSelector:@selector(revertSignals) withObject:nil afterDelay:delay * 0.8];
+}
+
+- (void)revertSignalForIndex:(NSNumber *)index
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        ((UIView *) self.signalArray[[index integerValue]]).backgroundColor = [UIColor redColor];
     }];
 }
 

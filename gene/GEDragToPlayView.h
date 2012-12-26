@@ -18,5 +18,9 @@
 @property (nonatomic, strong) UIView *arrowView;
 @property (nonatomic, strong) NSMutableArray *pointArray;
 @property (nonatomic, strong) NSMutableArray *signalArray;
+@property (nonatomic, strong) NSMutableArray *playRoomsArray;
+@property (nonatomic) NSUInteger startRoom;
+@property (nonatomic) NSUInteger endRoom;
+@property (nonatomic) NSUInteger targetIndex;
 
 @end
