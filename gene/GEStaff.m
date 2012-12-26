@@ -25,6 +25,7 @@
 @synthesize answer;
 @synthesize notesSequence;
 @synthesize songName;
+//songIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -72,23 +73,24 @@
     [self.view addSubview:drag];
     
     UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 608, 130, 160)];
-    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d.png"] forState:UIControlStateNormal];
-    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d_press-2.png"] forState:UIControlStateHighlighted];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d_color.png"] forState:UIControlStateNormal];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d_press_color.png"] forState:UIControlStateHighlighted];
     [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backToRoulette];
     
     UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(790, 605, 130, 160)];
-    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d.png"] forState:UIControlStateNormal];
-    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d_press.png"] forState:UIControlStateHighlighted];
+    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d_color.png"] forState:UIControlStateNormal];
+    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d_press_color.png"] forState:UIControlStateHighlighted];
     [submitButton addTarget:self action:@selector(submitAnswer:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitButton];
     
     UIButton *playButton = [[UIButton alloc]initWithFrame:CGRectMake(651, 605, 130, 160)];
-    [playButton setImage:[UIImage imageNamed:@"play_button_3d.png"] forState:UIControlStateNormal];
-    [playButton setImage:[UIImage imageNamed:@"play_button_3d_press.png"] forState:UIControlStateHighlighted];
+    [playButton setImage:[UIImage imageNamed:@"play_button_3d_color.png"] forState:UIControlStateNormal];
+    [playButton setImage:[UIImage imageNamed:@"play_button_3d_press_color.png"] forState:UIControlStateHighlighted];
     [playButton addTarget:self action:@selector(playTheQuiz) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playButton];
     
+    /*
     songNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(320, 605, 310, 160)];
     [songNameLabel setText:self.songName];
     NSLog(@"song Chosen = %@",self.songName);
@@ -100,7 +102,10 @@
     [songNameLabel.layer setBorderColor:[UIColor blackColor].CGColor];
     [songNameLabel.layer setBorderWidth:5];
     [self.view addSubview:songNameLabel];
+    */
     
+    
+     
     //a block is 120 * 320 !!
     /*
     UIButton *testBUtton = [[UIButton alloc]initWithFrame:CGRectMake(10, 20, 120, 320)];
@@ -117,6 +122,16 @@
 - (void) setSongNameLabelWithText:(NSString *)name{
     
     [songNameLabel setText:name];
+    
+}
+
+- (void)setSongNameImage:(NSInteger)songIndex{
+    
+    NSLog(@"songIndex = %d",songIndex);
+    UIImageView *songNameImage = [[UIImageView alloc]initWithFrame:CGRectMake(200, 590, 375, 170)];
+    [songNameImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"song_name_back_3d-%d",songIndex]]];
+    [self.view addSubview:songNameImage];
+    
     
 }
 
@@ -199,8 +214,8 @@
         }
     }
 
-    UIImageView *trebleClefImage = [[UIImageView alloc]initWithFrame:CGRectMake(-30, -20, 158, 400)];
-    [trebleClefImage setImage:[UIImage imageNamed:@"Treble_Clef.png"]];
+    UIImageView *trebleClefImage = [[UIImageView alloc]initWithFrame:CGRectMake(-30, -20, 180, 400)];
+    [trebleClefImage setImage:[UIImage imageNamed:@"Treble_Clef_3D.png"]];
     [self.view addSubview:trebleClefImage];
     staffViewArray = [[NSArray alloc]initWithArray:[temp copy]];
     NSLog(@"y = %d",y);
@@ -596,16 +611,17 @@
         UIButton *successGrayButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 1024, 768)];
         [successGrayButton setBackgroundColor:[UIColor colorWithRed:90.0/255.0 green:95.0/255.0 blue:97.0/255.0 alpha:0.8]];
         [successGrayButton addTarget:self action:@selector(removeSuccessView:) forControlEvents:UIControlEventTouchUpInside];
-        [successGrayButton setAlpha:0];
+        //[successGrayButton setAlpha:0];
         [self.view addSubview:successGrayButton];
         
-        UIImageView *successImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 650, 650)];
-        [successImage setImage:[UIImage imageNamed:@"success.png"]];
-        [successImage setCenter:successGrayButton.center];
+        UIImageView *successImage = [[UIImageView alloc]initWithFrame:CGRectMake(-1024, 390, 1024, 290)];
+        [successImage setImage:[UIImage imageNamed:@"correct_3d.png"]];
+        //[successImage setCenter:successGrayButton.center];
         [successGrayButton addSubview:successImage];
         
         [UIView animateWithDuration:1.1 animations:^{
-            [successGrayButton setAlpha:1];
+            //[successGrayButton setAlpha:1];
+            [successImage setFrame:CGRectMake(0, 290, 1024, 290)];
         }];
         
         
@@ -615,16 +631,17 @@
         UIButton *failGrayButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 1024, 768)];
         [failGrayButton setBackgroundColor:[UIColor colorWithRed:90.0/255.0 green:95.0/255.0 blue:97.0/255.0 alpha:0.8]];
         [failGrayButton addTarget:self action:@selector(removeFailedView:) forControlEvents:UIControlEventTouchUpInside];
-        [failGrayButton setAlpha:0];
+        //[failGrayButton setAlpha:0];
         [self.view addSubview:failGrayButton];
         
-        UIImageView *failedImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 650, 650)];
-        [failedImage setImage:[UIImage imageNamed:@"failed_view.png"]];
-        [failedImage setCenter:failGrayButton.center];
+        UIImageView *failedImage = [[UIImageView alloc]initWithFrame:CGRectMake(-1024, 390, 1024, 290)];
+        [failedImage setImage:[UIImage imageNamed:@"wrong_3d.png"]];
+        //[failedImage setCenter:failGrayButton.center];
         [failGrayButton addSubview:failedImage];
         
         [UIView animateWithDuration:1.1 animations:^{
-            [failGrayButton setAlpha:1];
+            //[failGrayButton setAlpha:1];
+            [failedImage setFrame:CGRectMake(0, 390, 1024, 290)];
         }];
         
     }

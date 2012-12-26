@@ -136,6 +136,7 @@ typedef enum {
     
     self.rotateCount = (self.rotateNum)% self.songs.count + 1;
     self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
+    
     //self.rotateCount = 1;
     //self.rotateNum = 28;
     self.songChosen = (NSDictionary *) self.songs[(self.rotateNum)% self.songs.count];
@@ -159,12 +160,19 @@ typedef enum {
                          staffViewController.view.alpha = 0.2f;
                          staffViewController.answer = [self.songChosen objectForKey:@"melody"];
                          staffViewController.songName = (NSString*)[self.songChosen objectForKey:@"name"];
+                         //staffViewController.songIndex = (self.rotateNum)% self.songs.count;
                          
                          [self.navigationController presentModalViewController:staffViewController animated:NO];
                             staffViewController.songName = [self.songChosen objectForKey:@"name"];
                          [UIView beginAnimations:nil context:nil];
                             staffViewController.view.alpha = 1.0f;
+                         
                             [staffViewController setSongNameLabelWithText:[self.songChosen objectForKey:@"name"]];
+                            [staffViewController setSongNameImage:(self.rotateNum)% self.songs.count];
+                            //[staffViewController setSongIndex:(self.rotateNum)% self.songs.count];
+                         
+                            NSLog(@"songIndex in ComposeVC = %d",(self.rotateNum)% self.songs.count);
+                         
                          [UIView commitAnimations];
                      }];
 }

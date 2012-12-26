@@ -43,9 +43,11 @@ enum room {
 
 @property (strong, nonatomic)NSArray *answer;
 @property (strong, nonatomic)NSMutableArray *notesSequence;
+//@property (nonatomic)NSInteger songIndex;
 @property (strong, nonatomic)NSString *songName;
 @property (strong, nonatomic) UIImageView *fingerView;
 
 - (void)setSongNameLabelWithText:(NSString*)name;
+- (void)setSongNameImage:(NSInteger)songIndex;
 
 @end
