@@ -16,6 +16,8 @@
 // const float trebleClefDistance = 80;
 @interface GEStaff ()
 
+- (void)animateFinger;
+
 @end
 
 @implementation GEStaff
@@ -51,7 +53,7 @@
     self.fingerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"finger.png"]];
     self.fingerView.frame = CGRectMake(15, 515, 100, 100);
     [self.view addSubview:self.fingerView];
-    
+    [self animateFinger];
     
     
     
@@ -674,6 +676,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark animations
+
+- (void)animateFinger
+{
+    [UIView animateWithDuration:1.0f
+                          delay:0.0f
+                        options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         self.fingerView.center = CGPointMake(115, 565);
+                     } completion:NULL];
 }
 
 @end

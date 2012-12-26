@@ -33,8 +33,7 @@ const float trebleClefDistance = 147;
             
         }
         else return nil;
-        
-        
+
     }
     
 }
