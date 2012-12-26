@@ -46,7 +46,7 @@
     
     [self.view setMultipleTouchEnabled:YES];
     UIImageView *backGroundImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 1024, 768)];
-    [backGroundImage setImage:[UIImage imageNamed:@"staff_back.png"]];
+    [backGroundImage setImage:[UIImage imageNamed:@"background.png"]];
     [self.view addSubview:backGroundImage];
     
     // finger cue
