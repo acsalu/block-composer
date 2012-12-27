@@ -14,11 +14,12 @@ extern NSString * const GESoundMgrGuitar;
 
 
 @interface GESoundManager : NSObject <AVAudioPlayerDelegate> {
-    AVAudioPlayer *player;
+    AVAudioPlayer *audioPlayer;
 }
 
 @property (nonatomic) BOOL playing;
 @property (nonatomic, strong) NSMutableArray *userNoteArray;
+
 
 + (GESoundManager *)soleSoundManager;
 + (BOOL)verifyAnswerWithAnswerArray:(NSArray*)ans andUserArray:(NSArray*)usrArray;

@@ -67,9 +67,9 @@ NSString * const GESoundMgrGuitar = @"Guitar";
         }
     }
     
-    player = [[AVAudioPlayer alloc] initWithData:concatenatedData error:nil];
-    player.delegate = self;
-    [player play];
+    audioPlayer = [[AVAudioPlayer alloc] initWithData:concatenatedData error:nil];
+    audioPlayer.delegate = self;
+    [audioPlayer play];
     self.playing = YES;
 }
 
@@ -85,9 +85,9 @@ NSString * const GESoundMgrGuitar = @"Guitar";
         return;
     }
     NSURL *answerURL = [NSURL fileURLWithPath:answerFile];
-    player = [[AVAudioPlayer alloc] initWithContentsOfURL:answerURL error:nil];
-    player.delegate = self;
-    [player play];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:answerURL error:nil];
+    audioPlayer.delegate = self;
+    [audioPlayer play];
     self.playing = YES;
 }
 
@@ -121,6 +121,8 @@ NSString * const GESoundMgrGuitar = @"Guitar";
     if (flag == NO) {
         NSLog(@"Audio player decoding error.");
     }
+    audioPlayer = nil;
 }
+
 
 @end
