@@ -93,7 +93,7 @@
     /*
     songNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(320, 605, 310, 160)];
     [songNameLabel setText:self.songName];
-    NSLog(@"song Chosen = %@",self.songName);
+    // NSLog(@"song Chosen = %@",self.songName);
     
     [songNameLabel setFont:[UIFont systemFontOfSize:40]];
     [songNameLabel setTextColor:[UIColor blackColor]];
@@ -127,7 +127,7 @@
 
 - (void)setSongNameImage:(NSInteger)songIndex{
     
-    NSLog(@"songIndex = %d",songIndex);
+    // NSLog(@"songIndex = %d",songIndex);
     UIImageView *songNameImage = [[UIImageView alloc]initWithFrame:CGRectMake(200, 590, 375, 170)];
     [songNameImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"song_name_back_3d-%d",songIndex]]];
     [self.view addSubview:songNameImage];
@@ -218,7 +218,7 @@
     [trebleClefImage setImage:[UIImage imageNamed:@"Treble_Clef_3D.png"]];
     [self.view addSubview:trebleClefImage];
     staffViewArray = [[NSArray alloc]initWithArray:[temp copy]];
-    NSLog(@"y = %d",y);
+    // NSLog(@"y = %d",y);
 }
 
 #pragma mark - touches related functions
@@ -240,20 +240,20 @@
         
         [[GESoundManager soleSoundManager] playAnswerOrSingleNote:note.description instrument:GESoundMgrPiano];
         
-        NSLog(@"noteType = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
-        NSLog(@"noteLength = %d",[self getNoteLengthWithTouch:touch]);
+        // NSLog(@"noteType = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
+        // NSLog(@"noteLength = %d",[self getNoteLengthWithTouch:touch]);
         
         [SCWaveAnimationView waveAnimationAtPosition:[touch locationInView:self.view] forView:self.view];
         
     }
     
-    NSLog(@"notesSequence = %@",notesSequence);
+    // NSLog(@"notesSequence = %@",notesSequence);
     
     
     /*
     if ([tuneValue count]>50) {
-        NSLog(@"x mean = %f", [self meanOf:[tuneValue copy]].floatValue);
-        NSLog(@"x std = %f", [self standardDeviationOf:[tuneValue copy]].floatValue);
+        // NSLog(@"x mean = %f", [self meanOf:[tuneValue copy]].floatValue);
+        // NSLog(@"x std = %f", [self standardDeviationOf:[tuneValue copy]].floatValue);
     }
     */
     
@@ -322,10 +322,10 @@
     for(UITouch* touch in touches){
         
         [testLabel setText:NSStringFromCGPoint([touch locationInView:self.view])];
-        NSLog(@"tag = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
+        // NSLog(@"tag = %d",[self getTouchedViewNoteTypeWithTouch:touch]);
         
         if (TrebleClef == NULL) {
-            NSLog(@"==null!!");
+            // NSLog(@"==null!!");
             
             GENote *note = [[GENote alloc]initWithTouchPoint:[touch locationInView:self.view] NoteType:[self getTouchedViewNoteTypeWithTouch:touch]];
             [notesSequence addObject:[NSValue valueWithCGPoint:[touch locationInView:self.view]]];
@@ -360,16 +360,16 @@
         
     }] mutableCopy];
     
-    NSLog(@"before check!");
-    NSLog(@"noteSequence = %@",notesSequence);
-    NSLog(@"noteOnStaff = %@",notesOnStaff);
+    // NSLog(@"before check!");
+    // NSLog(@"noteSequence = %@",notesSequence);
+    // NSLog(@"noteOnStaff = %@",notesOnStaff);
     
     [self checkForTrebleClef];
     
     
-    NSLog(@"after check!");
-    NSLog(@"noteSequence = %@",notesSequence);
-    NSLog(@"noteOnStaff = %@",notesOnStaff);
+    // NSLog(@"after check!");
+    // NSLog(@"noteSequence = %@",notesSequence);
+    // NSLog(@"noteOnStaff = %@",notesOnStaff);
     
     
     CATransition *animation = [CATransition animation];
@@ -424,9 +424,9 @@
     }
     
     
-    NSLog(@"moved!");
-    NSLog(@"noteSequence = %@",notesSequence);
-    NSLog(@"noteOnStaff = %@",notesOnStaff);
+    // NSLog(@"moved!");
+    // NSLog(@"noteSequence = %@",notesSequence);
+    // NSLog(@"noteOnStaff = %@",notesOnStaff);
      
     
 }
@@ -449,7 +449,7 @@
 
 - (void)updateNotesLengthEverySecond{
     
-    //NSLog(@"in updateNotesLengthEverySecond");
+    //// NSLog(@"in updateNotesLengthEverySecond");
     
     if (TrebleClef == nil) {
         return;
@@ -482,9 +482,9 @@
     }
     
     
-    NSLog(@"End!!");
-    NSLog(@"noteSequence = %@",notesSequence);
-    NSLog(@"noteOnStaff = %@",notesOnStaff);
+    // NSLog(@"End!!");
+    // NSLog(@"noteSequence = %@",notesSequence);
+    // NSLog(@"noteOnStaff = %@",notesOnStaff);
      
 
 }
@@ -506,7 +506,7 @@
             
             //generate a GENote
             //remove both points from array, and set the GENote's member "isTrebleClef" to YES
-            NSLog(@"treble clef generated");
+            // NSLog(@"treble clef generated");
             TrebleClef = [[GENote alloc]initTrebleClefWithTouchPoint:point1 AndTouchPoint:point2];
             
             [notesSequence removeObject:[notesSequence objectAtIndex:i+1]];
@@ -566,7 +566,7 @@
         
         if ( CGRectContainsPoint(room.frame, [touch locationInView:self.view])) {
             
-            NSLog(@"location in roomView = %@",NSStringFromCGPoint([touch locationInView:room]));
+            // NSLog(@"location in roomView = %@",NSStringFromCGPoint([touch locationInView:room]));
             
             //[tuneValue addObject:[NSNumber numberWithInteger:[touch locationInView:room].x]];
             

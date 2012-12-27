@@ -60,7 +60,7 @@
     
     UITouch *touch = (UITouch *) [touches anyObject];
     CGPoint point = [touch locationInView:self];
-    NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
+    // NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
     self.startX = @(point.x);
     [self.arrowView removeFromSuperview];
     
@@ -75,7 +75,7 @@
     
     UITouch *touch = (UITouch *) [touches anyObject];
     CGPoint point = [touch locationInView:self];
-    NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
+    // NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
     self.endX = @(point.x);
     if ([self.startX doubleValue] <= [self.endX doubleValue]) {
         [self.arrowView setFrame:CGRectMake([self.startX doubleValue], 50,
@@ -111,12 +111,12 @@
     
     UITouch *touch = (UITouch *) [touches anyObject];
     CGPoint point = [touch locationInView:self];
-    NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
+    // NSLog(@"(%.2f, %.2f) in DragToPlayView", point.x, point.y);
     self.endX = @(point.x);
-    NSLog(@"from %.2f to %.2f", [self.startX doubleValue], [self.endX doubleValue]);
+    // NSLog(@"from %.2f to %.2f", [self.startX doubleValue], [self.endX doubleValue]);
     NSString *path = [[NSBundle mainBundle] pathForResource:@"songs" ofType:@"plist"];
     NSArray *songs = [NSArray arrayWithContentsOfFile:path];
-    NSLog(@"melody: %@", songs[0][@"melody"]);
+    // NSLog(@"melody: %@", songs[0][@"melody"]);
     
     // initial x:100 + 123 * (# of room)
     self.startRoom = ([self.startX doubleValue] - 100) / 123;
@@ -124,7 +124,7 @@
     if (self.endRoom > 6) { self.endRoom = 6; }
     self.playRoomsArray = [NSMutableArray arrayWithCapacity:7];
     
-    NSLog(@"in DragToPlay noteSequence:%@", self.notesSequence);
+    // NSLog(@"in DragToPlay noteSequence:%@", self.notesSequence);
     for (NSUInteger i = self.startRoom; i <= self.self.endRoom; ++i) {
         id objInNotesSequence = [self.notesSequence objectAtIndex:i];
         NSString *noteStr;
@@ -143,18 +143,18 @@
     [UIView animateWithDuration:1 animations:^{
         self.arrowView.alpha = 0;
     } completion:^(BOOL finished) {
-        NSLog(@"done");
+        // NSLog(@"done");
         [self.arrowView removeFromSuperview];
         
     }];
 }
 
 - (void)revertSignals {
-    NSLog(@"target %d, count %d", self.targetIndex, self.playRoomsArray.count);
+    // NSLog(@"target %d, count %d", self.targetIndex, self.playRoomsArray.count);
     if (self.playRoomsArray.count == 0) return;
     NSString *note = (NSString *) self.playRoomsArray[0];
     float delay = (1.0f / [[note substringFromIndex:[note length] - 1] intValue]);
-    NSLog(@"delay: %f", delay);
+    // NSLog(@"delay: %f", delay);
     [self.playRoomsArray removeObjectAtIndex:0];
     [self performSelector:@selector(revertSignalForIndex:) withObject:@((self.targetIndex++) + self.startRoom) afterDelay:delay];
     [self performSelector:@selector(revertSignals) withObject:nil afterDelay:delay - 0.04f];
