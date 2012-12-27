@@ -93,8 +93,7 @@ typedef enum {
 - (void)rotateWithOptions:(UIViewAnimationOptions)options
 {
     
-    static int count = 0;
-    NSLog(@"count %d", count++);
+    // NSLog(@"count %d", count++);
     float duration = 0.1f;
     if (self.rotateCount >= self.rotateNum - 6) duration = 0.12f;
     if (self.rotateCount >= self.rotateNum - 4) duration = 0.14f;
@@ -109,7 +108,7 @@ typedef enum {
                          if (finished) {
                              if (self.isRotating) {
                                  // if flag still set, keep spinning with constant speed
-                                 NSLog(@"rotateCount %d", self.rotateCount);
+                                 // NSLog(@"rotateCount %d", self.rotateCount);
                                  
                                  
                                  if (self.rotateCount++ == self.rotateNum) {
@@ -131,17 +130,19 @@ typedef enum {
 - (void)startRotate
 {
     self.arrowView.hidden = YES;
-    NSLog(@"Swipe down gesture detected!");
+    // NSLog(@"Swipe down gesture detected!");
     self.isRotating = YES;
     
     self.rotateCount = (self.rotateNum)% self.songs.count + 1;
     self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
-    
+    while ((self.rotateNum) % self.songs.count == 5) {
+        self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
+    }
     //self.rotateCount = 1;
     //self.rotateNum = 28;
-    self.songChosen = (NSDictionary *) self.songs[(self.rotateNum)% self.songs.count];
-    NSLog(@"rotateNum = %d", self.rotateNum);
-    NSLog(@"songChosen = %@", [self.songChosen objectForKey:@"name"]);
+    self.songChosen = (NSDictionary *) self.songs[(self.rotateNum) % self.songs.count];
+    // NSLog(@"rotateNum = %d", self.rotateNum);
+    // NSLog(@"songChosen = %@", [self.songChosen objectForKey:@"name"]);
     [self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
 
 }
@@ -171,7 +172,7 @@ typedef enum {
                             [staffViewController setSongNameImage:(self.rotateNum)% self.songs.count];
                             //[staffViewController setSongIndex:(self.rotateNum)% self.songs.count];
                          
-                            NSLog(@"songIndex in ComposeVC = %d",(self.rotateNum)% self.songs.count);
+                            // NSLog(@"songIndex in ComposeVC = %d",(self.rotateNum)% self.songs.count);
                          
                          [UIView commitAnimations];
                      }];

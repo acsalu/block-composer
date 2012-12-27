@@ -44,7 +44,7 @@ NSString * const GESoundMgrGuitar = @"Guitar";
 - (void)playSynthesizedNoteArray:(NSArray *)noteArray instrument:(NSString *)instrument{
     
     if (self.playing) {
-        NSLog(@"Audio player is playing.");
+        // NSLog(@"Audio player is playing.");
         return;
     }
     
@@ -55,7 +55,7 @@ NSString * const GESoundMgrGuitar = @"Guitar";
     for (NSString *note in noteArray) {
         NSString *noteFile = [[NSBundle mainBundle] pathForResource:note ofType:@"mp3"];
         if (noteFile == nil) {
-            NSLog(@"Can't locate note file");
+            // NSLog(@"Can't locate note file");
             continue;
         }
         NSURL *filePath = [NSURL fileURLWithPath:noteFile];
@@ -63,31 +63,31 @@ NSString * const GESoundMgrGuitar = @"Guitar";
         if (audioData != nil) {
             [concatenatedData appendData:audioData];
         } else {
-            NSLog(@"Error, no audio data in %@", note);
+            // NSLog(@"Error, no audio data in %@", note);
         }
     }
     
-    player = [[AVAudioPlayer alloc] initWithData:concatenatedData error:nil];
-    player.delegate = self;
-    [player play];
+    audioPlayer = [[AVAudioPlayer alloc] initWithData:concatenatedData error:nil];
+    audioPlayer.delegate = self;
+    [audioPlayer play];
     self.playing = YES;
 }
 
 - (void)playAnswerOrSingleNote:(NSString *)songName instrument:(NSString *)instrument{
     if (self.playing) {
-        NSLog(@"Audio player is playing.");
+        // NSLog(@"Audio player is playing.");
         return;
     }
     
     NSString *answerFile = [[NSBundle mainBundle] pathForResource:songName ofType:@"mp3"];
     if (answerFile == nil) {
-        NSLog(@"Can't locate answer file");
+        // NSLog(@"Can't locate answer file");
         return;
     }
     NSURL *answerURL = [NSURL fileURLWithPath:answerFile];
-    player = [[AVAudioPlayer alloc] initWithContentsOfURL:answerURL error:nil];
-    player.delegate = self;
-    [player play];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:answerURL error:nil];
+    audioPlayer.delegate = self;
+    [audioPlayer play];
     self.playing = YES;
 }
 
@@ -96,8 +96,8 @@ NSString * const GESoundMgrGuitar = @"Guitar";
 //GENote.
 + (BOOL)verifyAnswerWithAnswerArray:(NSArray*)ans andUserArray:(NSArray*)usrArray{
     
-    NSLog(@"ans = %@",ans);
-    NSLog(@"usrArray = %@",usrArray);
+    // NSLog(@"ans = %@",ans);
+    // NSLog(@"usrArray = %@",usrArray);
     
     for (int i = 0; i < [ans count]; ++i) {
         if (![[usrArray objectAtIndex:i] isKindOfClass:[GENote class]]) {
@@ -116,11 +116,13 @@ NSString * const GESoundMgrGuitar = @"Guitar";
 # pragma mark AVAudioPlayerDelegate
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    NSLog(@"in Delegate");
+    // NSLog(@"in Delegate");
     self.playing = NO;
     if (flag == NO) {
-        NSLog(@"Audio player decoding error.");
+        // NSLog(@"Audio player decoding error.");
     }
+    audioPlayer = nil;
 }
+
 
 @end
