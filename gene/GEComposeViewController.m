@@ -136,10 +136,12 @@ typedef enum {
     
     self.rotateCount = (self.rotateNum)% self.songs.count + 1;
     self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
-    
+    while ((self.rotateNum) % self.songs.count == 5) {
+        self.rotateNum = (arc4random() % 5 + 3) * 4 + arc4random() % 4;
+    }
     //self.rotateCount = 1;
     //self.rotateNum = 28;
-    self.songChosen = (NSDictionary *) self.songs[(self.rotateNum)% self.songs.count];
+    self.songChosen = (NSDictionary *) self.songs[(self.rotateNum) % self.songs.count];
     NSLog(@"rotateNum = %d", self.rotateNum);
     NSLog(@"songChosen = %@", [self.songChosen objectForKey:@"name"]);
     [self rotateWithOptions:UIViewAnimationOptionCurveEaseIn];
