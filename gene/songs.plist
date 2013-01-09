@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>小星星</string>
+		<string>little star</string>
 		<key>melody</key>
 		<array>
 			<string>C2_4</string>
@@ -18,7 +18,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>小蜜蜂</string>
+		<string>little bee</string>
 		<key>melody</key>
 		<array>
 			<string>G2_4</string>
@@ -31,7 +31,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>我有一隻小毛驢</string>
+		<string>little donkey</string>
 		<key>melody</key>
 		<array>
 			<string>C2_4</string>
@@ -45,7 +45,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>哥哥爸爸真偉大</string>
+		<string>dad and bro, YO!</string>
 		<key>melody</key>
 		<array>
 			<string>C3_4</string>
@@ -59,7 +59,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>天黑黑</string>
+		<string>dark sky</string>
 		<key>melody</key>
 		<array>
 			<string>E3_4</string>
@@ -72,7 +72,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>造飛機</string>
+		<string>build a plane</string>
 		<key>melody</key>
 		<array>
 			<string>G2_4</string>
@@ -90,7 +90,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>瑪麗有隻小綿羊</string>
+		<string>Mary has little lamb</string>
 		<key>melody</key>
 		<array>
 			<string>E2_4</string>
@@ -104,7 +104,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>捉泥鰍</string>
+		<string>catching loach</string>
 		<key>melody</key>
 		<array>
 			<string>A2_4</string>

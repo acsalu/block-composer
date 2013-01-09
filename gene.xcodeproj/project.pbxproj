@@ -131,6 +131,20 @@
 		542B1F43167F924B004F4B89 /* GEStaff.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B1F42167F924B004F4B89 /* GEStaff.m */; };
 		542B1F46167F9613004F4B89 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 542B1F45167F9613004F4B89 /* line.png */; };
 		542B1F4916801B43004F4B89 /* GECalculateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B1F4816801B43004F4B89 /* GECalculateHelper.m */; };
+		5471739E169DE63400D0B54C /* submit_button_3d_press_color_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 54717398169DE63300D0B54C /* submit_button_3d_press_color_en.png */; };
+		5471739F169DE63400D0B54C /* submit_button_3d_color_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 54717399169DE63300D0B54C /* submit_button_3d_color_en.png */; };
+		547173A0169DE63400D0B54C /* play_button_3d_press_color_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 5471739A169DE63300D0B54C /* play_button_3d_press_color_en.png */; };
+		547173A1169DE63400D0B54C /* play_button_3d_color_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 5471739B169DE63300D0B54C /* play_button_3d_color_en.png */; };
+		547173A2169DE63400D0B54C /* back_button_3d_color_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 5471739C169DE63300D0B54C /* back_button_3d_color_en.png */; };
+		547173A3169DE63400D0B54C /* back_button_3d_press_color_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 5471739D169DE63300D0B54C /* back_button_3d_press_color_en.png */; };
+		547173AD169DE9AB00D0B54C /* song_name_back_3d-1_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 547173A5169DE9AB00D0B54C /* song_name_back_3d-1_en.png */; };
+		547173AE169DE9AB00D0B54C /* song_name_back_3d-2_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 547173A6169DE9AB00D0B54C /* song_name_back_3d-2_en.png */; };
+		547173AF169DE9AB00D0B54C /* song_name_back_3d-3_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 547173A7169DE9AB00D0B54C /* song_name_back_3d-3_en.png */; };
+		547173B0169DE9AB00D0B54C /* song_name_back_3d-4_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 547173A8169DE9AB00D0B54C /* song_name_back_3d-4_en.png */; };
+		547173B1169DE9AB00D0B54C /* song_name_back_3d-5_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 547173A9169DE9AB00D0B54C /* song_name_back_3d-5_en.png */; };
+		547173B2169DE9AB00D0B54C /* song_name_back_3d-6_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 547173AA169DE9AB00D0B54C /* song_name_back_3d-6_en.png */; };
+		547173B3169DE9AB00D0B54C /* song_name_back_3d-7_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 547173AB169DE9AB00D0B54C /* song_name_back_3d-7_en.png */; };
+		547173B4169DE9AB00D0B54C /* song_name_back_3d-0_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 547173AC169DE9AB00D0B54C /* song_name_back_3d-0_en.png */; };
 		54D6A4211686174A00A01E62 /* staff_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 54D6A4201686174A00A01E62 /* staff_line.png */; };
 		900C908916805D2800FCF207 /* songs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 900C908816805D2800FCF207 /* songs.plist */; };
 		900C908F1680940300FCF207 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 900C908E1680940300FCF207 /* Icon-72@2x.png */; };
@@ -290,6 +304,20 @@
 		542B1F45167F9613004F4B89 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		542B1F4716801B43004F4B89 /* GECalculateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GECalculateHelper.h; sourceTree = "<group>"; };
 		542B1F4816801B43004F4B89 /* GECalculateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GECalculateHelper.m; sourceTree = "<group>"; };
+		54717398169DE63300D0B54C /* submit_button_3d_press_color_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit_button_3d_press_color_en.png; sourceTree = "<group>"; };
+		54717399169DE63300D0B54C /* submit_button_3d_color_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit_button_3d_color_en.png; sourceTree = "<group>"; };
+		5471739A169DE63300D0B54C /* play_button_3d_press_color_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button_3d_press_color_en.png; sourceTree = "<group>"; };
+		5471739B169DE63300D0B54C /* play_button_3d_color_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_button_3d_color_en.png; sourceTree = "<group>"; };
+		5471739C169DE63300D0B54C /* back_button_3d_color_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_button_3d_color_en.png; sourceTree = "<group>"; };
+		5471739D169DE63300D0B54C /* back_button_3d_press_color_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_button_3d_press_color_en.png; sourceTree = "<group>"; };
+		547173A5169DE9AB00D0B54C /* song_name_back_3d-1_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "song_name_back_3d-1_en.png"; sourceTree = "<group>"; };
+		547173A6169DE9AB00D0B54C /* song_name_back_3d-2_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "song_name_back_3d-2_en.png"; sourceTree = "<group>"; };
+		547173A7169DE9AB00D0B54C /* song_name_back_3d-3_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "song_name_back_3d-3_en.png"; sourceTree = "<group>"; };
+		547173A8169DE9AB00D0B54C /* song_name_back_3d-4_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "song_name_back_3d-4_en.png"; sourceTree = "<group>"; };
+		547173A9169DE9AB00D0B54C /* song_name_back_3d-5_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "song_name_back_3d-5_en.png"; sourceTree = "<group>"; };
+		547173AA169DE9AB00D0B54C /* song_name_back_3d-6_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "song_name_back_3d-6_en.png"; sourceTree = "<group>"; };
+		547173AB169DE9AB00D0B54C /* song_name_back_3d-7_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "song_name_back_3d-7_en.png"; sourceTree = "<group>"; };
+		547173AC169DE9AB00D0B54C /* song_name_back_3d-0_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "song_name_back_3d-0_en.png"; sourceTree = "<group>"; };
 		54D6A4201686174A00A01E62 /* staff_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = staff_line.png; sourceTree = "<group>"; };
 		900C908816805D2800FCF207 /* songs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = songs.plist; path = ../../gene/gene/songs.plist; sourceTree = "<group>"; };
 		900C908E1680940300FCF207 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
@@ -443,6 +471,14 @@
 		54064FF6168B79D70033ACCB /* song name */ = {
 			isa = PBXGroup;
 			children = (
+				547173A5169DE9AB00D0B54C /* song_name_back_3d-1_en.png */,
+				547173A6169DE9AB00D0B54C /* song_name_back_3d-2_en.png */,
+				547173A7169DE9AB00D0B54C /* song_name_back_3d-3_en.png */,
+				547173A8169DE9AB00D0B54C /* song_name_back_3d-4_en.png */,
+				547173A9169DE9AB00D0B54C /* song_name_back_3d-5_en.png */,
+				547173AA169DE9AB00D0B54C /* song_name_back_3d-6_en.png */,
+				547173AB169DE9AB00D0B54C /* song_name_back_3d-7_en.png */,
+				547173AC169DE9AB00D0B54C /* song_name_back_3d-0_en.png */,
 				54065007168B7D7B0033ACCB /* song_name_back_3d-6.png */,
 				54065008168B7D7B0033ACCB /* song_name_back_3d-7.png */,
 				54065009168B7D7B0033ACCB /* song_name_back_3d-5.png */,
@@ -458,6 +494,12 @@
 		54065017168B87FE0033ACCB /* 3d button color */ = {
 			isa = PBXGroup;
 			children = (
+				54717398169DE63300D0B54C /* submit_button_3d_press_color_en.png */,
+				54717399169DE63300D0B54C /* submit_button_3d_color_en.png */,
+				5471739A169DE63300D0B54C /* play_button_3d_press_color_en.png */,
+				5471739B169DE63300D0B54C /* play_button_3d_color_en.png */,
+				5471739C169DE63300D0B54C /* back_button_3d_color_en.png */,
+				5471739D169DE63300D0B54C /* back_button_3d_press_color_en.png */,
 				54065018168B88390033ACCB /* back_button_3d_color.png */,
 				54065019168B88390033ACCB /* play_button_3d_press_color.png */,
 				5406501A168B88390033ACCB /* play_button_3d_color.png */,
@@ -776,6 +818,20 @@
 				90A8FF0C168B64B8002691AC /* Default-Landscape~ipad.png in Resources */,
 				90A8FF0D168B64BB002691AC /* Default-Landscape@2x~ipad.png in Resources */,
 				90A8FF0F168B6E41002691AC /* point.png in Resources */,
+				5471739E169DE63400D0B54C /* submit_button_3d_press_color_en.png in Resources */,
+				5471739F169DE63400D0B54C /* submit_button_3d_color_en.png in Resources */,
+				547173A0169DE63400D0B54C /* play_button_3d_press_color_en.png in Resources */,
+				547173A1169DE63400D0B54C /* play_button_3d_color_en.png in Resources */,
+				547173A2169DE63400D0B54C /* back_button_3d_color_en.png in Resources */,
+				547173A3169DE63400D0B54C /* back_button_3d_press_color_en.png in Resources */,
+				547173AD169DE9AB00D0B54C /* song_name_back_3d-1_en.png in Resources */,
+				547173AE169DE9AB00D0B54C /* song_name_back_3d-2_en.png in Resources */,
+				547173AF169DE9AB00D0B54C /* song_name_back_3d-3_en.png in Resources */,
+				547173B0169DE9AB00D0B54C /* song_name_back_3d-4_en.png in Resources */,
+				547173B1169DE9AB00D0B54C /* song_name_back_3d-5_en.png in Resources */,
+				547173B2169DE9AB00D0B54C /* song_name_back_3d-6_en.png in Resources */,
+				547173B3169DE9AB00D0B54C /* song_name_back_3d-7_en.png in Resources */,
+				547173B4169DE9AB00D0B54C /* song_name_back_3d-0_en.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -73,20 +73,20 @@
     [self.view addSubview:drag];
     
     UIButton *backToRoulette = [[UIButton alloc]initWithFrame:CGRectMake(5, 608, 130, 160)];
-    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d_color.png"] forState:UIControlStateNormal];
-    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d_press_color.png"] forState:UIControlStateHighlighted];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d_color_en.png"] forState:UIControlStateNormal];
+    [backToRoulette setBackgroundImage:[UIImage imageNamed:@"back_button_3d_press_color_en.png"] forState:UIControlStateHighlighted];
     [backToRoulette addTarget:self action:@selector(backToRouletteView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backToRoulette];
     
     UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(790, 605, 130, 160)];
-    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d_color.png"] forState:UIControlStateNormal];
-    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d_press_color.png"] forState:UIControlStateHighlighted];
+    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d_color_en.png"] forState:UIControlStateNormal];
+    [submitButton setImage:[UIImage imageNamed:@"submit_button_3d_press_color_en.png"] forState:UIControlStateHighlighted];
     [submitButton addTarget:self action:@selector(submitAnswer:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitButton];
     
     UIButton *playButton = [[UIButton alloc]initWithFrame:CGRectMake(651, 605, 130, 160)];
-    [playButton setImage:[UIImage imageNamed:@"play_button_3d_color.png"] forState:UIControlStateNormal];
-    [playButton setImage:[UIImage imageNamed:@"play_button_3d_press_color.png"] forState:UIControlStateHighlighted];
+    [playButton setImage:[UIImage imageNamed:@"play_button_3d_color_en.png"] forState:UIControlStateNormal];
+    [playButton setImage:[UIImage imageNamed:@"play_button_3d_press_color_en.png"] forState:UIControlStateHighlighted];
     [playButton addTarget:self action:@selector(playTheQuiz) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playButton];
     
@@ -129,7 +129,7 @@
     
     // NSLog(@"songIndex = %d",songIndex);
     UIImageView *songNameImage = [[UIImageView alloc]initWithFrame:CGRectMake(200, 590, 375, 170)];
-    [songNameImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"song_name_back_3d-%d",songIndex]]];
+    [songNameImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"song_name_back_3d-%d_en",songIndex]]];
     [self.view addSubview:songNameImage];
     
     
